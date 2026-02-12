@@ -1,0 +1,23 @@
+# Mill build output
+out/
+
+# IDE
+.idea/
+.vscode/
+.bsp/
+.bloop/
+.metals/
+*.iws
+*.ids
+
+# OS
+.DS_Store
+*~
+*.bak
+
+# Node (if used for testing)
+node_modules/
+
+# Scala
+*.class
+*.semanticdb

@@ -1,0 +1,21 @@
+// PURPOSE: Mill build definition for scalatags-web-awesome library.
+// PURPOSE: Provides ScalaJS bindings for Web Awesome components using Scalatags.
+package build
+
+import mill._, scalalib._, scalajslib._
+
+object `package` extends ScalaJSModule {
+  def scalaVersion = "3.6.4"
+  def scalaJSVersion = "1.20.2"
+
+  def mvnDeps = Seq(
+    mvn"com.lihaoyi::scalatags::0.13.1",
+    mvn"org.scala-js::scalajs-dom::2.8.0"
+  )
+
+  object test extends ScalaJSTests with TestModule.Utest {
+    def mvnDeps = Seq(
+      mvn"com.lihaoyi::utest::0.8.5"
+    )
+  }
+}
