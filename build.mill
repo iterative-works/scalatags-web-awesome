@@ -4,18 +4,51 @@ package build
 
 import mill._, scalalib._, scalajslib._
 
-object webawesome extends ScalaJSModule {
-  def scalaVersion = "3.6.4"
-  def scalaJSVersion = "1.20.2"
+val scalaV = "3.6.4"
+val scalaJSV = "1.20.2"
+val scalatagsV = "0.13.1"
 
-  def mvnDeps = Seq(
-    mvn"com.lihaoyi::scalatags::0.13.1",
-    mvn"org.scala-js::scalajs-dom::2.8.0"
-  )
+object webawesome extends Module {
 
-  object test extends ScalaJSTests with TestModule.Utest {
+  trait Shared extends ScalaModule {
+    def scalaVersion = scalaV
+
+    def sharedSources = Task.Sources(moduleDir / os.up / "src")
+
+    override def sources = Task {
+      super.sources() ++ sharedSources()
+    }
+
     def mvnDeps = Seq(
-      mvn"com.lihaoyi::utest::0.8.5"
+      mvn"com.lihaoyi::scalatags::$scalatagsV"
     )
   }
+
+  object jvm extends Shared {
+    object test extends ScalaTests with TestModule.Utest {
+      def mvnDeps = Seq(mvn"com.lihaoyi::utest::0.8.5")
+    }
+  }
+
+  object js extends Shared with ScalaJSModule {
+    def scalaJSVersion = scalaJSV
+
+    override def mvnDeps = super.mvnDeps() ++ Seq(
+      mvn"org.scala-js::scalajs-dom::2.8.0"
+    )
+
+    object test extends ScalaJSTests with TestModule.Utest {
+      def mvnDeps = Seq(mvn"com.lihaoyi::utest::0.8.5")
+    }
+  }
+}
+
+object scenarios extends ScalaModule {
+  def scalaVersion = scalaV
+
+  def moduleDeps = Seq(webawesome.jvm)
+
+  def mvnDeps = Seq(
+    mvn"com.lihaoyi::cask::0.11.3"
+  )
 }
