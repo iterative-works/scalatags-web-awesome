@@ -6,15 +6,25 @@ import scalatags.Text.all._
 
 object Layout:
 
+  private val waVersion = "3.2.1"
+  private val waCdn = s"https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@$waVersion/dist"
+
   val navItems: Seq[(String, String)] = Seq(
-    "hello" -> "Hello World"
+    "button" -> "Button",
+    "input" -> "Input",
+    "badge" -> "Badge",
+    "card" -> "Card",
+    "switch" -> "Switch"
   )
 
   def page(pageTitle: String, activePage: String)(content: Frag*): String =
     "<!DOCTYPE html>" + html(
       head(
         meta(charset := "utf-8"),
+        meta(name := "viewport", attr("content") := "width=device-width, initial-scale=1"),
         tag("title")(s"Web Awesome Scenarios - $pageTitle"),
+        link(rel := "stylesheet", href := s"$waCdn/styles/themes/default.css"),
+        script(src := s"$waCdn/webawesome.loader.js", `type` := "module"),
         tag("style")(raw(css))
       ),
       body(
@@ -38,7 +48,7 @@ object Layout:
     body { font-family: system-ui, sans-serif; display: flex; min-height: 100vh; }
     .sidebar {
       width: 240px; background: #1a1a2e; color: #eee; padding: 1.5rem;
-      flex-shrink: 0;
+      flex-shrink: 0; overflow-y: auto;
     }
     .sidebar h2 {
       margin-bottom: 1rem; font-size: 0.85rem;
@@ -50,6 +60,9 @@ object Layout:
     }
     .sidebar a:hover { background: rgba(255,255,255,0.1); color: #fff; }
     .sidebar a.active { background: #0066ff; color: #fff; }
-    .content { flex: 1; padding: 2rem; }
+    .content { flex: 1; padding: 2rem; overflow-y: auto; }
     .content h1 { margin-bottom: 1rem; }
+    .demo-section { margin-bottom: 2rem; }
+    .demo-section h2 { margin-bottom: 0.75rem; font-size: 1.1rem; color: #555; }
+    .demo-row { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; }
     """
