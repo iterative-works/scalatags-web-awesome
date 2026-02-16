@@ -127,3 +127,15 @@ trait Attrs:
 
   // Animated Image
   lazy val play: generic.Attr = generic.Attr("play")
+
+  // Animation
+  lazy val delay: generic.Attr = generic.Attr("delay")
+  lazy val direction: generic.Attr = generic.Attr("direction")
+  lazy val duration: generic.Attr = generic.Attr("duration")
+  lazy val easing: generic.Attr = generic.Attr("easing")
+  lazy val endDelay: generic.Attr = generic.Attr("end-delay")
+  lazy val fill: generic.Attr = generic.Attr("fill")
+  lazy val iterations: generic.Attr = generic.Attr("iterations")
+  lazy val iterationStart: generic.Attr = generic.Attr("iteration-start")
+  lazy val playbackRate: generic.Attr = generic.Attr("playback-rate")
+  lazy val keyframes: generic.Attr = generic.Attr("keyframes")

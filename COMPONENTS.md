@@ -91,7 +91,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 | Component | Tag | Scenario | Attrs | WA-specific attrs needed |
 |-----------|-----|----------|-------|--------------------------|
 | wa-animated-image | [x] | [x] | [x] | play |
-| wa-animation | [ ] | [ ] | [ ] | play, delay, direction, duration, easing, end-delay, fill, iterations, iteration-start, keyframes, playback-rate |
+| wa-animation | [x] | [x] | [x] | play, delay, direction, duration, easing, end-delay, fill, iterations, iteration-start, keyframes, playback-rate |
 | wa-carousel | [ ] | [ ] | [ ] | loop, navigation, pagination, autoplay, autoplay-interval, slides-per-page, slides-per-move, orientation, mouse-dragging |
 | wa-carousel-item | [ ] | [ ] | [x] | (none) |
 | wa-comparison | [ ] | [ ] | [ ] | position |

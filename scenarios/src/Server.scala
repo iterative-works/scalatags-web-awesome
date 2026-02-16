@@ -2418,6 +2418,198 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Animation ---
+  @cask.get("/animation")
+  def animationPage(): cask.Response[String] = htmlPage("Animation", "animation")(
+    h1("wa-animation"),
+
+    div(cls := "demo-section")(
+      h2("Basic animation (bounce)"),
+      div(cls := "demo-row")(
+        waAnimation(
+          attr("name") := "bounce",
+          duration := "2000",
+          iterations := "Infinity",
+          play := "true"
+        )(
+          div(attr("style") := "width: 100px; height: 100px; background: #0066ff; border-radius: 8px")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Different animation effects"),
+      div(cls := "demo-row")(
+        waAnimation(
+          attr("name") := "pulse",
+          duration := "1000",
+          iterations := "Infinity",
+          play := "true"
+        )(
+          div(attr("style") := "width: 80px; height: 80px; background: #28a745; border-radius: 50%")
+        ),
+        waAnimation(
+          attr("name") := "shake",
+          duration := "1000",
+          iterations := "Infinity",
+          play := "true"
+        )(
+          div(attr("style") := "width: 80px; height: 80px; background: #dc3545; border-radius: 8px")
+        ),
+        waAnimation(
+          attr("name") := "spin",
+          duration := "2000",
+          iterations := "Infinity",
+          play := "true"
+        )(
+          div(attr("style") := "width: 80px; height: 80px; background: #ffc107; border-radius: 8px")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Different durations"),
+      div(cls := "demo-row")(
+        waAnimation(
+          attr("name") := "bounce",
+          duration := "500",
+          iterations := "Infinity",
+          play := "true"
+        )(
+          div(attr("style") := "width: 60px; height: 60px; background: #6f42c1; border-radius: 8px; margin-right: 20px")(
+            div(attr("style") := "font-size: 0.7rem; color: white; text-align: center; padding-top: 20px")("0.5s")
+          )
+        ),
+        waAnimation(
+          attr("name") := "bounce",
+          duration := "1000",
+          iterations := "Infinity",
+          play := "true"
+        )(
+          div(attr("style") := "width: 60px; height: 60px; background: #6f42c1; border-radius: 8px; margin-right: 20px")(
+            div(attr("style") := "font-size: 0.7rem; color: white; text-align: center; padding-top: 20px")("1s")
+          )
+        ),
+        waAnimation(
+          attr("name") := "bounce",
+          duration := "2000",
+          iterations := "Infinity",
+          play := "true"
+        )(
+          div(attr("style") := "width: 60px; height: 60px; background: #6f42c1; border-radius: 8px")(
+            div(attr("style") := "font-size: 0.7rem; color: white; text-align: center; padding-top: 20px")("2s")
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Different easing functions"),
+      div(cls := "demo-row")(
+        waAnimation(
+          attr("name") := "bounce",
+          duration := "2000",
+          easing := "linear",
+          iterations := "Infinity",
+          play := "true"
+        )(
+          div(attr("style") := "width: 70px; height: 70px; background: #17a2b8; border-radius: 8px; margin-right: 15px")(
+            div(attr("style") := "font-size: 0.65rem; color: white; text-align: center; padding-top: 22px")("linear")
+          )
+        ),
+        waAnimation(
+          attr("name") := "bounce",
+          duration := "2000",
+          easing := "ease-in-out",
+          iterations := "Infinity",
+          play := "true"
+        )(
+          div(attr("style") := "width: 70px; height: 70px; background: #17a2b8; border-radius: 8px")(
+            div(attr("style") := "font-size: 0.6rem; color: white; text-align: center; padding-top: 20px")("ease-in-out")
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Direction variations"),
+      div(cls := "demo-row")(
+        waAnimation(
+          attr("name") := "bounce",
+          duration := "1500",
+          direction := "normal",
+          iterations := "Infinity",
+          play := "true"
+        )(
+          div(attr("style") := "width: 70px; height: 70px; background: #fd7e14; border-radius: 8px; margin-right: 15px")(
+            div(attr("style") := "font-size: 0.65rem; color: white; text-align: center; padding-top: 22px")("normal")
+          )
+        ),
+        waAnimation(
+          attr("name") := "bounce",
+          duration := "1500",
+          direction := "reverse",
+          iterations := "Infinity",
+          play := "true"
+        )(
+          div(attr("style") := "width: 70px; height: 70px; background: #fd7e14; border-radius: 8px; margin-right: 15px")(
+            div(attr("style") := "font-size: 0.65rem; color: white; text-align: center; padding-top: 22px")("reverse")
+          )
+        ),
+        waAnimation(
+          attr("name") := "bounce",
+          duration := "1500",
+          direction := "alternate",
+          iterations := "Infinity",
+          play := "true"
+        )(
+          div(attr("style") := "width: 70px; height: 70px; background: #fd7e14; border-radius: 8px")(
+            div(attr("style") := "font-size: 0.6rem; color: white; text-align: center; padding-top: 22px")("alternate")
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Delay example"),
+      div(cls := "demo-row")(
+        waAnimation(
+          attr("name") := "pulse",
+          duration := "1000",
+          delay := "0",
+          iterations := "Infinity",
+          play := "true"
+        )(
+          div(attr("style") := "width: 60px; height: 60px; background: #e83e8c; border-radius: 50%; margin-right: 20px")(
+            div(attr("style") := "font-size: 0.65rem; color: white; text-align: center; padding-top: 20px")("0ms")
+          )
+        ),
+        waAnimation(
+          attr("name") := "pulse",
+          duration := "1000",
+          delay := "500",
+          iterations := "Infinity",
+          play := "true"
+        )(
+          div(attr("style") := "width: 60px; height: 60px; background: #e83e8c; border-radius: 50%; margin-right: 20px")(
+            div(attr("style") := "font-size: 0.6rem; color: white; text-align: center; padding-top: 20px")("500ms")
+          )
+        ),
+        waAnimation(
+          attr("name") := "pulse",
+          duration := "1000",
+          delay := "1000",
+          iterations := "Infinity",
+          play := "true"
+        )(
+          div(attr("style") := "width: 60px; height: 60px; background: #e83e8c; border-radius: 50%")(
+            div(attr("style") := "font-size: 0.6rem; color: white; text-align: center; padding-top: 20px")("1000ms")
+          )
+        )
+      )
+    )
+  )
+
   // --- Option ---
   @cask.get("/option")
   def optionPage(): cask.Response[String] = htmlPage("Option", "option")(

@@ -38,6 +38,7 @@ object Layout:
     "dropdown-item" -> "Dropdown Item",
     "avatar" -> "Avatar",
     "animated-image" -> "Animated Image",
+    "animation" -> "Animation",
     "callout" -> "Callout",
     "popover" -> "Popover",
     "popup" -> "Popup",
