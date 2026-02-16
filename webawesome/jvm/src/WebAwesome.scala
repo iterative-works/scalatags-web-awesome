@@ -8,6 +8,7 @@ object WebAwesome extends Attrs:
   // Actions
   lazy val waButton = htmlTag("wa-button")
   lazy val waButtonGroup = htmlTag("wa-button-group")
+  lazy val waCopyButton = htmlTag("wa-copy-button")
 
   // Feedback
   lazy val waBadge = htmlTag("wa-badge")

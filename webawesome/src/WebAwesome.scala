@@ -46,5 +46,13 @@ trait Attrs:
   // Slider
   lazy val tooltip: generic.Attr = generic.Attr("tooltip")
 
+  // Copy button
+  lazy val from: generic.Attr = generic.Attr("from")
+  lazy val copyLabel: generic.Attr = generic.Attr("copy-label")
+  lazy val successLabel: generic.Attr = generic.Attr("success-label")
+  lazy val errorLabel: generic.Attr = generic.Attr("error-label")
+  lazy val feedbackDuration: generic.Attr = generic.Attr("feedback-duration")
+  lazy val tooltipPlacement: generic.Attr = generic.Attr("tooltip-placement")
+
   // Layout / orientation
   lazy val orientation: generic.Attr = generic.Attr("orientation")

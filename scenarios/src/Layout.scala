@@ -12,6 +12,7 @@ object Layout:
   val navItems: Seq[(String, String)] = Seq(
     "button" -> "Button",
     "button-group" -> "Button Group",
+    "copy-button" -> "Copy Button",
     "input" -> "Input",
     "badge" -> "Badge",
     "card" -> "Card",

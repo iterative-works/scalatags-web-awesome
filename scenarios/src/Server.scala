@@ -162,6 +162,108 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Copy Button ---
+  @cask.get("/copy-button")
+  def copyButtonPage(): cask.Response[String] = htmlPage("Copy Button", "copy-button")(
+    h1("wa-copy-button"),
+
+    div(cls := "demo-section")(
+      h2("Basic"),
+      div(cls := "demo-row")(
+        waCopyButton(value := "Hello, World!")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("From attribute (copy from element)"),
+      div(cls := "demo-row")(
+        p(id := "source-text")("This text will be copied"),
+        waCopyButton(from := "source-text")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Custom labels"),
+      div(cls := "demo-row")(
+        waCopyButton(
+          value := "Sample code here",
+          copyLabel := "Copy Code",
+          successLabel := "Copied!",
+          errorLabel := "Failed to copy"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Feedback duration"),
+      div(cls := "demo-row")(
+        waCopyButton(
+          value := "Quick feedback",
+          feedbackDuration := "500",
+          successLabel := "Done!"
+        ),
+        waCopyButton(
+          value := "Long feedback",
+          feedbackDuration := "3000",
+          successLabel := "Copied to clipboard"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Tooltip placement"),
+      div(cls := "demo-row")(
+        waCopyButton(value := "Top placement", tooltipPlacement := "top"),
+        waCopyButton(value := "Bottom placement", tooltipPlacement := "bottom"),
+        waCopyButton(value := "Left placement", tooltipPlacement := "left"),
+        waCopyButton(value := "Right placement", tooltipPlacement := "right")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Sizes"),
+      div(cls := "demo-row")(
+        waCopyButton(value := "Small text", attr("size") := "small"),
+        waCopyButton(value := "Medium text", attr("size") := "medium"),
+        waCopyButton(value := "Large text", attr("size") := "large")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Variants"),
+      div(cls := "demo-row")(
+        waCopyButton(value := "Neutral", variant := "neutral"),
+        waCopyButton(value := "Brand", variant := "brand"),
+        waCopyButton(value := "Success", variant := "success")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Copy code snippet example"),
+      div(attr("style") := "background: #f5f5f5; padding: 1rem; border-radius: 4px; position: relative")(
+        tag("pre")(id := "code-example")(
+          tag("code")(
+            "const greeting = 'Hello, Web Awesome!';\n",
+            "console.log(greeting);"
+          )
+        ),
+        waCopyButton(
+          from := "code-example",
+          attr("style") := "position: absolute; top: 0.5rem; right: 0.5rem",
+          copyLabel := "Copy",
+          successLabel := "Copied!"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Disabled"),
+      div(cls := "demo-row")(
+        waCopyButton(value := "Cannot copy this", disabled := "true")
+      )
+    )
+  )
+
   // --- Input ---
   @cask.get("/input")
   def inputPage(): cask.Response[String] = htmlPage("Input", "input")(
