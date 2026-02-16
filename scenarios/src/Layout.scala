@@ -24,6 +24,7 @@ object Layout:
     "divider" -> "Divider",
     "split-panel" -> "Split Panel",
     "tab" -> "Tab",
+    "tree" -> "Tree",
     "switch" -> "Switch",
     "checkbox" -> "Checkbox",
     "color-picker" -> "Color Picker",

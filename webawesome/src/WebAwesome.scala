@@ -101,3 +101,8 @@ trait Attrs:
   lazy val panel: generic.Attr = generic.Attr("panel")
   lazy val activation: generic.Attr = generic.Attr("activation")
   lazy val withoutScrollControls: generic.Attr = generic.Attr("without-scroll-controls")
+
+  // Tree
+  lazy val selection: generic.Attr = generic.Attr("selection")
+  lazy val `lazy`: generic.Attr = generic.Attr("lazy")
+  lazy val expanded: generic.Attr = generic.Attr("expanded")

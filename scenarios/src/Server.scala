@@ -1047,6 +1047,127 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Tree ---
+  @cask.get("/tree")
+  def treePage(): cask.Response[String] = htmlPage("Tree", "tree")(
+    h1("wa-tree / wa-tree-item"),
+
+    div(cls := "demo-section")(
+      h2("Basic tree"),
+      waTree(
+        waTreeItem("Item 1"),
+        waTreeItem("Item 2")(
+          waTreeItem("Item 2.1"),
+          waTreeItem("Item 2.2")(
+            waTreeItem("Item 2.2.1"),
+            waTreeItem("Item 2.2.2")
+          ),
+          waTreeItem("Item 2.3")
+        ),
+        waTreeItem("Item 3")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Expanded by default"),
+      waTree(
+        waTreeItem("Root")(
+          waTreeItem(expanded := "true")("Expanded parent")(
+            waTreeItem("Child 1"),
+            waTreeItem("Child 2")
+          ),
+          waTreeItem("Collapsed parent")(
+            waTreeItem("Child A"),
+            waTreeItem("Child B")
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Selection modes"),
+      p("Single selection (default):"),
+      waTree(
+        waTreeItem("File 1"),
+        waTreeItem("Folder 1")(
+          waTreeItem("File 1.1"),
+          waTreeItem("File 1.2")
+        ),
+        waTreeItem("File 2")
+      ),
+      p("Multiple selection:"),
+      waTree(selection := "multiple")(
+        waTreeItem("Document 1"),
+        waTreeItem("Folder")(
+          waTreeItem("Document 2"),
+          waTreeItem("Document 3")
+        ),
+        waTreeItem("Document 4")
+      ),
+      p("Leaf selection only:"),
+      waTree(selection := "leaf")(
+        waTreeItem("Parent 1")(
+          waTreeItem("Selectable leaf 1"),
+          waTreeItem("Selectable leaf 2")
+        ),
+        waTreeItem("Parent 2")(
+          waTreeItem("Selectable leaf 3")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Lazy loading"),
+      p("Tree items can be loaded on demand:"),
+      waTree(
+        waTreeItem("Static item"),
+        waTreeItem(`lazy` := "true")("Lazy parent (expand to load children)")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With icons"),
+      waTree(
+        waTreeItem(
+          waIcon(name := "folder", slot := "icon-prefix"),
+          "Projects"
+        )(
+          waTreeItem(
+            waIcon(name := "folder", slot := "icon-prefix"),
+            "Web App"
+          )(
+            waTreeItem(
+              waIcon(name := "file-code", slot := "icon-prefix"),
+              "index.html"
+            ),
+            waTreeItem(
+              waIcon(name := "file-code", slot := "icon-prefix"),
+              "styles.css"
+            )
+          ),
+          waTreeItem(
+            waIcon(name := "folder", slot := "icon-prefix"),
+            "API"
+          )(
+            waTreeItem(
+              waIcon(name := "file-code", slot := "icon-prefix"),
+              "server.js"
+            )
+          )
+        ),
+        waTreeItem(
+          waIcon(name := "folder", slot := "icon-prefix"),
+          "Documents"
+        )(
+          waTreeItem(
+            waIcon(name := "file", slot := "icon-prefix"),
+            "README.md"
+          )
+        )
+      )
+    )
+  )
+
   // --- Switch ---
   @cask.get("/switch")
   def switchPage(): cask.Response[String] = htmlPage("Switch", "switch")(

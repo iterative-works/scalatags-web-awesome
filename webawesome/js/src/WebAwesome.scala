@@ -43,6 +43,8 @@ object WebAwesome extends Attrs:
   lazy val waTab = htmlTag("wa-tab")
   lazy val waTabGroup = htmlTag("wa-tab-group")
   lazy val waTabPanel = htmlTag("wa-tab-panel")
+  lazy val waTree = htmlTag("wa-tree")
+  lazy val waTreeItem = htmlTag("wa-tree-item")
 
   // Imagery
   lazy val waIcon = htmlTag("wa-icon")
