@@ -778,6 +778,85 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Drawer ---
+  @cask.get("/drawer")
+  def drawerPage(): cask.Response[String] = htmlPage("Drawer", "drawer")(
+    h1("wa-drawer"),
+
+    div(cls := "demo-section")(
+      h2("Drawer from end (default)"),
+      waDrawer(open := "true", attr("label") := "Drawer Title")(
+        p("This is a drawer that slides in from the right side (end placement)."),
+        p("Drawers are useful for navigation menus, filters, or additional content."),
+        div(slot := "footer")(
+          waButton(variant := "brand")("Confirm"),
+          waButton(appearance := "outlined")("Cancel")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Drawer from start"),
+      waDrawer(open := "true", placement := "start", attr("label") := "Navigation")(
+        p("This drawer slides in from the left side."),
+        p("Common for navigation menus and sidebars."),
+        div(
+          waButton(appearance := "plain", style := "display: block; width: 100%; text-align: left; margin-bottom: 0.5rem;")("Dashboard"),
+          waButton(appearance := "plain", style := "display: block; width: 100%; text-align: left; margin-bottom: 0.5rem;")("Settings"),
+          waButton(appearance := "plain", style := "display: block; width: 100%; text-align: left; margin-bottom: 0.5rem;")("Profile"),
+          waButton(appearance := "plain", style := "display: block; width: 100%; text-align: left;")("Logout")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Drawer from top"),
+      waDrawer(open := "true", placement := "top", attr("label") := "Notifications")(
+        p("This drawer slides in from the top."),
+        p("Useful for notifications, alerts, or temporary messages."),
+        div(slot := "footer")(
+          waButton(variant := "success")("Mark all as read")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Drawer from bottom"),
+      waDrawer(open := "true", placement := "bottom", attr("label") := "More Options")(
+        p("This drawer slides in from the bottom."),
+        p("Often used for mobile-style action sheets or additional options."),
+        div(slot := "footer")(
+          waButton(variant := "brand")("Save"),
+          waButton(appearance := "outlined")("Discard")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Drawer with header actions"),
+      waDrawer(open := "true", attr("label") := "Settings")(
+        div(slot := "header-actions")(
+          waButton(appearance := "plain", attr("size") := "small")(
+            waIcon(name := "fa-solid:gear")
+          )
+        ),
+        p("This drawer includes action buttons in the header."),
+        p("The header-actions slot allows you to add custom controls."),
+        div(
+          waSwitch("Enable notifications"),
+          br(),
+          waSwitch("Dark mode"),
+          br(),
+          waSwitch("Auto-save")
+        ),
+        div(slot := "footer")(
+          waButton(variant := "brand")("Apply"),
+          waButton(appearance := "outlined")("Reset")
+        )
+      )
+    )
+  )
+
   // --- Divider ---
   @cask.get("/divider")
   def dividerPage(): cask.Response[String] = htmlPage("Divider", "divider")(

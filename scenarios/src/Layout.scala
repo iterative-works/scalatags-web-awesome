@@ -20,6 +20,7 @@ object Layout:
     "card" -> "Card",
     "details" -> "Details",
     "dialog" -> "Dialog",
+    "drawer" -> "Drawer",
     "divider" -> "Divider",
     "switch" -> "Switch",
     "checkbox" -> "Checkbox",
