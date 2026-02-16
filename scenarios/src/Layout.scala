@@ -25,6 +25,7 @@ object Layout:
         tag("title")(s"Web Awesome Scenarios - $pageTitle"),
         link(rel := "stylesheet", href := s"$waCdn/styles/webawesome.css"),
         script(src := s"$waCdn/webawesome.loader.js", `type` := "module"),
+        script(src := "https://kit.webawesome.com/1f5f093600354834.js", attr("crossorigin") := "anonymous"),
         tag("style")(raw(css))
       ),
       body(

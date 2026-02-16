@@ -1,0 +1,160 @@
+# Web Awesome Component Tracking
+
+Tracks implementation progress for all Web Awesome v3.2.1 components.
+
+**Legend:**
+- Tag = `wa-*` tag defined in `WebAwesome.scala` (jvm + js)
+- Scenario = scenario page exists in the scenario server
+- Attrs = all WA-specific attributes defined (standard HTML attrs come from scalatags)
+
+Note: `size` and `label` conflict with scalatags builtins — use `attr("size")` / `attr("label")` inline.
+
+## Form Controls
+
+| Component | Tag | Scenario | Attrs | WA-specific attrs needed |
+|-----------|-----|----------|-------|--------------------------|
+| wa-checkbox | [x] | [ ] | [ ] | indeterminate |
+| wa-color-picker | [ ] | [ ] | [ ] | format, without-format-toggle, open, opacity, uppercase, swatches |
+| wa-input | [x] | [x] | [ ] | without-spin-buttons, with-label, with-hint |
+| wa-number-input | [ ] | [ ] | [ ] | without-steppers, with-label, with-hint |
+| wa-radio | [x] | [ ] | [x] | (none) |
+| wa-radio-group | [x] | [ ] | [x] | (none) |
+| wa-select | [x] | [ ] | [ ] | clearable, with-label, with-hint |
+| wa-option | [x] | [ ] | [x] | (none) |
+| wa-slider | [ ] | [ ] | [ ] | tooltip |
+| wa-switch | [x] | [x] | [x] | (none) |
+| wa-textarea | [ ] | [ ] | [ ] | with-label, with-hint |
+
+## Actions
+
+| Component | Tag | Scenario | Attrs | WA-specific attrs needed |
+|-----------|-----|----------|-------|--------------------------|
+| wa-button | [x] | [x] | [x] | (none) |
+| wa-button-group | [x] | [ ] | [ ] | orientation |
+| wa-copy-button | [ ] | [ ] | [ ] | from, copy-label, success-label, error-label, feedback-duration, tooltip-placement |
+| wa-dropdown | [ ] | [ ] | [ ] | open, placement, distance, skidding |
+| wa-dropdown-item | [ ] | [ ] | [ ] | submenu-open |
+
+## Display & Feedback
+
+| Component | Tag | Scenario | Attrs | WA-specific attrs needed |
+|-----------|-----|----------|-------|--------------------------|
+| wa-avatar | [x] | [ ] | [ ] | image, initials, shape |
+| wa-badge | [x] | [x] | [ ] | attention |
+| wa-callout | [ ] | [ ] | [ ] | (uses variant, appearance — already defined) |
+| wa-icon | [x] | [ ] | [ ] | family, auto-width, swap-opacity, library, rotate, flip, animation |
+| wa-skeleton | [ ] | [ ] | [ ] | effect |
+| wa-spinner | [x] | [ ] | [x] | (none) |
+| wa-tag | [x] | [ ] | [ ] | removable |
+
+## Indicators & Progress
+
+| Component | Tag | Scenario | Attrs | WA-specific attrs needed |
+|-----------|-----|----------|-------|--------------------------|
+| wa-progress-bar | [ ] | [ ] | [ ] | (none — uses value, label) |
+| wa-progress-ring | [ ] | [ ] | [ ] | (none — uses value, label) |
+| wa-rating | [ ] | [ ] | [ ] | (none — uses value, readonly, disabled, label) |
+
+## Layout & Organization
+
+| Component | Tag | Scenario | Attrs | WA-specific attrs needed |
+|-----------|-----|----------|-------|--------------------------|
+| wa-breadcrumb | [ ] | [ ] | [ ] | (none — uses label) |
+| wa-breadcrumb-item | [ ] | [ ] | [x] | (none — uses href, target, rel) |
+| wa-card | [x] | [x] | [ ] | with-header, with-media, with-footer, orientation |
+| wa-details | [x] | [ ] | [ ] | open, summary, icon-placement |
+| wa-dialog | [x] | [ ] | [ ] | open |
+| wa-divider | [x] | [ ] | [ ] | orientation |
+| wa-drawer | [ ] | [ ] | [ ] | open, placement |
+| wa-split-panel | [ ] | [ ] | [ ] | position, vertical |
+
+## Navigation
+
+| Component | Tag | Scenario | Attrs | WA-specific attrs needed |
+|-----------|-----|----------|-------|--------------------------|
+| wa-tab | [ ] | [ ] | [x] | (none) |
+| wa-tab-group | [ ] | [ ] | [ ] | activation, placement |
+| wa-tab-panel | [ ] | [ ] | [x] | (none — uses name) |
+| wa-tree | [ ] | [ ] | [ ] | selection, lazy |
+| wa-tree-item | [ ] | [ ] | [ ] | expanded, lazy |
+
+## Popups & Overlays
+
+| Component | Tag | Scenario | Attrs | WA-specific attrs needed |
+|-----------|-----|----------|-------|--------------------------|
+| wa-popover | [ ] | [ ] | [ ] | placement, open, distance, skidding, without-arrow |
+| wa-popup | [ ] | [ ] | [ ] | anchor, active, placement, boundary, distance, skidding, arrow, arrow-placement, arrow-padding, flip, flip-fallback-placements, flip-fallback-strategy, flip-padding, shift, shift-padding, auto-size, sync, auto-size-padding, hover-bridge |
+| wa-tooltip | [ ] | [ ] | [ ] | placement, trigger, distance, skidding, hoist |
+
+## Media
+
+| Component | Tag | Scenario | Attrs | WA-specific attrs needed |
+|-----------|-----|----------|-------|--------------------------|
+| wa-animated-image | [ ] | [ ] | [ ] | play |
+| wa-animation | [ ] | [ ] | [ ] | play, delay, direction, duration, easing, end-delay, fill, iterations, iteration-start, keyframes, playback-rate |
+| wa-carousel | [ ] | [ ] | [ ] | loop, navigation, pagination, autoplay, autoplay-interval, slides-per-page, slides-per-move, orientation, mouse-dragging |
+| wa-carousel-item | [ ] | [ ] | [x] | (none) |
+| wa-comparison | [ ] | [ ] | [ ] | position |
+
+## Formatters & Utilities
+
+| Component | Tag | Scenario | Attrs | WA-specific attrs needed |
+|-----------|-----|----------|-------|--------------------------|
+| wa-format-bytes | [ ] | [ ] | [ ] | unit, display |
+| wa-format-date | [ ] | [ ] | [ ] | date, weekday, era, year, month, day, hour, minute, second, time-zone-name, time-zone, hour-format |
+| wa-format-number | [ ] | [ ] | [ ] | without-grouping, currency, currency-display, minimum-integer-digits, minimum-fraction-digits, maximum-fraction-digits, minimum-significant-digits, maximum-significant-digits |
+| wa-include | [ ] | [ ] | [ ] | mode, allow-scripts |
+| wa-qr-code | [ ] | [ ] | [ ] | fill, background |
+| wa-relative-time | [ ] | [ ] | [ ] | date, locale, format |
+| wa-zoomable-frame | [ ] | [ ] | [x] | (none — uses src, alt) |
+
+## Observers (utility components)
+
+| Component | Tag | Scenario | Attrs | WA-specific attrs needed |
+|-----------|-----|----------|-------|--------------------------|
+| wa-intersection-observer | [ ] | [ ] | [ ] | root, root-margin, threshold, intersect-class, once |
+| wa-mutation-observer | [ ] | [ ] | [ ] | attr, attr-old-value, char-data, char-data-old-value, child-list |
+| wa-resize-observer | [ ] | [ ] | [x] | (none) |
+| wa-scroller | [ ] | [ ] | [ ] | orientation |
+
+## Pro Components
+
+| Component | Tag | Scenario | Attrs | WA-specific attrs needed |
+|-----------|-----|----------|-------|--------------------------|
+| wa-combobox | [ ] | [ ] | [ ] | max-options-visible, with-clear, open, placement, with-label, with-hint, allow-custom-value |
+| wa-file-input | [ ] | [ ] | [ ] | with-label, with-hint |
+| wa-page | [ ] | [ ] | [ ] | view, nav-open, mobile-breakpoint, navigation-placement, disable-navigation-toggle |
+| wa-sparkline | [ ] | [ ] | [ ] | data, trend, curve |
+
+## Shared WA-specific attrs (already defined in Attrs trait)
+
+These attrs are used across multiple components:
+- `slot` — web component standard
+- `appearance` — visual style (accent, filled, outlined, plain)
+- `variant` — semantic color (neutral, brand, success, warning, danger)
+- `pill` — rounded shape
+- `loading` — loading state
+- `withCaret` — dropdown caret indicator
+- `lightDismiss` — close on outside click (dialog, drawer)
+- `withoutHeader` — hide header (dialog, drawer)
+- `hint` — help text (input, select, checkbox, textarea)
+- `withClear` — show clear button (input)
+- `passwordToggle` — show/hide password (input)
+- `passwordVisible` — password initially visible (input)
+
+## Attrs still needed (shared across components)
+
+- `open` — dialog, drawer, details, dropdown, color-picker, popover
+- `placement` — drawer, dropdown, tooltip, popover, popup, tab-group
+- `orientation` — divider, button-group, carousel, scroller
+- `removable` — tag
+- `clearable` — select
+- `withLabel` / `withHint` — input, number-input, select, textarea
+- ... and many component-specific attrs listed above
+
+## Summary
+
+- **Total components**: 61 (including 4 Pro)
+- **Tags defined**: 18 / 61
+- **Scenarios created**: 5 / 61
+- **Fully attributed**: 11 / 61 (mostly components with no WA-specific attrs)

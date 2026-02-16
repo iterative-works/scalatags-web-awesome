@@ -15,8 +15,14 @@ out/
 *~
 *.bak
 
-# Node (if used for testing)
+# Node (used only for Web Awesome Pro npm access)
 node_modules/
+.npmrc
+package.json
+package-lock.json
+
+# Secrets
+.envrc.local
 
 # Scala
 *.class
