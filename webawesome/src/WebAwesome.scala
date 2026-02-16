@@ -171,3 +171,7 @@ trait Attrs:
   lazy val maximumFractionDigits: generic.Attr = generic.Attr("maximum-fraction-digits")
   lazy val minimumSignificantDigits: generic.Attr = generic.Attr("minimum-significant-digits")
   lazy val maximumSignificantDigits: generic.Attr = generic.Attr("maximum-significant-digits")
+
+  // Include
+  lazy val mode: generic.Attr = generic.Attr("mode")
+  lazy val allowScripts: generic.Attr = generic.Attr("allow-scripts")

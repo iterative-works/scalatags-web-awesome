@@ -54,7 +54,8 @@ object Layout:
     "comparison" -> "Comparison",
     "format-bytes" -> "Format Bytes",
     "format-date" -> "Format Date",
-    "format-number" -> "Format Number"
+    "format-number" -> "Format Number",
+    "include" -> "Include"
   )
 
   def page(pageTitle: String, activePage: String)(content: Frag*): String =

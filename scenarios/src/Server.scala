@@ -4331,4 +4331,51 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Include ---
+  @cask.get("/include")
+  def includePage(): cask.Response[String] = htmlPage("Include", "include")(
+    h1("wa-include"),
+
+    div(cls := "demo-section")(
+      h2("Basic usage"),
+      div(cls := "demo-row")(
+        div(
+          p("The wa-include component fetches HTML from a remote source and includes it in the page."),
+          p("For security reasons, this demo shows the component structure without loading external content.")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("CORS modes"),
+      div(cls := "demo-row")(
+        div(
+          p("Default (cors): ", waInclude(src := "#", mode := "cors")),
+          p("No CORS: ", waInclude(src := "#", mode := "no-cors")),
+          p("Same origin: ", waInclude(src := "#", mode := "same-origin"))
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Script execution control"),
+      div(cls := "demo-row")(
+        div(
+          p("Without scripts (default): ", waInclude(src := "#")),
+          p("With scripts enabled: ", waInclude(src := "#", allowScripts := "true"))
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Security note"),
+      div(cls := "demo-row")(
+        div(
+          p(raw("⚠️ Be sure you trust the content you are including as it will be executed as code and can result in XSS attacks.")),
+          p("Only enable allow-scripts when loading content from trusted sources.")
+        )
+      )
+    )
+  )
+
   initialize()
