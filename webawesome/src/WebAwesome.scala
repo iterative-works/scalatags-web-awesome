@@ -90,3 +90,7 @@ trait Attrs:
   lazy val withHeader: generic.Attr = generic.Attr("with-header")
   lazy val withMedia: generic.Attr = generic.Attr("with-media")
   lazy val withFooter: generic.Attr = generic.Attr("with-footer")
+
+  // Details
+  lazy val summary: generic.Attr = generic.Attr("summary")
+  lazy val iconPlacement: generic.Attr = generic.Attr("icon-placement")

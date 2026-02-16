@@ -18,6 +18,7 @@ object Layout:
     "breadcrumb" -> "Breadcrumb",
     "breadcrumb-item" -> "Breadcrumb Item",
     "card" -> "Card",
+    "details" -> "Details",
     "switch" -> "Switch",
     "checkbox" -> "Checkbox",
     "color-picker" -> "Color Picker",

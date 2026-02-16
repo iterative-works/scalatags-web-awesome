@@ -652,6 +652,66 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Details ---
+  @cask.get("/details")
+  def detailsPage(): cask.Response[String] = htmlPage("Details", "details")(
+    h1("wa-details"),
+
+    div(cls := "demo-section")(
+      h2("Basic details"),
+      waDetails(summary := "Click to expand")(
+        "This is the content that appears when you expand the details element. It can contain any HTML."
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Open by default"),
+      waDetails(summary := "This is open initially", attr("open") := "true")(
+        "The details element can be rendered in an open state by adding the 'open' attribute."
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Icon placement"),
+      div(attr("style") := "display: flex; flex-direction: column; gap: 1rem")(
+        waDetails(summary := "Icon on start (default)")(
+          "The disclosure icon appears on the left by default."
+        ),
+        waDetails(summary := "Icon on end", iconPlacement := "end")(
+          "You can move the disclosure icon to the right using icon-placement=\"end\"."
+        ),
+        waDetails(summary := "No icon", iconPlacement := "none")(
+          "Or hide the icon completely with icon-placement=\"none\"."
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Nested details"),
+      waDetails(summary := "Level 1")(
+        p("First level content."),
+        waDetails(summary := "Level 2", attr("style") := "margin-left: 1rem")(
+          p("Second level content."),
+          waDetails(summary := "Level 3", attr("style") := "margin-left: 1rem")(
+            "Third level content. Details can be nested to create hierarchical structures."
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Rich content"),
+      waDetails(summary := "Frequently Asked Questions")(
+        div(
+          p(strong("Q: What is Web Awesome?")),
+          p("A: Web Awesome is a UI component library built with web components."),
+          p(strong("Q: How do I use it?")),
+          p("A: Simply include the CSS and JS loader, then use the wa-* custom elements.")
+        )
+      )
+    )
+  )
+
   // --- Switch ---
   @cask.get("/switch")
   def switchPage(): cask.Response[String] = htmlPage("Switch", "switch")(
