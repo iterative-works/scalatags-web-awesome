@@ -32,7 +32,8 @@ object Layout:
     "icon" -> "Icon",
     "skeleton" -> "Skeleton",
     "spinner" -> "Spinner",
-    "tag" -> "Tag"
+    "tag" -> "Tag",
+    "progress-bar" -> "Progress Bar"
   )
 
   def page(pageTitle: String, activePage: String)(content: Frag*): String =

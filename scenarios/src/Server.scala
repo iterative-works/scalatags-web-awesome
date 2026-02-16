@@ -2480,4 +2480,38 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Progress Bar ---
+  @cask.get("/progress-bar")
+  def progressBarPage(): cask.Response[String] = htmlPage("Progress Bar", "progress-bar")(
+    h1("wa-progress-bar"),
+
+    div(cls := "demo-section")(
+      h2("Basic progress"),
+      div(cls := "demo-row")(
+        waProgressBar(value := "0"),
+        waProgressBar(value := "25"),
+        waProgressBar(value := "50"),
+        waProgressBar(value := "75"),
+        waProgressBar(value := "100")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With label"),
+      div(cls := "demo-row")(
+        waProgressBar(value := "25", attr("label") := "Uploading..."),
+        waProgressBar(value := "50", attr("label") := "Processing..."),
+        waProgressBar(value := "75", attr("label") := "Almost done...")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Indeterminate"),
+      div(cls := "demo-row")(
+        waProgressBar(indeterminate := "true"),
+        waProgressBar(indeterminate := "true", attr("label") := "Loading...")
+      )
+    )
+  )
+
   initialize()
