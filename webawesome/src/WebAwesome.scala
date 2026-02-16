@@ -96,3 +96,8 @@ trait Attrs:
   // Details
   lazy val summary: generic.Attr = generic.Attr("summary")
   lazy val iconPlacement: generic.Attr = generic.Attr("icon-placement")
+
+  // Tab
+  lazy val panel: generic.Attr = generic.Attr("panel")
+  lazy val activation: generic.Attr = generic.Attr("activation")
+  lazy val withoutScrollControls: generic.Attr = generic.Attr("without-scroll-controls")

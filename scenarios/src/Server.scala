@@ -965,6 +965,88 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Tab ---
+  @cask.get("/tab")
+  def tabPage(): cask.Response[String] = htmlPage("Tab", "tab")(
+    h1("wa-tab / wa-tab-group / wa-tab-panel"),
+
+    div(cls := "demo-section")(
+      h2("Basic tabs"),
+      waTabGroup(
+        waTab(slot := "nav", panel := "general")("General"),
+        waTab(slot := "nav", panel := "custom")("Custom"),
+        waTab(slot := "nav", panel := "advanced")("Advanced"),
+
+        waTabPanel(name := "general")("This is the general tab panel."),
+        waTabPanel(name := "custom")("This is the custom tab panel."),
+        waTabPanel(name := "advanced")("This is the advanced tab panel.")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Placement variations"),
+      p("Bottom placement:"),
+      waTabGroup(placement := "bottom")(
+        waTab(slot := "nav", panel := "p1")("Panel 1"),
+        waTab(slot := "nav", panel := "p2")("Panel 2"),
+        waTab(slot := "nav", panel := "p3")("Panel 3"),
+
+        waTabPanel(name := "p1")("Content of panel 1"),
+        waTabPanel(name := "p2")("Content of panel 2"),
+        waTabPanel(name := "p3")("Content of panel 3")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Tabs with icons"),
+      waTabGroup(
+        waTab(slot := "nav", panel := "home")(
+          waIcon(name := "house", slot := "icon-prefix"),
+          "Home"
+        ),
+        waTab(slot := "nav", panel := "profile")(
+          waIcon(name := "user", slot := "icon-prefix"),
+          "Profile"
+        ),
+        waTab(slot := "nav", panel := "settings")(
+          waIcon(name := "gear", slot := "icon-prefix"),
+          "Settings"
+        ),
+
+        waTabPanel(name := "home")("Welcome home!"),
+        waTabPanel(name := "profile")("User profile details go here."),
+        waTabPanel(name := "settings")("Settings panel content.")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Disabled tab"),
+      waTabGroup(
+        waTab(slot := "nav", panel := "tab1")("Active"),
+        waTab(slot := "nav", panel := "tab2", disabled)("Disabled"),
+        waTab(slot := "nav", panel := "tab3")("Another Active"),
+
+        waTabPanel(name := "tab1")("First panel"),
+        waTabPanel(name := "tab2")("This panel is linked to a disabled tab"),
+        waTabPanel(name := "tab3")("Third panel")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Manual activation"),
+      p("Tabs activate on click instead of on focus:"),
+      waTabGroup(activation := "manual")(
+        waTab(slot := "nav", panel := "m1")("Manual 1"),
+        waTab(slot := "nav", panel := "m2")("Manual 2"),
+        waTab(slot := "nav", panel := "m3")("Manual 3"),
+
+        waTabPanel(name := "m1")("Manual activation panel 1"),
+        waTabPanel(name := "m2")("Manual activation panel 2"),
+        waTabPanel(name := "m3")("Manual activation panel 3")
+      )
+    )
+  )
+
   // --- Switch ---
   @cask.get("/switch")
   def switchPage(): cask.Response[String] = htmlPage("Switch", "switch")(

@@ -23,6 +23,7 @@ object Layout:
     "drawer" -> "Drawer",
     "divider" -> "Divider",
     "split-panel" -> "Split Panel",
+    "tab" -> "Tab",
     "switch" -> "Switch",
     "checkbox" -> "Checkbox",
     "color-picker" -> "Color Picker",

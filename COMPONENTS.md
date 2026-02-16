@@ -72,9 +72,9 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 
 | Component | Tag | Scenario | Attrs | WA-specific attrs needed |
 |-----------|-----|----------|-------|--------------------------|
-| wa-tab | [ ] | [ ] | [x] | (none) |
-| wa-tab-group | [ ] | [ ] | [ ] | activation, placement |
-| wa-tab-panel | [ ] | [ ] | [x] | (none — uses name) |
+| wa-tab | [x] | [x] | [x] | panel |
+| wa-tab-group | [x] | [x] | [x] | activation, placement, without-scroll-controls |
+| wa-tab-panel | [x] | [x] | [x] | (none — uses name) |
 | wa-tree | [ ] | [ ] | [ ] | selection, lazy |
 | wa-tree-item | [ ] | [ ] | [ ] | expanded, lazy |
 
