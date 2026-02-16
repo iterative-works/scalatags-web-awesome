@@ -19,7 +19,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 | wa-number-input | [x] | [x] | [x] | without-steppers, with-label, with-hint |
 | wa-radio | [x] | [x] | [x] | (none) |
 | wa-radio-group | [x] | [x] | [x] | (none) |
-| wa-select | [x] | [ ] | [ ] | clearable, with-label, with-hint |
+| wa-select | [x] | [x] | [x] | clearable, with-label, with-hint |
 | wa-option | [x] | [ ] | [x] | (none) |
 | wa-slider | [ ] | [ ] | [ ] | tooltip |
 | wa-switch | [x] | [x] | [x] | (none) |

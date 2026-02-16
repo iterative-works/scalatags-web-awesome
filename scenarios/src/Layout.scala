@@ -18,7 +18,8 @@ object Layout:
     "checkbox" -> "Checkbox",
     "color-picker" -> "Color Picker",
     "number-input" -> "Number Input",
-    "radio" -> "Radio"
+    "radio" -> "Radio",
+    "select" -> "Select"
   )
 
   def page(pageTitle: String, activePage: String)(content: Frag*): String =

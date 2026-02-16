@@ -34,6 +34,7 @@ trait Attrs:
   lazy val withoutSteppers: generic.Attr = generic.Attr("without-steppers")
   lazy val withLabel: generic.Attr = generic.Attr("with-label")
   lazy val withHint: generic.Attr = generic.Attr("with-hint")
+  lazy val clearable: generic.Attr = generic.Attr("clearable")
 
   // Color picker
   lazy val format: generic.Attr = generic.Attr("format")

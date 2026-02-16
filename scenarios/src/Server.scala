@@ -490,4 +490,158 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Select ---
+  @cask.get("/select")
+  def selectPage(): cask.Response[String] = htmlPage("Select", "select")(
+    h1("wa-select & wa-option"),
+
+    div(cls := "demo-section")(
+      h2("Basic"),
+      div(cls := "demo-row")(
+        waSelect(attr("label") := "Country", placeholder := "Select a country")(
+          waOption(value := "us")("United States"),
+          waOption(value := "uk")("United Kingdom"),
+          waOption(value := "ca")("Canada"),
+          waOption(value := "de")("Germany"),
+          waOption(value := "fr")("France")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With selected value"),
+      div(cls := "demo-row")(
+        waSelect(attr("label") := "Language", value := "en")(
+          waOption(value := "en")("English"),
+          waOption(value := "es")("Spanish"),
+          waOption(value := "fr")("French"),
+          waOption(value := "de")("German")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Clearable"),
+      div(cls := "demo-row")(
+        waSelect(attr("label") := "Theme", clearable := "true", value := "dark")(
+          waOption(value := "light")("Light"),
+          waOption(value := "dark")("Dark"),
+          waOption(value := "auto")("Auto")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With label (SSR)"),
+      div(cls := "demo-row")(
+        waSelect(
+          withLabel := "true",
+          attr("label") := "Priority",
+          placeholder := "Choose priority"
+        )(
+          waOption(value := "low")("Low"),
+          waOption(value := "medium")("Medium"),
+          waOption(value := "high")("High")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With hint (SSR)"),
+      div(cls := "demo-row")(
+        waSelect(
+          withHint := "true",
+          attr("label") := "Status",
+          hint := "Select the current status",
+          placeholder := "Choose status"
+        )(
+          waOption(value := "draft")("Draft"),
+          waOption(value := "review")("In Review"),
+          waOption(value := "published")("Published")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With label and hint (SSR)"),
+      div(cls := "demo-row")(
+        waSelect(
+          withLabel := "true",
+          withHint := "true",
+          attr("label") := "Department",
+          hint := "Choose your department",
+          placeholder := "Select department"
+        )(
+          waOption(value := "eng")("Engineering"),
+          waOption(value := "sales")("Sales"),
+          waOption(value := "marketing")("Marketing"),
+          waOption(value := "support")("Support")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Sizes"),
+      div(cls := "demo-row")(
+        waSelect(attr("size") := "small", attr("label") := "Small", placeholder := "Small select")(
+          waOption(value := "1")("Option 1"),
+          waOption(value := "2")("Option 2")
+        ),
+        waSelect(attr("size") := "medium", attr("label") := "Medium", placeholder := "Medium select")(
+          waOption(value := "1")("Option 1"),
+          waOption(value := "2")("Option 2")
+        ),
+        waSelect(attr("size") := "large", attr("label") := "Large", placeholder := "Large select")(
+          waOption(value := "1")("Option 1"),
+          waOption(value := "2")("Option 2")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Appearances"),
+      div(cls := "demo-row")(
+        waSelect(appearance := "outlined", attr("label") := "Outlined", placeholder := "Outlined select")(
+          waOption(value := "a")("Option A"),
+          waOption(value := "b")("Option B")
+        ),
+        waSelect(appearance := "filled", attr("label") := "Filled", placeholder := "Filled select")(
+          waOption(value := "a")("Option A"),
+          waOption(value := "b")("Option B")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("States"),
+      div(cls := "demo-row")(
+        waSelect(attr("label") := "Disabled", disabled := "true", placeholder := "Disabled")(
+          waOption(value := "1")("Option 1"),
+          waOption(value := "2")("Option 2")
+        ),
+        waSelect(attr("label") := "Required", required := "true", placeholder := "Required field")(
+          waOption(value := "1")("Option 1"),
+          waOption(value := "2")("Option 2")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Multiple selection"),
+      div(cls := "demo-row")(
+        waSelect(
+          attr("label") := "Skills",
+          multiple := "true",
+          placeholder := "Select multiple skills"
+        )(
+          waOption(value := "js")("JavaScript"),
+          waOption(value := "ts")("TypeScript"),
+          waOption(value := "scala")("Scala"),
+          waOption(value := "python")("Python"),
+          waOption(value := "rust")("Rust")
+        )
+      )
+    )
+  )
+
   initialize()
