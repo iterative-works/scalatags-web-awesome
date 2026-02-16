@@ -20,6 +20,7 @@ object Layout:
     "card" -> "Card",
     "details" -> "Details",
     "dialog" -> "Dialog",
+    "divider" -> "Divider",
     "switch" -> "Switch",
     "checkbox" -> "Checkbox",
     "color-picker" -> "Color Picker",

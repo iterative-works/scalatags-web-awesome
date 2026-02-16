@@ -778,6 +778,55 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Divider ---
+  @cask.get("/divider")
+  def dividerPage(): cask.Response[String] = htmlPage("Divider", "divider")(
+    h1("wa-divider"),
+
+    div(cls := "demo-section")(
+      h2("Horizontal (default)"),
+      div(
+        p("Section 1: Some content above the divider."),
+        waDivider(),
+        p("Section 2: Some content below the divider.")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Vertical orientation"),
+      div(style := "display: flex; align-items: center; gap: 1rem; height: 100px;")(
+        span("Left content"),
+        waDivider(orientation := "vertical"),
+        span("Right content")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Separating sections"),
+      div(
+        h3("Introduction"),
+        p("This is the first section with some introductory text."),
+        waDivider(),
+        h3("Main Content"),
+        p("This is the main content section."),
+        waDivider(),
+        h3("Conclusion"),
+        p("This is the concluding section.")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With inline items"),
+      div(style := "display: flex; align-items: center; gap: 1rem;")(
+        waButton(variant := "brand")("Save"),
+        waDivider(orientation := "vertical"),
+        waButton(appearance := "outlined")("Cancel"),
+        waDivider(orientation := "vertical"),
+        waButton(appearance := "plain")("Reset")
+      )
+    )
+  )
+
   // --- Switch ---
   @cask.get("/switch")
   def switchPage(): cask.Response[String] = htmlPage("Switch", "switch")(
