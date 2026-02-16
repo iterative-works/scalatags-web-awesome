@@ -53,7 +53,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 |-----------|-----|----------|-------|--------------------------|
 | wa-progress-bar | [x] | [x] | [x] | (none — uses value, label) |
 | wa-progress-ring | [x] | [x] | [x] | (none — uses value, label) |
-| wa-rating | [ ] | [ ] | [ ] | (none — uses value, readonly, disabled, label) |
+| wa-rating | [x] | [x] | [x] | (none — uses value, readonly, disabled, label) |
 
 ## Layout & Organization
 

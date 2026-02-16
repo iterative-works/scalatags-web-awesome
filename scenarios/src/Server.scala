@@ -2558,4 +2558,54 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  @cask.get("/rating")
+  def ratingPage(): cask.Response[String] = htmlPage("Rating", "rating")(
+    h1("wa-rating"),
+
+    div(cls := "demo-section")(
+      h2("Different ratings"),
+      div(cls := "demo-row")(
+        waRating(value := "0"),
+        waRating(value := "1"),
+        waRating(value := "2"),
+        waRating(value := "3"),
+        waRating(value := "4"),
+        waRating(value := "5")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Partial ratings"),
+      div(cls := "demo-row")(
+        waRating(value := "2.5"),
+        waRating(value := "3.5"),
+        waRating(value := "4.5")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With label"),
+      div(cls := "demo-row")(
+        waRating(value := "3", attr("label") := "Rate this product"),
+        waRating(value := "4.5", attr("label") := "Customer rating")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Readonly"),
+      div(cls := "demo-row")(
+        waRating(value := "3.5", readonly := "true"),
+        waRating(value := "4", readonly := "true", attr("label") := "Average rating")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Disabled"),
+      div(cls := "demo-row")(
+        waRating(value := "2.5", disabled := "true"),
+        waRating(value := "0", disabled := "true")
+      )
+    )
+  )
+
   initialize()
