@@ -79,3 +79,6 @@ trait Attrs:
   lazy val rotate: generic.Attr = generic.Attr("rotate")
   lazy val flip: generic.Attr = generic.Attr("flip")
   lazy val animation: generic.Attr = generic.Attr("animation")
+
+  // Skeleton
+  lazy val effect: generic.Attr = generic.Attr("effect")

@@ -13,6 +13,7 @@ object WebAwesome extends Attrs:
   // Feedback
   lazy val waBadge = htmlTag("wa-badge")
   lazy val waSpinner = htmlTag("wa-spinner")
+  lazy val waSkeleton = htmlTag("wa-skeleton")
   lazy val waTag = htmlTag("wa-tag")
 
   // Form controls

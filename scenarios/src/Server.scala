@@ -2076,4 +2076,156 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Skeleton ---
+  @cask.get("/skeleton")
+  def skeletonPage(): cask.Response[String] = htmlPage("Skeleton", "skeleton")(
+    h1("wa-skeleton"),
+
+    div(cls := "demo-section")(
+      h2("Basic skeleton"),
+      div(cls := "demo-row")(
+        waSkeleton(attr("style") := "width: 300px; height: 20px")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Effect types"),
+      div(cls := "demo-row")(
+        div(attr("style") := "display: flex; flex-direction: column; gap: 1rem")(
+          div(
+            p(attr("style") := "margin-bottom: 0.5rem; font-size: 0.875rem")("None (default)"),
+            waSkeleton(attr("style") := "width: 250px; height: 20px")
+          ),
+          div(
+            p(attr("style") := "margin-bottom: 0.5rem; font-size: 0.875rem")("Pulse"),
+            waSkeleton(effect := "pulse", attr("style") := "width: 250px; height: 20px")
+          ),
+          div(
+            p(attr("style") := "margin-bottom: 0.5rem; font-size: 0.875rem")("Sheen"),
+            waSkeleton(effect := "sheen", attr("style") := "width: 250px; height: 20px")
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Text placeholder"),
+      div(attr("style") := "display: flex; flex-direction: column; gap: 0.75rem; max-width: 500px")(
+        waSkeleton(effect := "sheen", attr("style") := "width: 100%; height: 16px"),
+        waSkeleton(effect := "sheen", attr("style") := "width: 90%; height: 16px"),
+        waSkeleton(effect := "sheen", attr("style") := "width: 95%; height: 16px"),
+        waSkeleton(effect := "sheen", attr("style") := "width: 80%; height: 16px")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Avatar placeholder"),
+      div(cls := "demo-row")(
+        waSkeleton(effect := "pulse", attr("style") := "width: 48px; height: 48px; border-radius: 50%")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Card placeholder"),
+      div(attr("style") := "max-width: 400px")(
+        waCard(
+          div(attr("style") := "padding: 1rem")(
+            div(attr("style") := "display: flex; gap: 1rem; margin-bottom: 1rem")(
+              waSkeleton(effect := "pulse", attr("style") := "width: 60px; height: 60px; border-radius: 50%; flex-shrink: 0"),
+              div(attr("style") := "flex: 1; display: flex; flex-direction: column; gap: 0.5rem; justify-content: center")(
+                waSkeleton(effect := "sheen", attr("style") := "width: 70%; height: 16px"),
+                waSkeleton(effect := "sheen", attr("style") := "width: 50%; height: 14px")
+              )
+            ),
+            waSkeleton(effect := "pulse", attr("style") := "width: 100%; height: 200px; border-radius: 8px; margin-bottom: 1rem"),
+            div(attr("style") := "display: flex; flex-direction: column; gap: 0.5rem")(
+              waSkeleton(effect := "sheen", attr("style") := "width: 100%; height: 14px"),
+              waSkeleton(effect := "sheen", attr("style") := "width: 95%; height: 14px"),
+              waSkeleton(effect := "sheen", attr("style") := "width: 85%; height: 14px")
+            )
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("List item placeholder"),
+      div(attr("style") := "display: flex; flex-direction: column; gap: 1rem; max-width: 500px")(
+        div(attr("style") := "display: flex; gap: 1rem; align-items: center")(
+          waSkeleton(effect := "pulse", attr("style") := "width: 40px; height: 40px; border-radius: 4px; flex-shrink: 0"),
+          div(attr("style") := "flex: 1; display: flex; flex-direction: column; gap: 0.5rem")(
+            waSkeleton(effect := "sheen", attr("style") := "width: 60%; height: 14px"),
+            waSkeleton(effect := "sheen", attr("style") := "width: 40%; height: 12px")
+          )
+        ),
+        div(attr("style") := "display: flex; gap: 1rem; align-items: center")(
+          waSkeleton(effect := "pulse", attr("style") := "width: 40px; height: 40px; border-radius: 4px; flex-shrink: 0"),
+          div(attr("style") := "flex: 1; display: flex; flex-direction: column; gap: 0.5rem")(
+            waSkeleton(effect := "sheen", attr("style") := "width: 70%; height: 14px"),
+            waSkeleton(effect := "sheen", attr("style") := "width: 50%; height: 12px")
+          )
+        ),
+        div(attr("style") := "display: flex; gap: 1rem; align-items: center")(
+          waSkeleton(effect := "pulse", attr("style") := "width: 40px; height: 40px; border-radius: 4px; flex-shrink: 0"),
+          div(attr("style") := "flex: 1; display: flex; flex-direction: column; gap: 0.5rem")(
+            waSkeleton(effect := "sheen", attr("style") := "width: 55%; height: 14px"),
+            waSkeleton(effect := "sheen", attr("style") := "width: 35%; height: 12px")
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Button placeholder"),
+      div(cls := "demo-row")(
+        waSkeleton(effect := "pulse", attr("style") := "width: 100px; height: 36px; border-radius: 6px"),
+        waSkeleton(effect := "pulse", attr("style") := "width: 120px; height: 36px; border-radius: 6px"),
+        waSkeleton(effect := "pulse", attr("style") := "width: 80px; height: 36px; border-radius: 6px")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Table row placeholder"),
+      div(attr("style") := "display: flex; flex-direction: column; gap: 0.75rem; max-width: 700px")(
+        div(attr("style") := "display: grid; grid-template-columns: 2fr 1fr 1fr 100px; gap: 1rem")(
+          waSkeleton(effect := "sheen", attr("style") := "height: 14px"),
+          waSkeleton(effect := "sheen", attr("style") := "height: 14px"),
+          waSkeleton(effect := "sheen", attr("style") := "height: 14px"),
+          waSkeleton(effect := "sheen", attr("style") := "height: 14px")
+        ),
+        div(attr("style") := "display: grid; grid-template-columns: 2fr 1fr 1fr 100px; gap: 1rem")(
+          waSkeleton(effect := "sheen", attr("style") := "height: 14px"),
+          waSkeleton(effect := "sheen", attr("style") := "height: 14px"),
+          waSkeleton(effect := "sheen", attr("style") := "height: 14px"),
+          waSkeleton(effect := "sheen", attr("style") := "height: 14px")
+        ),
+        div(attr("style") := "display: grid; grid-template-columns: 2fr 1fr 1fr 100px; gap: 1rem")(
+          waSkeleton(effect := "sheen", attr("style") := "height: 14px"),
+          waSkeleton(effect := "sheen", attr("style") := "height: 14px"),
+          waSkeleton(effect := "sheen", attr("style") := "height: 14px"),
+          waSkeleton(effect := "sheen", attr("style") := "height: 14px")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Form placeholder"),
+      div(attr("style") := "max-width: 400px; display: flex; flex-direction: column; gap: 1.5rem")(
+        div(
+          p(attr("style") := "margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500")("Name"),
+          waSkeleton(effect := "pulse", attr("style") := "width: 100%; height: 40px; border-radius: 6px")
+        ),
+        div(
+          p(attr("style") := "margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500")("Email"),
+          waSkeleton(effect := "pulse", attr("style") := "width: 100%; height: 40px; border-radius: 6px")
+        ),
+        div(
+          p(attr("style") := "margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500")("Message"),
+          waSkeleton(effect := "pulse", attr("style") := "width: 100%; height: 100px; border-radius: 6px")
+        ),
+        waSkeleton(effect := "pulse", attr("style") := "width: 120px; height: 40px; border-radius: 6px")
+      )
+    )
+  )
+
   initialize()
