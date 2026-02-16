@@ -80,6 +80,8 @@ trait Attrs:
   lazy val hoverBridge: generic.Attr = generic.Attr("hover-bridge")
   lazy val submenuOpen: generic.Attr = generic.Attr("submenu-open")
   lazy val withoutArrow: generic.Attr = generic.Attr("without-arrow")
+  lazy val trigger: generic.Attr = generic.Attr("trigger")
+  lazy val hoist: generic.Attr = generic.Attr("hoist")
 
   // Avatar
   lazy val image: generic.Attr = generic.Attr("image")

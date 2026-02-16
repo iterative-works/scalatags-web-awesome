@@ -2768,6 +2768,88 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Tooltip ---
+  @cask.get("/tooltip")
+  def tooltipPage(): cask.Response[String] = htmlPage("Tooltip", "tooltip")(
+    h1("wa-tooltip"),
+
+    div(cls := "demo-section")(
+      h2("Basic tooltip"),
+      div(cls := "demo-row")(
+        waButton(id := "tooltip-basic")("Hover me"),
+        waTooltip(attr("for") := "tooltip-basic")(
+          "This is a tooltip"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Placement options"),
+      div(cls := "demo-row")(
+        waButton(id := "tooltip-top")("Top"),
+        waTooltip(attr("for") := "tooltip-top", placement := "top")(
+          "Tooltip on top"
+        ),
+        waButton(id := "tooltip-bottom")("Bottom"),
+        waTooltip(attr("for") := "tooltip-bottom", placement := "bottom")(
+          "Tooltip on bottom"
+        ),
+        waButton(id := "tooltip-left")("Left"),
+        waTooltip(attr("for") := "tooltip-left", placement := "left")(
+          "Tooltip on left"
+        ),
+        waButton(id := "tooltip-right")("Right"),
+        waTooltip(attr("for") := "tooltip-right", placement := "right")(
+          "Tooltip on right"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Trigger options"),
+      div(cls := "demo-row")(
+        waButton(id := "tooltip-hover")("Hover"),
+        waTooltip(attr("for") := "tooltip-hover", trigger := "hover")(
+          "Hover trigger (default)"
+        ),
+        waButton(id := "tooltip-click")("Click"),
+        waTooltip(attr("for") := "tooltip-click", trigger := "click")(
+          "Click trigger"
+        ),
+        waButton(id := "tooltip-focus")("Focus"),
+        waTooltip(attr("for") := "tooltip-focus", trigger := "focus")(
+          "Focus trigger"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Distance and skidding"),
+      div(cls := "demo-row")(
+        waButton(id := "tooltip-distance")("Distance"),
+        waTooltip(attr("for") := "tooltip-distance", distance := "20", placement := "top")(
+          "20px distance from trigger"
+        ),
+        waButton(id := "tooltip-skidding")("Skidding"),
+        waTooltip(attr("for") := "tooltip-skidding", skidding := "20", placement := "top")(
+          "20px skidding along trigger"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Hoist (escapes overflow)"),
+      div(cls := "demo-row")(
+        div(attr("style") := "overflow: hidden; padding: 1rem; border: 1px solid #ccc; display: inline-block")(
+          waButton(id := "tooltip-hoist")("Hoisted"),
+          waTooltip(attr("for") := "tooltip-hoist", hoist := "true", placement := "top")(
+            "This tooltip is hoisted and won't be clipped"
+          )
+        )
+      )
+    )
+  )
+
   // --- Icon ---
   @cask.get("/icon")
   def iconPage(): cask.Response[String] = htmlPage("Icon", "icon")(

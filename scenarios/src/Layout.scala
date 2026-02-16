@@ -40,6 +40,7 @@ object Layout:
     "callout" -> "Callout",
     "popover" -> "Popover",
     "popup" -> "Popup",
+    "tooltip" -> "Tooltip",
     "icon" -> "Icon",
     "skeleton" -> "Skeleton",
     "spinner" -> "Spinner",
