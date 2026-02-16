@@ -30,7 +30,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 | Component | Tag | Scenario | Attrs | WA-specific attrs needed |
 |-----------|-----|----------|-------|--------------------------|
 | wa-button | [x] | [x] | [x] | (none) |
-| wa-button-group | [x] | [ ] | [ ] | orientation |
+| wa-button-group | [x] | [x] | [x] | orientation |
 | wa-copy-button | [ ] | [ ] | [ ] | from, copy-label, success-label, error-label, feedback-duration, tooltip-placement |
 | wa-dropdown | [ ] | [ ] | [ ] | open, placement, distance, skidding |
 | wa-dropdown-item | [ ] | [ ] | [ ] | submenu-open |

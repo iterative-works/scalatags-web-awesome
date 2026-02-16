@@ -66,6 +66,102 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Button Group ---
+  @cask.get("/button-group")
+  def buttonGroupPage(): cask.Response[String] = htmlPage("Button Group", "button-group")(
+    h1("wa-button-group"),
+
+    div(cls := "demo-section")(
+      h2("Horizontal (default)"),
+      div(cls := "demo-row")(
+        waButtonGroup(
+          waButton("Left"),
+          waButton("Center"),
+          waButton("Right")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Vertical orientation"),
+      div(cls := "demo-row")(
+        waButtonGroup(orientation := "vertical")(
+          waButton("Top"),
+          waButton("Middle"),
+          waButton("Bottom")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With variants"),
+      div(cls := "demo-row")(
+        waButtonGroup(
+          waButton(variant := "brand")("Save"),
+          waButton(variant := "neutral")("Cancel"),
+          waButton(variant := "danger")("Delete")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Different appearances"),
+      div(cls := "demo-row")(
+        waButtonGroup(
+          waButton(appearance := "accent", variant := "brand")("Accent"),
+          waButton(appearance := "filled", variant := "brand")("Filled"),
+          waButton(appearance := "outlined", variant := "brand")("Outlined"),
+          waButton(appearance := "plain", variant := "brand")("Plain")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Sizes"),
+      div(cls := "demo-row")(
+        waButtonGroup(
+          waButton(attr("size") := "small")("Small"),
+          waButton(attr("size") := "small")("Group")
+        ),
+        waButtonGroup(
+          waButton(attr("size") := "medium")("Medium"),
+          waButton(attr("size") := "medium")("Group")
+        ),
+        waButtonGroup(
+          waButton(attr("size") := "large")("Large"),
+          waButton(attr("size") := "large")("Group")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Toolbar example"),
+      div(cls := "demo-row")(
+        waButtonGroup(
+          waButton(appearance := "outlined")("Bold"),
+          waButton(appearance := "outlined")("Italic"),
+          waButton(appearance := "outlined")("Underline")
+        ),
+        waButtonGroup(
+          waButton(appearance := "outlined")("Align Left"),
+          waButton(appearance := "outlined")("Align Center"),
+          waButton(appearance := "outlined")("Align Right")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With disabled buttons"),
+      div(cls := "demo-row")(
+        waButtonGroup(
+          waButton(variant := "brand")("Active"),
+          waButton(disabled := "true")("Disabled"),
+          waButton(variant := "brand")("Active")
+        )
+      )
+    )
+  )
+
   // --- Input ---
   @cask.get("/input")
   def inputPage(): cask.Response[String] = htmlPage("Input", "input")(
@@ -296,8 +392,8 @@ object Server extends cask.MainRoutes:
     div(cls := "demo-section")(
       h2("With opacity"),
       div(cls := "demo-row")(
-        waColorPicker(attr("label") := "With opacity slider", opacity := "true", value := "#ff6b3580"),
-        waColorPicker(attr("label") := "RGBA format", format := "rgb", opacity := "true", value := "rgba(255, 107, 53, 0.5)")
+        waColorPicker(attr("label") := "With opacity slider", attr("opacity") := "true", value := "#ff6b3580"),
+        waColorPicker(attr("label") := "RGBA format", format := "rgb", attr("opacity") := "true", value := "rgba(255, 107, 53, 0.5)")
       )
     ),
 

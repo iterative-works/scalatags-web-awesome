@@ -45,3 +45,6 @@ trait Attrs:
 
   // Slider
   lazy val tooltip: generic.Attr = generic.Attr("tooltip")
+
+  // Layout / orientation
+  lazy val orientation: generic.Attr = generic.Attr("orientation")
