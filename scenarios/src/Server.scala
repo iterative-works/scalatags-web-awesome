@@ -1862,4 +1862,218 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Icon ---
+  @cask.get("/icon")
+  def iconPage(): cask.Response[String] = htmlPage("Icon", "icon")(
+    h1("wa-icon"),
+
+    div(cls := "demo-section")(
+      h2("Basic icons (classic family)"),
+      div(cls := "demo-row")(
+        waIcon(name := "heart")(""),
+        waIcon(name := "star")(""),
+        waIcon(name := "home")(""),
+        waIcon(name := "user")(""),
+        waIcon(name := "gear")("")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Icon families"),
+      div(cls := "demo-row")(
+        waIcon(name := "heart", family := "classic")(""),
+        waIcon(name := "heart", family := "sharp")(""),
+        waIcon(name := "heart", family := "duotone")("")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Sizes (using CSS)"),
+      div(cls := "demo-row")(
+        waIcon(name := "star", attr("style") := "font-size: 1rem")(""),
+        waIcon(name := "star", attr("style") := "font-size: 1.5rem")(""),
+        waIcon(name := "star", attr("style") := "font-size: 2rem")(""),
+        waIcon(name := "star", attr("style") := "font-size: 3rem")(""),
+        waIcon(name := "star", attr("style") := "font-size: 4rem")("")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Rotation"),
+      div(cls := "demo-row")(
+        waIcon(name := "arrow-right")(""),
+        waIcon(name := "arrow-right", rotate := "90")(""),
+        waIcon(name := "arrow-right", rotate := "180")(""),
+        waIcon(name := "arrow-right", rotate := "270")("")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Flip"),
+      div(cls := "demo-row")(
+        waIcon(name := "shield")(""),
+        waIcon(name := "shield", flip := "horizontal")(""),
+        waIcon(name := "shield", flip := "vertical")(""),
+        waIcon(name := "shield", flip := "both")("")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Auto-width (fixed-width disabled)"),
+      div(cls := "demo-row")(
+        div(attr("style") := "display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start")(
+          div(
+            waIcon(name := "home", autoWidth := "true")(""),
+            " Home (auto)"
+          ),
+          div(
+            waIcon(name := "circle-info", autoWidth := "true")(""),
+            " Info (auto)"
+          ),
+          div(
+            waIcon(name := "exclamation-triangle", autoWidth := "true")(""),
+            " Warning (auto)"
+          )
+        ),
+        div(attr("style") := "display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start")(
+          div(
+            waIcon(name := "home")(""),
+            " Home (fixed)"
+          ),
+          div(
+            waIcon(name := "circle-info")(""),
+            " Info (fixed)"
+          ),
+          div(
+            waIcon(name := "exclamation-triangle")(""),
+            " Warning (fixed)"
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Animation"),
+      div(cls := "demo-row")(
+        waIcon(name := "spinner", animation := "spin")(""),
+        waIcon(name := "circle-notch", animation := "spin")(""),
+        waIcon(name := "sync", animation := "spin")(""),
+        waIcon(name := "cog", animation := "spin")(""),
+        waIcon(name := "heart", animation := "beat")("")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Common UI icons"),
+      div(cls := "demo-row")(
+        waIcon(name := "bars")(""),
+        waIcon(name := "xmark")(""),
+        waIcon(name := "magnifying-glass")(""),
+        waIcon(name := "bell")(""),
+        waIcon(name := "envelope")(""),
+        waIcon(name := "calendar")(""),
+        waIcon(name := "download")(""),
+        waIcon(name := "upload")(""),
+        waIcon(name := "trash")(""),
+        waIcon(name := "pen")("")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Social & brand icons"),
+      div(cls := "demo-row")(
+        waIcon(name := "github", library := "brands")(""),
+        waIcon(name := "twitter", library := "brands")(""),
+        waIcon(name := "facebook", library := "brands")(""),
+        waIcon(name := "linkedin", library := "brands")(""),
+        waIcon(name := "youtube", library := "brands")("")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("File type icons"),
+      div(cls := "demo-row")(
+        waIcon(name := "file")(""),
+        waIcon(name := "file-pdf")(""),
+        waIcon(name := "file-word")(""),
+        waIcon(name := "file-excel")(""),
+        waIcon(name := "file-powerpoint")(""),
+        waIcon(name := "file-image")(""),
+        waIcon(name := "file-video")(""),
+        waIcon(name := "file-audio")(""),
+        waIcon(name := "file-code")(""),
+        waIcon(name := "file-zipper")("")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Status & feedback icons"),
+      div(cls := "demo-row")(
+        waIcon(name := "circle-check", attr("style") := "color: green")(""),
+        waIcon(name := "circle-xmark", attr("style") := "color: red")(""),
+        waIcon(name := "circle-exclamation", attr("style") := "color: orange")(""),
+        waIcon(name := "circle-info", attr("style") := "color: blue")(""),
+        waIcon(name := "triangle-exclamation", attr("style") := "color: orange")("")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("In buttons"),
+      div(cls := "demo-row")(
+        waButton(variant := "brand")(
+          waIcon(slot := "prefix", name := "floppy-disk")(""),
+          "Save"
+        ),
+        waButton(variant := "danger")(
+          waIcon(slot := "prefix", name := "trash")(""),
+          "Delete"
+        ),
+        waButton(variant := "neutral")(
+          waIcon(slot := "prefix", name := "download")(""),
+          "Download"
+        ),
+        waButton(variant := "success")(
+          "Upload",
+          waIcon(slot := "suffix", name := "upload")("")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("In input fields"),
+      div(cls := "demo-row")(
+        waInput(
+          attr("label") := "Search",
+          placeholder := "Search..."
+        )(
+          waIcon(slot := "prefix", name := "magnifying-glass")("")
+        ),
+        waInput(
+          attr("label") := "Email",
+          placeholder := "user@example.com",
+          `type` := "email"
+        )(
+          waIcon(slot := "prefix", name := "envelope")("")
+        ),
+        waInput(
+          attr("label") := "Username",
+          placeholder := "johndoe"
+        )(
+          waIcon(slot := "prefix", name := "user")("")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Colored icons"),
+      div(cls := "demo-row")(
+        waIcon(name := "heart", attr("style") := "color: red; font-size: 2rem")(""),
+        waIcon(name := "star", attr("style") := "color: gold; font-size: 2rem")(""),
+        waIcon(name := "fire", attr("style") := "color: orange; font-size: 2rem")(""),
+        waIcon(name := "snowflake", attr("style") := "color: lightblue; font-size: 2rem")(""),
+        waIcon(name := "leaf", attr("style") := "color: green; font-size: 2rem")("")
+      )
+    )
+  )
+
   initialize()

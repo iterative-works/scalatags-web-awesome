@@ -70,3 +70,12 @@ trait Attrs:
 
   // Badge
   lazy val attention: generic.Attr = generic.Attr("attention")
+
+  // Icon
+  lazy val family: generic.Attr = generic.Attr("family")
+  lazy val autoWidth: generic.Attr = generic.Attr("auto-width")
+  lazy val swapOpacity: generic.Attr = generic.Attr("swap-opacity")
+  lazy val library: generic.Attr = generic.Attr("library")
+  lazy val rotate: generic.Attr = generic.Attr("rotate")
+  lazy val flip: generic.Attr = generic.Attr("flip")
+  lazy val animation: generic.Attr = generic.Attr("animation")
