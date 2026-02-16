@@ -39,6 +39,7 @@ object WebAwesome extends Attrs:
   lazy val waDetails = htmlTag("wa-details")
   lazy val waDropdown = htmlTag("wa-dropdown")
   lazy val waDropdownItem = htmlTag("wa-dropdown-item")
+  lazy val waSplitPanel = htmlTag("wa-split-panel")
 
   // Imagery
   lazy val waIcon = htmlTag("wa-icon")

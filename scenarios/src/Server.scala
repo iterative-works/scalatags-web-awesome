@@ -906,6 +906,65 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Split Panel ---
+  @cask.get("/split-panel")
+  def splitPanelPage(): cask.Response[String] = htmlPage("Split Panel", "split-panel")(
+    h1("wa-split-panel"),
+
+    div(cls := "demo-section")(
+      h2("Horizontal (default)"),
+      div(style := "height: 300px; border: 1px solid #ccc;")(
+        waSplitPanel(
+          div(slot := "start", style := "padding: 1rem; background: #f0f0f0;")("Start panel content"),
+          div(slot := "end", style := "padding: 1rem; background: #e0e0e0;")("End panel content")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Vertical orientation"),
+      div(style := "height: 400px; border: 1px solid #ccc;")(
+        waSplitPanel(orientation := "vertical")(
+          div(slot := "start", style := "padding: 1rem; background: #f0f0f0;")("Top panel content"),
+          div(slot := "end", style := "padding: 1rem; background: #e0e0e0;")("Bottom panel content")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Custom position (30%)"),
+      div(style := "height: 300px; border: 1px solid #ccc;")(
+        waSplitPanel(attr("position") := "30")(
+          div(slot := "start", style := "padding: 1rem; background: #f0f0f0;")("Start panel (30%)"),
+          div(slot := "end", style := "padding: 1rem; background: #e0e0e0;")("End panel (70%)")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Primary panel on end"),
+      div(style := "height: 300px; border: 1px solid #ccc;")(
+        waSplitPanel(primary := "end")(
+          div(slot := "start", style := "padding: 1rem; background: #f0f0f0;")("Start panel (secondary)"),
+          div(slot := "end", style := "padding: 1rem; background: #e0e0e0;")("End panel (primary)")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Nested split panels"),
+      div(style := "height: 400px; border: 1px solid #ccc;")(
+        waSplitPanel(
+          div(slot := "start", style := "padding: 1rem; background: #f0f0f0;")("Left sidebar"),
+          waSplitPanel(slot := "end", orientation := "vertical")(
+            div(slot := "start", style := "padding: 1rem; background: #e8e8e8;")("Top content area"),
+            div(slot := "end", style := "padding: 1rem; background: #d0d0d0;")("Bottom content area")
+          )
+        )
+      )
+    )
+  )
+
   // --- Switch ---
   @cask.get("/switch")
   def switchPage(): cask.Response[String] = htmlPage("Switch", "switch")(

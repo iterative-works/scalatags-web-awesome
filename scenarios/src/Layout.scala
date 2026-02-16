@@ -22,6 +22,7 @@ object Layout:
     "dialog" -> "Dialog",
     "drawer" -> "Drawer",
     "divider" -> "Divider",
+    "split-panel" -> "Split Panel",
     "switch" -> "Switch",
     "checkbox" -> "Checkbox",
     "color-picker" -> "Color Picker",
