@@ -15,6 +15,7 @@ object Layout:
     "copy-button" -> "Copy Button",
     "input" -> "Input",
     "badge" -> "Badge",
+    "breadcrumb" -> "Breadcrumb",
     "card" -> "Card",
     "switch" -> "Switch",
     "checkbox" -> "Checkbox",

@@ -403,6 +403,74 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Breadcrumb ---
+  @cask.get("/breadcrumb")
+  def breadcrumbPage(): cask.Response[String] = htmlPage("Breadcrumb", "breadcrumb")(
+    h1("wa-breadcrumb"),
+
+    div(cls := "demo-section")(
+      h2("Basic breadcrumb with links"),
+      div(cls := "demo-row")(
+        waBreadcrumb(attr("label") := "Navigation breadcrumb")(
+          a(href := "#home")("Home"),
+          a(href := "#products")("Products"),
+          a(href := "#category")("Category"),
+          "Current Page"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Without aria label"),
+      div(cls := "demo-row")(
+        waBreadcrumb(
+          a(href := "#")("Docs"),
+          a(href := "#")("Components"),
+          "Breadcrumb"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With custom separator (icon)"),
+      div(cls := "demo-row")(
+        waBreadcrumb(attr("label") := "File path")(
+          waIcon(name := "chevron-right", slot := "separator"),
+          a(href := "#")("Home"),
+          a(href := "#")("Documents"),
+          a(href := "#")("Projects"),
+          "Report.pdf"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With custom separator (text)"),
+      div(cls := "demo-row")(
+        waBreadcrumb(
+          tag("span")(slot := "separator")(" > "),
+          a(href := "#")("Root"),
+          a(href := "#")("Folder"),
+          "File"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Long breadcrumb trail"),
+      div(cls := "demo-row")(
+        waBreadcrumb(attr("label") := "Site navigation")(
+          a(href := "#")("Home"),
+          a(href := "#")("Category"),
+          a(href := "#")("Subcategory"),
+          a(href := "#")("Product Type"),
+          a(href := "#")("Brand"),
+          "Product Name"
+        )
+      )
+    )
+  )
+
   // --- Card ---
   @cask.get("/card")
   def cardPage(): cask.Response[String] = htmlPage("Card", "card")(

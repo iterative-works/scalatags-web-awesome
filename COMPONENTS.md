@@ -59,7 +59,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 
 | Component | Tag | Scenario | Attrs | WA-specific attrs needed |
 |-----------|-----|----------|-------|--------------------------|
-| wa-breadcrumb | [ ] | [ ] | [ ] | (none — uses label) |
+| wa-breadcrumb | [x] | [x] | [x] | (none — uses label) |
 | wa-breadcrumb-item | [ ] | [ ] | [x] | (none — uses href, target, rel) |
 | wa-card | [x] | [x] | [ ] | with-header, with-media, with-footer, orientation |
 | wa-details | [x] | [ ] | [ ] | open, summary, icon-placement |
