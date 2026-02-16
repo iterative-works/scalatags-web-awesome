@@ -95,13 +95,27 @@ object Server extends cask.MainRoutes:
     ),
 
     div(cls := "demo-section")(
-      h2("With hint & clear"),
+      h2("With label & hint (SSR)"),
       div(cls := "demo-row")(
         waInput(
+          withLabel := "true",
+          withHint := "true",
           attr("label") := "Username",
           hint := "Choose a unique username",
           withClear := "true",
           placeholder := "johndoe"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Number input without spin buttons"),
+      div(cls := "demo-row")(
+        waInput(
+          `type` := "number",
+          attr("label") := "Quantity",
+          withoutSpinButtons := "true",
+          placeholder := "Enter quantity"
         )
       )
     ),
