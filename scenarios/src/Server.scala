@@ -2514,4 +2514,48 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Progress Ring ---
+  @cask.get("/progress-ring")
+  def progressRingPage(): cask.Response[String] = htmlPage("Progress Ring", "progress-ring")(
+    h1("wa-progress-ring"),
+
+    div(cls := "demo-section")(
+      h2("Basic progress"),
+      div(cls := "demo-row")(
+        waProgressRing(value := "0"),
+        waProgressRing(value := "25"),
+        waProgressRing(value := "50"),
+        waProgressRing(value := "75"),
+        waProgressRing(value := "100")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With label"),
+      div(cls := "demo-row")(
+        waProgressRing(value := "25", attr("label") := "Uploading..."),
+        waProgressRing(value := "50", attr("label") := "Processing..."),
+        waProgressRing(value := "75", attr("label") := "Almost done...")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Sizes"),
+      div(cls := "demo-row")(
+        waProgressRing(value := "50", attr("size") := "50"),
+        waProgressRing(value := "50", attr("size") := "75"),
+        waProgressRing(value := "50", attr("size") := "100"),
+        waProgressRing(value := "50", attr("size") := "125")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Indeterminate"),
+      div(cls := "demo-row")(
+        waProgressRing(indeterminate := "true"),
+        waProgressRing(indeterminate := "true", attr("label") := "Loading...")
+      )
+    )
+  )
+
   initialize()

@@ -33,7 +33,8 @@ object Layout:
     "skeleton" -> "Skeleton",
     "spinner" -> "Spinner",
     "tag" -> "Tag",
-    "progress-bar" -> "Progress Bar"
+    "progress-bar" -> "Progress Bar",
+    "progress-ring" -> "Progress Ring"
   )
 
   def page(pageTitle: String, activePage: String)(content: Frag*): String =
