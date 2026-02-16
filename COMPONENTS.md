@@ -13,7 +13,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 
 | Component | Tag | Scenario | Attrs | WA-specific attrs needed |
 |-----------|-----|----------|-------|--------------------------|
-| wa-checkbox | [x] | [ ] | [ ] | indeterminate |
+| wa-checkbox | [x] | [x] | [x] | indeterminate |
 | wa-color-picker | [ ] | [ ] | [ ] | format, without-format-toggle, open, opacity, uppercase, swatches |
 | wa-input | [x] | [x] | [ ] | without-spin-buttons, with-label, with-hint |
 | wa-number-input | [ ] | [ ] | [ ] | without-steppers, with-label, with-hint |

@@ -29,3 +29,4 @@ trait Attrs:
   lazy val withClear: generic.Attr = generic.Attr("with-clear")
   lazy val passwordToggle: generic.Attr = generic.Attr("password-toggle")
   lazy val passwordVisible: generic.Attr = generic.Attr("password-visible")
+  lazy val indeterminate: generic.Attr = generic.Attr("indeterminate")

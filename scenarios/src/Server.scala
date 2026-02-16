@@ -218,4 +218,43 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Checkbox ---
+  @cask.get("/checkbox")
+  def checkboxPage(): cask.Response[String] = htmlPage("Checkbox", "checkbox")(
+    h1("wa-checkbox"),
+
+    div(cls := "demo-section")(
+      h2("Basic"),
+      div(cls := "demo-row")(
+        waCheckbox("Unchecked"),
+        waCheckbox(attr("checked") := "true")("Checked")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Indeterminate"),
+      div(cls := "demo-row")(
+        waCheckbox(indeterminate := "true")("Indeterminate state"),
+        waCheckbox(indeterminate := "true", attr("checked") := "true")("Indeterminate + Checked")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Sizes"),
+      div(cls := "demo-row")(
+        waCheckbox(attr("size") := "small")("Small"),
+        waCheckbox(attr("size") := "medium")("Medium"),
+        waCheckbox(attr("size") := "large")("Large")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Disabled"),
+      div(cls := "demo-row")(
+        waCheckbox(disabled := "true")("Disabled unchecked"),
+        waCheckbox(disabled := "true", attr("checked") := "true")("Disabled checked")
+      )
+    )
+  )
+
   initialize()
