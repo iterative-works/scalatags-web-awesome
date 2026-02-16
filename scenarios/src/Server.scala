@@ -351,6 +351,55 @@ object Server extends cask.MainRoutes:
         waBadge(variant := "success", pill := "true")("New"),
         waBadge(variant := "danger", pill := "true")("99+")
       )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With attention animation"),
+      div(cls := "demo-row")(
+        waBadge(variant := "brand", attention := "pulse")("Pulse"),
+        waBadge(variant := "danger", attention := "pulse")("Alert"),
+        waBadge(variant := "success", attention := "pulse", pill := "true")("3")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Sizes"),
+      div(cls := "demo-row")(
+        waBadge(variant := "brand", attr("size") := "small")("Small"),
+        waBadge(variant := "brand", attr("size") := "medium")("Medium"),
+        waBadge(variant := "brand", attr("size") := "large")("Large")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Notification examples"),
+      div(cls := "demo-row")(
+        div(attr("style") := "position: relative; display: inline-block")(
+          waButton(variant := "neutral")("Messages"),
+          waBadge(
+            variant := "danger",
+            pill := "true",
+            attention := "pulse",
+            attr("style") := "position: absolute; top: -0.5rem; right: -0.5rem"
+          )("5")
+        ),
+        div(attr("style") := "position: relative; display: inline-block")(
+          waButton(variant := "neutral")("Notifications"),
+          waBadge(
+            variant := "brand",
+            pill := "true",
+            attr("style") := "position: absolute; top: -0.5rem; right: -0.5rem"
+          )("12")
+        ),
+        div(attr("style") := "position: relative; display: inline-block")(
+          waButton(variant := "neutral")("Cart"),
+          waBadge(
+            variant := "success",
+            pill := "true",
+            attr("style") := "position: absolute; top: -0.5rem; right: -0.5rem"
+          )("3")
+        )
+      )
     )
   )
 

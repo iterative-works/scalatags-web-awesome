@@ -67,3 +67,6 @@ trait Attrs:
   lazy val image: generic.Attr = generic.Attr("image")
   lazy val initials: generic.Attr = generic.Attr("initials")
   lazy val shape: generic.Attr = generic.Attr("shape")
+
+  // Badge
+  lazy val attention: generic.Attr = generic.Attr("attention")
