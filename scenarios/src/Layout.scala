@@ -52,7 +52,8 @@ object Layout:
     "rating" -> "Rating",
     "carousel" -> "Carousel",
     "comparison" -> "Comparison",
-    "format-bytes" -> "Format Bytes"
+    "format-bytes" -> "Format Bytes",
+    "format-date" -> "Format Date"
   )
 
   def page(pageTitle: String, activePage: String)(content: Frag*): String =

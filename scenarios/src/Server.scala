@@ -4150,4 +4150,84 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Format Date ---
+  @cask.get("/format-date")
+  def formatDatePage(): cask.Response[String] = htmlPage("Format Date", "format-date")(
+    h1("wa-format-date"),
+
+    div(cls := "demo-section")(
+      h2("Basic date formatting"),
+      div(cls := "demo-row")(
+        div(
+          p("Default: ", waFormatDate(date := "2024-01-15T09:30:00")),
+          p("With weekday: ", waFormatDate(date := "2024-01-15T09:30:00", weekday := "long")),
+          p("Short weekday: ", waFormatDate(date := "2024-01-15T09:30:00", weekday := "short"))
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Date components"),
+      div(cls := "demo-row")(
+        div(
+          p("Full date: ", waFormatDate(date := "2024-01-15", year := "numeric", month := "long", day := "numeric")),
+          p("Short date: ", waFormatDate(date := "2024-01-15", year := "numeric", month := "short", day := "numeric")),
+          p("Numeric date: ", waFormatDate(date := "2024-01-15", year := "numeric", month := "2-digit", day := "2-digit")),
+          p("Month/Day only: ", waFormatDate(date := "2024-01-15", month := "long", day := "numeric")),
+          p("Year only: ", waFormatDate(date := "2024-01-15", year := "numeric"))
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Time formatting"),
+      div(cls := "demo-row")(
+        div(
+          p("With time: ", waFormatDate(date := "2024-01-15T09:30:00", hour := "numeric", minute := "numeric")),
+          p("With seconds: ", waFormatDate(date := "2024-01-15T09:30:45", hour := "numeric", minute := "numeric", second := "numeric")),
+          p("12-hour format: ", waFormatDate(date := "2024-01-15T14:30:00", hour := "numeric", minute := "numeric", hourFormat := "12")),
+          p("24-hour format: ", waFormatDate(date := "2024-01-15T14:30:00", hour := "numeric", minute := "numeric", hourFormat := "24"))
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Time zones"),
+      div(cls := "demo-row")(
+        div(
+          p("UTC: ", waFormatDate(date := "2024-01-15T09:30:00Z", hour := "numeric", minute := "numeric", timeZone := "UTC", timeZoneName := "short")),
+          p("America/New_York: ", waFormatDate(date := "2024-01-15T09:30:00Z", hour := "numeric", minute := "numeric", timeZone := "America/New_York", timeZoneName := "short")),
+          p("Europe/London: ", waFormatDate(date := "2024-01-15T09:30:00Z", hour := "numeric", minute := "numeric", timeZone := "Europe/London", timeZoneName := "long")),
+          p("Asia/Tokyo: ", waFormatDate(date := "2024-01-15T09:30:00Z", hour := "numeric", minute := "numeric", timeZone := "Asia/Tokyo", timeZoneName := "short"))
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Full date-time formats"),
+      div(cls := "demo-row")(
+        div(
+          p("Full: ", waFormatDate(
+            date := "2024-01-15T14:30:00",
+            weekday := "long",
+            year := "numeric",
+            month := "long",
+            day := "numeric",
+            hour := "numeric",
+            minute := "numeric",
+            second := "numeric"
+          )),
+          p("Compact: ", waFormatDate(
+            date := "2024-01-15T14:30:00",
+            year := "numeric",
+            month := "2-digit",
+            day := "2-digit",
+            hour := "2-digit",
+            minute := "2-digit"
+          ))
+        )
+      )
+    )
+  )
+
   initialize()
