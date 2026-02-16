@@ -21,7 +21,8 @@ object Layout:
     "radio" -> "Radio",
     "select" -> "Select",
     "option" -> "Option",
-    "slider" -> "Slider"
+    "slider" -> "Slider",
+    "textarea" -> "Textarea"
   )
 
   def page(pageTitle: String, activePage: String)(content: Frag*): String =

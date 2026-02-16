@@ -750,6 +750,102 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Textarea ---
+  @cask.get("/textarea")
+  def textareaPage(): cask.Response[String] = htmlPage("Textarea", "textarea")(
+    h1("wa-textarea"),
+
+    div(cls := "demo-section")(
+      h2("Basic"),
+      div(cls := "demo-row")(
+        waTextarea(attr("label") := "Message", placeholder := "Enter your message"),
+        waTextarea(attr("label") := "Comments", placeholder := "Type here...", value := "Some initial text")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Appearances"),
+      div(cls := "demo-row")(
+        waTextarea(appearance := "outlined", attr("label") := "Outlined", placeholder := "Outlined textarea"),
+        waTextarea(appearance := "filled", attr("label") := "Filled", placeholder := "Filled textarea")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With label (SSR)"),
+      div(cls := "demo-row")(
+        waTextarea(
+          withLabel := "true",
+          attr("label") := "Feedback",
+          placeholder := "Tell us what you think..."
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With hint (SSR)"),
+      div(cls := "demo-row")(
+        waTextarea(
+          withHint := "true",
+          attr("label") := "Description",
+          hint := "Provide a detailed description",
+          placeholder := "Enter description here"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With label and hint (SSR)"),
+      div(cls := "demo-row")(
+        waTextarea(
+          withLabel := "true",
+          withHint := "true",
+          attr("label") := "Bio",
+          hint := "Share a few words about yourself (max 500 characters)",
+          placeholder := "Write your bio..."
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Sizes"),
+      div(cls := "demo-row")(
+        waTextarea(attr("size") := "small", attr("label") := "Small", placeholder := "Small textarea"),
+        waTextarea(attr("size") := "medium", attr("label") := "Medium", placeholder := "Medium textarea"),
+        waTextarea(attr("size") := "large", attr("label") := "Large", placeholder := "Large textarea")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Rows"),
+      div(cls := "demo-row")(
+        waTextarea(attr("label") := "Default rows", placeholder := "Default height (3 rows)"),
+        waTextarea(attr("label") := "More rows", rows := "8", placeholder := "Taller textarea with 8 rows")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("States"),
+      div(cls := "demo-row")(
+        waTextarea(attr("label") := "Disabled", disabled := "true", placeholder := "This is disabled"),
+        waTextarea(attr("label") := "Readonly", readonly := "true", value := "This text cannot be edited"),
+        waTextarea(attr("label") := "Required", required := "true", placeholder := "This field is required")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Max length"),
+      div(cls := "demo-row")(
+        waTextarea(
+          attr("label") := "Limited input",
+          maxlength := "100",
+          placeholder := "Maximum 100 characters allowed",
+          value := "This textarea has a character limit."
+        )
+      )
+    )
+  )
+
   // --- Option ---
   @cask.get("/option")
   def optionPage(): cask.Response[String] = htmlPage("Option", "option")(

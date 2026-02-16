@@ -25,6 +25,7 @@ object WebAwesome extends Attrs:
   lazy val waColorPicker = htmlTag("wa-color-picker")
   lazy val waNumberInput = htmlTag("wa-number-input")
   lazy val waSlider = htmlTag("wa-slider")
+  lazy val waTextarea = htmlTag("wa-textarea")
 
   // Organization
   lazy val waCard = htmlTag("wa-card")

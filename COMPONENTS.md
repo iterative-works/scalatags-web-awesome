@@ -23,7 +23,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 | wa-option | [x] | [x] | [x] | (none) |
 | wa-slider | [x] | [x] | [x] | tooltip |
 | wa-switch | [x] | [x] | [x] | (none) |
-| wa-textarea | [ ] | [ ] | [ ] | with-label, with-hint |
+| wa-textarea | [x] | [x] | [x] | with-label, with-hint |
 
 ## Actions
 
