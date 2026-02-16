@@ -21,7 +21,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 | wa-radio-group | [x] | [x] | [x] | (none) |
 | wa-select | [x] | [x] | [x] | clearable, with-label, with-hint |
 | wa-option | [x] | [x] | [x] | (none) |
-| wa-slider | [ ] | [ ] | [ ] | tooltip |
+| wa-slider | [x] | [x] | [x] | tooltip |
 | wa-switch | [x] | [x] | [x] | (none) |
 | wa-textarea | [ ] | [ ] | [ ] | with-label, with-hint |
 

@@ -644,6 +644,112 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Slider ---
+  @cask.get("/slider")
+  def sliderPage(): cask.Response[String] = htmlPage("Slider", "slider")(
+    h1("wa-slider"),
+
+    div(cls := "demo-section")(
+      h2("Basic"),
+      div(cls := "demo-row")(
+        waSlider(attr("label") := "Volume", value := "50", min := "0", max := "100")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With step"),
+      div(cls := "demo-row")(
+        waSlider(attr("label") := "Temperature", value := "20", min := "0", max := "40", step := "5")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With tooltip"),
+      div(cls := "demo-row")(
+        waSlider(attr("label") := "Brightness", value := "75", min := "0", max := "100", tooltip := "always")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Tooltip on hover"),
+      div(cls := "demo-row")(
+        waSlider(attr("label") := "Opacity", value := "80", min := "0", max := "100", tooltip := "hover")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Sizes"),
+      div(cls := "demo-row")(
+        waSlider(attr("size") := "small", attr("label") := "Small", value := "30"),
+        waSlider(attr("size") := "medium", attr("label") := "Medium", value := "50"),
+        waSlider(attr("size") := "large", attr("label") := "Large", value := "70")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Disabled"),
+      div(cls := "demo-row")(
+        waSlider(attr("label") := "Disabled slider", value := "60", disabled := "true")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With label (SSR)"),
+      div(cls := "demo-row")(
+        waSlider(
+          withLabel := "true",
+          attr("label") := "Progress",
+          value := "45",
+          min := "0",
+          max := "100"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With hint (SSR)"),
+      div(cls := "demo-row")(
+        waSlider(
+          withHint := "true",
+          attr("label") := "Rating",
+          hint := "Slide to rate from 0 to 10",
+          value := "7",
+          min := "0",
+          max := "10"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With label and hint (SSR)"),
+      div(cls := "demo-row")(
+        waSlider(
+          withLabel := "true",
+          withHint := "true",
+          attr("label") := "Quality",
+          hint := "Select quality level (1-100)",
+          value := "85",
+          min := "1",
+          max := "100"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Decimal values"),
+      div(cls := "demo-row")(
+        waSlider(
+          attr("label") := "Zoom",
+          value := "1.5",
+          min := "0.5",
+          max := "3.0",
+          step := "0.1",
+          tooltip := "always"
+        )
+      )
+    )
+  )
+
   // --- Option ---
   @cask.get("/option")
   def optionPage(): cask.Response[String] = htmlPage("Option", "option")(

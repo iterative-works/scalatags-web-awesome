@@ -20,7 +20,8 @@ object Layout:
     "number-input" -> "Number Input",
     "radio" -> "Radio",
     "select" -> "Select",
-    "option" -> "Option"
+    "option" -> "Option",
+    "slider" -> "Slider"
   )
 
   def page(pageTitle: String, activePage: String)(content: Frag*): String =

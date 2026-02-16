@@ -42,3 +42,6 @@ trait Attrs:
   lazy val opacity: generic.Attr = generic.Attr("opacity")
   lazy val uppercase: generic.Attr = generic.Attr("uppercase")
   lazy val swatches: generic.Attr = generic.Attr("swatches")
+
+  // Slider
+  lazy val tooltip: generic.Attr = generic.Attr("tooltip")
