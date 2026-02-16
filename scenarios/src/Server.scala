@@ -3994,4 +3994,101 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Comparison ---
+  @cask.get("/comparison")
+  def comparisonPage(): cask.Response[String] = htmlPage("Comparison", "comparison")(
+    h1("wa-comparison"),
+
+    div(cls := "demo-section")(
+      h2("Basic comparison"),
+      div(cls := "demo-row")(
+        waComparison(
+          attr("style") := "width: 600px; height: 400px;"
+        )(
+          img(
+            slot := "before",
+            src := "https://images.unsplash.com/photo-1520013817300-1f4c1cb245ef?w=600&h=400&fit=crop",
+            alt := "Before image"
+          ),
+          img(
+            slot := "after",
+            src := "https://images.unsplash.com/photo-1520013817300-1f4c1cb245ef?w=600&h=400&fit=crop&sat=-100",
+            alt := "After image"
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Different positions"),
+      div(cls := "demo-row")(
+        waComparison(
+          attr("position") := "25",
+          attr("style") := "width: 300px; height: 200px; margin-right: 1rem;"
+        )(
+          img(
+            slot := "before",
+            src := "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop",
+            alt := "Before"
+          ),
+          img(
+            slot := "after",
+            src := "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop&sat=-100",
+            alt := "After"
+          )
+        ),
+        waComparison(
+          attr("position") := "50",
+          attr("style") := "width: 300px; height: 200px; margin-right: 1rem;"
+        )(
+          img(
+            slot := "before",
+            src := "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop",
+            alt := "Before"
+          ),
+          img(
+            slot := "after",
+            src := "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop&sat=-100",
+            alt := "After"
+          )
+        ),
+        waComparison(
+          attr("position") := "75",
+          attr("style") := "width: 300px; height: 200px;"
+        )(
+          img(
+            slot := "before",
+            src := "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop",
+            alt := "Before"
+          ),
+          img(
+            slot := "after",
+            src := "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop&sat=-100",
+            alt := "After"
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Color vs Black & White comparison"),
+      div(cls := "demo-row")(
+        waComparison(
+          attr("style") := "width: 700px; height: 450px;"
+        )(
+          img(
+            slot := "before",
+            src := "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=700&h=450&fit=crop",
+            alt := "Color landscape"
+          ),
+          img(
+            slot := "after",
+            src := "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=700&h=450&fit=crop&sat=-100",
+            alt := "Black and white landscape"
+          )
+        )
+      )
+    )
+  )
+
   initialize()

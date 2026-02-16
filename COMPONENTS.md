@@ -94,7 +94,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 | wa-animation | [x] | [x] | [x] | play, delay, direction, duration, easing, end-delay, fill, iterations, iteration-start, keyframes, playback-rate |
 | wa-carousel | [x] | [x] | [x] | loop, navigation, pagination, autoplay, autoplay-interval, slides-per-page, slides-per-move, orientation, mouse-dragging |
 | wa-carousel-item | [x] | [x] | [x] | (none) |
-| wa-comparison | [ ] | [ ] | [ ] | position |
+| wa-comparison | [x] | [x] | [x] | position |
 
 ## Formatters & Utilities
 

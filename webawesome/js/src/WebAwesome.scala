@@ -68,3 +68,6 @@ object WebAwesome extends Attrs:
   // Carousel
   lazy val waCarousel = htmlTag("wa-carousel")
   lazy val waCarouselItem = htmlTag("wa-carousel-item")
+
+  // Comparison
+  lazy val waComparison = htmlTag("wa-comparison")

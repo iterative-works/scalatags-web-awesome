@@ -50,7 +50,8 @@ object Layout:
     "progress-bar" -> "Progress Bar",
     "progress-ring" -> "Progress Ring",
     "rating" -> "Rating",
-    "carousel" -> "Carousel"
+    "carousel" -> "Carousel",
+    "comparison" -> "Comparison"
   )
 
   def page(pageTitle: String, activePage: String)(content: Frag*): String =
