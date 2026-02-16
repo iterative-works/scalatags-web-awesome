@@ -257,4 +257,70 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Color Picker ---
+  @cask.get("/color-picker")
+  def colorPickerPage(): cask.Response[String] = htmlPage("Color Picker", "color-picker")(
+    h1("wa-color-picker"),
+
+    div(cls := "demo-section")(
+      h2("Basic"),
+      div(cls := "demo-row")(
+        waColorPicker(attr("label") := "Select color"),
+        waColorPicker(attr("label") := "With initial value", value := "#ff6b35")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Formats"),
+      div(cls := "demo-row")(
+        waColorPicker(attr("label") := "HEX", format := "hex", value := "#4ecdc4"),
+        waColorPicker(attr("label") := "RGB", format := "rgb", value := "rgb(78, 205, 196)"),
+        waColorPicker(attr("label") := "HSL", format := "hsl", value := "hsl(176, 57%, 55%)")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With opacity"),
+      div(cls := "demo-row")(
+        waColorPicker(attr("label") := "With opacity slider", opacity := "true", value := "#ff6b3580"),
+        waColorPicker(attr("label") := "RGBA format", format := "rgb", opacity := "true", value := "rgba(255, 107, 53, 0.5)")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Options"),
+      div(cls := "demo-row")(
+        waColorPicker(attr("label") := "Uppercase", uppercase := "true", value := "#95E1D3"),
+        waColorPicker(attr("label") := "Without format toggle", withoutFormatToggle := "true", value := "#f38181"),
+        waColorPicker(attr("label") := "Open by default", attr("open") := "true", value := "#aa96da")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With swatches"),
+      div(cls := "demo-row")(
+        waColorPicker(
+          attr("label") := "Preset colors",
+          swatches := "#e63946; #f1faee; #a8dadc; #457b9d; #1d3557; #2a9d8f; #e76f51; #f4a261; #e9c46a; #264653"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Sizes"),
+      div(cls := "demo-row")(
+        waColorPicker(attr("size") := "small", attr("label") := "Small"),
+        waColorPicker(attr("size") := "medium", attr("label") := "Medium"),
+        waColorPicker(attr("size") := "large", attr("label") := "Large")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Disabled"),
+      div(cls := "demo-row")(
+        waColorPicker(attr("label") := "Disabled", disabled := "true", value := "#6c757d")
+      )
+    )
+  )
+
   initialize()

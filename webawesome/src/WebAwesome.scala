@@ -30,3 +30,10 @@ trait Attrs:
   lazy val passwordToggle: generic.Attr = generic.Attr("password-toggle")
   lazy val passwordVisible: generic.Attr = generic.Attr("password-visible")
   lazy val indeterminate: generic.Attr = generic.Attr("indeterminate")
+
+  // Color picker
+  lazy val format: generic.Attr = generic.Attr("format")
+  lazy val withoutFormatToggle: generic.Attr = generic.Attr("without-format-toggle")
+  lazy val opacity: generic.Attr = generic.Attr("opacity")
+  lazy val uppercase: generic.Attr = generic.Attr("uppercase")
+  lazy val swatches: generic.Attr = generic.Attr("swatches")

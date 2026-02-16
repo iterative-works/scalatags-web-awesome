@@ -15,7 +15,8 @@ object Layout:
     "badge" -> "Badge",
     "card" -> "Card",
     "switch" -> "Switch",
-    "checkbox" -> "Checkbox"
+    "checkbox" -> "Checkbox",
+    "color-picker" -> "Color Picker"
   )
 
   def page(pageTitle: String, activePage: String)(content: Frag*): String =
