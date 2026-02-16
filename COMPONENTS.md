@@ -61,7 +61,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 |-----------|-----|----------|-------|--------------------------|
 | wa-breadcrumb | [x] | [x] | [x] | (none — uses label) |
 | wa-breadcrumb-item | [x] | [x] | [x] | (none — uses href, target, rel) |
-| wa-card | [x] | [x] | [ ] | with-header, with-media, with-footer, orientation |
+| wa-card | [x] | [x] | [x] | with-header, with-media, with-footer, orientation |
 | wa-details | [x] | [ ] | [ ] | open, summary, icon-placement |
 | wa-dialog | [x] | [ ] | [ ] | open |
 | wa-divider | [x] | [ ] | [ ] | orientation |

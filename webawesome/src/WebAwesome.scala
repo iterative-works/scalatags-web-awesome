@@ -85,3 +85,8 @@ trait Attrs:
 
   // Tag
   lazy val withRemove: generic.Attr = generic.Attr("with-remove")
+
+  // Card
+  lazy val withHeader: generic.Attr = generic.Attr("with-header")
+  lazy val withMedia: generic.Attr = generic.Attr("with-media")
+  lazy val withFooter: generic.Attr = generic.Attr("with-footer")

@@ -579,10 +579,16 @@ object Server extends cask.MainRoutes:
     ),
 
     div(cls := "demo-section")(
-      h2("Card with header and footer"),
-      waCard(
+      h2("Card with header, media, and footer"),
+      waCard(withHeader := "true", withMedia := "true", withFooter := "true")(
         div(slot := "header")(
-          strong("Card Title")
+          strong("Card with All Sections")
+        ),
+        div(slot := "media")(
+          img(
+            src := "https://images.unsplash.com/photo-1559209172-6a2cf814cdbb?w=600&h=300&fit=crop",
+            alt := "Placeholder"
+          )
         ),
         p("Card body content goes here. You can put any HTML inside."),
         div(slot := "footer")(
@@ -593,17 +599,52 @@ object Server extends cask.MainRoutes:
     ),
 
     div(cls := "demo-section")(
+      h2("Card with header only"),
+      waCard(withHeader := "true")(
+        div(slot := "header")(
+          strong("Card Title")
+        ),
+        p("This card only has a header section enabled.")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Card with footer only"),
+      waCard(withFooter := "true")(
+        p("This card only has a footer section enabled."),
+        div(slot := "footer")(
+          waButton(variant := "brand", attr("size") := "small")("Save"),
+          waButton(appearance := "plain", attr("size") := "small")("Cancel")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Horizontal orientation"),
+      waCard(withMedia := "true", orientation := "horizontal")(
+        div(slot := "media")(
+          img(
+            src := "https://images.unsplash.com/photo-1559209172-6a2cf814cdbb?w=200&h=200&fit=crop",
+            alt := "Placeholder"
+          )
+        ),
+        strong("Horizontal Layout"),
+        p("With horizontal orientation, the media appears on the side.")
+      )
+    ),
+
+    div(cls := "demo-section")(
       h2("Multiple cards"),
       div(cls := "demo-row")(
-        waCard(attr("style") := "width: 250px")(
+        waCard(withHeader := "true", attr("style") := "width: 250px")(
           div(slot := "header")(strong("First")),
           p("First card content")
         ),
-        waCard(attr("style") := "width: 250px")(
+        waCard(withHeader := "true", attr("style") := "width: 250px")(
           div(slot := "header")(strong("Second")),
           p("Second card content")
         ),
-        waCard(attr("style") := "width: 250px")(
+        waCard(withHeader := "true", attr("style") := "width: 250px")(
           div(slot := "header")(strong("Third")),
           p("Third card content")
         )
