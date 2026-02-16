@@ -56,3 +56,8 @@ trait Attrs:
 
   // Layout / orientation
   lazy val orientation: generic.Attr = generic.Attr("orientation")
+
+  // Dropdown / Popup
+  lazy val placement: generic.Attr = generic.Attr("placement")
+  lazy val distance: generic.Attr = generic.Attr("distance")
+  lazy val skidding: generic.Attr = generic.Attr("skidding")

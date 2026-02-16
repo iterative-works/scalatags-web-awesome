@@ -1044,6 +1044,216 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Dropdown ---
+  @cask.get("/dropdown")
+  def dropdownPage(): cask.Response[String] = htmlPage("Dropdown", "dropdown")(
+    h1("wa-dropdown"),
+
+    div(cls := "demo-section")(
+      h2("Basic dropdown"),
+      div(cls := "demo-row")(
+        waDropdown(
+          waButton(slot := "trigger", withCaret := "true")("Dropdown"),
+          tag("wa-dropdown-item")("Option 1"),
+          tag("wa-dropdown-item")("Option 2"),
+          tag("wa-dropdown-item")("Option 3")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Open by default"),
+      div(cls := "demo-row")(
+        waDropdown(attr("open") := "true")(
+          waButton(slot := "trigger", withCaret := "true")("Always Open"),
+          tag("wa-dropdown-item")("Item A"),
+          tag("wa-dropdown-item")("Item B"),
+          tag("wa-dropdown-item")("Item C")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Placement options"),
+      div(cls := "demo-row")(
+        waDropdown(placement := "top")(
+          waButton(slot := "trigger", withCaret := "true")("Top"),
+          tag("wa-dropdown-item")("Above the trigger"),
+          tag("wa-dropdown-item")("Second item"),
+          tag("wa-dropdown-item")("Third item")
+        ),
+        waDropdown(placement := "bottom")(
+          waButton(slot := "trigger", withCaret := "true")("Bottom (default)"),
+          tag("wa-dropdown-item")("Below the trigger"),
+          tag("wa-dropdown-item")("Second item")
+        ),
+        waDropdown(placement := "left")(
+          waButton(slot := "trigger", withCaret := "true")("Left"),
+          tag("wa-dropdown-item")("To the left"),
+          tag("wa-dropdown-item")("Second item")
+        ),
+        waDropdown(placement := "right")(
+          waButton(slot := "trigger", withCaret := "true")("Right"),
+          tag("wa-dropdown-item")("To the right"),
+          tag("wa-dropdown-item")("Second item")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Placement with alignment"),
+      div(cls := "demo-row")(
+        waDropdown(placement := "bottom-start")(
+          waButton(slot := "trigger", withCaret := "true")("Bottom Start"),
+          tag("wa-dropdown-item")("Aligned to start"),
+          tag("wa-dropdown-item")("Second item")
+        ),
+        waDropdown(placement := "bottom-end")(
+          waButton(slot := "trigger", withCaret := "true")("Bottom End"),
+          tag("wa-dropdown-item")("Aligned to end"),
+          tag("wa-dropdown-item")("Second item")
+        ),
+        waDropdown(placement := "top-start")(
+          waButton(slot := "trigger", withCaret := "true")("Top Start"),
+          tag("wa-dropdown-item")("Aligned to start"),
+          tag("wa-dropdown-item")("Second item")
+        ),
+        waDropdown(placement := "top-end")(
+          waButton(slot := "trigger", withCaret := "true")("Top End"),
+          tag("wa-dropdown-item")("Aligned to end"),
+          tag("wa-dropdown-item")("Second item")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Distance from trigger"),
+      div(cls := "demo-row")(
+        waDropdown(distance := "0")(
+          waButton(slot := "trigger", withCaret := "true")("No distance"),
+          tag("wa-dropdown-item")("Right next to trigger"),
+          tag("wa-dropdown-item")("Second item")
+        ),
+        waDropdown(distance := "8")(
+          waButton(slot := "trigger", withCaret := "true")("Default (8px)"),
+          tag("wa-dropdown-item")("Standard distance"),
+          tag("wa-dropdown-item")("Second item")
+        ),
+        waDropdown(distance := "20")(
+          waButton(slot := "trigger", withCaret := "true")("Far (20px)"),
+          tag("wa-dropdown-item")("Larger gap"),
+          tag("wa-dropdown-item")("Second item")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Skidding (offset along trigger)"),
+      div(cls := "demo-row")(
+        waDropdown(skidding := "-50")(
+          waButton(slot := "trigger", withCaret := "true")("Skid left (-50px)"),
+          tag("wa-dropdown-item")("Shifted left"),
+          tag("wa-dropdown-item")("Second item")
+        ),
+        waDropdown(skidding := "0")(
+          waButton(slot := "trigger", withCaret := "true")("No skidding"),
+          tag("wa-dropdown-item")("Centered"),
+          tag("wa-dropdown-item")("Second item")
+        ),
+        waDropdown(skidding := "50")(
+          waButton(slot := "trigger", withCaret := "true")("Skid right (50px)"),
+          tag("wa-dropdown-item")("Shifted right"),
+          tag("wa-dropdown-item")("Second item")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Different trigger elements"),
+      div(cls := "demo-row")(
+        waDropdown(
+          waButton(slot := "trigger", variant := "brand", withCaret := "true")("Brand Button"),
+          tag("wa-dropdown-item")("Action 1"),
+          tag("wa-dropdown-item")("Action 2"),
+          tag("wa-dropdown-item")("Action 3")
+        ),
+        waDropdown(
+          tag("button")(slot := "trigger", attr("style") := "padding: 0.5rem 1rem; cursor: pointer")("Native Button"),
+          tag("wa-dropdown-item")("Option A"),
+          tag("wa-dropdown-item")("Option B")
+        ),
+        waDropdown(
+          a(slot := "trigger", href := "#", attr("style") := "text-decoration: none")("Link trigger"),
+          tag("wa-dropdown-item")("Menu item 1"),
+          tag("wa-dropdown-item")("Menu item 2")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Dropdown sizes"),
+      div(cls := "demo-row")(
+        waDropdown(
+          waButton(slot := "trigger", attr("size") := "small", withCaret := "true")("Small"),
+          tag("wa-dropdown-item")("Small item 1"),
+          tag("wa-dropdown-item")("Small item 2")
+        ),
+        waDropdown(
+          waButton(slot := "trigger", attr("size") := "medium", withCaret := "true")("Medium"),
+          tag("wa-dropdown-item")("Medium item 1"),
+          tag("wa-dropdown-item")("Medium item 2")
+        ),
+        waDropdown(
+          waButton(slot := "trigger", attr("size") := "large", withCaret := "true")("Large"),
+          tag("wa-dropdown-item")("Large item 1"),
+          tag("wa-dropdown-item")("Large item 2")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Complex menu items"),
+      div(cls := "demo-row")(
+        waDropdown(
+          waButton(slot := "trigger", variant := "brand", withCaret := "true")("User Menu"),
+          tag("wa-dropdown-item")("Profile"),
+          tag("wa-dropdown-item")("Settings"),
+          tag("wa-divider"),
+          tag("wa-dropdown-item")("Help & Support"),
+          tag("wa-dropdown-item")("Documentation"),
+          tag("wa-divider"),
+          tag("wa-dropdown-item")("Logout")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Disabled items"),
+      div(cls := "demo-row")(
+        waDropdown(
+          waButton(slot := "trigger", withCaret := "true")("Actions"),
+          tag("wa-dropdown-item")("Edit"),
+          tag("wa-dropdown-item")("Copy"),
+          tag("wa-dropdown-item")(disabled := "true")("Paste (disabled)"),
+          tag("wa-dropdown-item")("Delete")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Combined: placement, distance, skidding"),
+      div(cls := "demo-row")(
+        waDropdown(placement := "top-end", distance := "15", skidding := "30")(
+          waButton(slot := "trigger", variant := "success", withCaret := "true")("Custom Position"),
+          tag("wa-dropdown-item")("Top-end placement"),
+          tag("wa-dropdown-item")("15px distance"),
+          tag("wa-dropdown-item")("30px skidding right"),
+          tag("wa-dropdown-item")("All combined")
+        )
+      )
+    )
+  )
+
   // --- Option ---
   @cask.get("/option")
   def optionPage(): cask.Response[String] = htmlPage("Option", "option")(
