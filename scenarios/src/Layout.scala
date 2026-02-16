@@ -37,6 +37,7 @@ object Layout:
     "dropdown" -> "Dropdown",
     "dropdown-item" -> "Dropdown Item",
     "avatar" -> "Avatar",
+    "animated-image" -> "Animated Image",
     "callout" -> "Callout",
     "popover" -> "Popover",
     "popup" -> "Popup",

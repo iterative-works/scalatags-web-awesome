@@ -124,3 +124,6 @@ trait Attrs:
   lazy val selection: generic.Attr = generic.Attr("selection")
   lazy val `lazy`: generic.Attr = generic.Attr("lazy")
   lazy val expanded: generic.Attr = generic.Attr("expanded")
+
+  // Animated Image
+  lazy val play: generic.Attr = generic.Attr("play")

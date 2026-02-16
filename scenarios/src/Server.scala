@@ -2359,6 +2359,65 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Animated Image ---
+  @cask.get("/animated-image")
+  def animatedImagePage(): cask.Response[String] = htmlPage("Animated Image", "animated-image")(
+    h1("wa-animated-image"),
+
+    div(cls := "demo-section")(
+      h2("Basic animated image (auto-play)"),
+      div(cls := "demo-row")(
+        waAnimatedImage(
+          src := "https://raw.githubusercontent.com/shoonia/testing-playground/main/public/loader.svg",
+          alt := "Animated loader"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With play attribute (starts playing)"),
+      div(cls := "demo-row")(
+        waAnimatedImage(
+          src := "https://raw.githubusercontent.com/shoonia/testing-playground/main/public/loader.svg",
+          alt := "Playing animated loader",
+          play := "true"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Paused initially"),
+      div(cls := "demo-row")(
+        waAnimatedImage(
+          src := "https://raw.githubusercontent.com/shoonia/testing-playground/main/public/loader.svg",
+          alt := "Paused animated loader",
+          play := "false"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Different sizes"),
+      div(cls := "demo-row")(
+        waAnimatedImage(
+          src := "https://raw.githubusercontent.com/shoonia/testing-playground/main/public/loader.svg",
+          alt := "Small loader",
+          attr("style") := "width: 100px; height: 100px"
+        ),
+        waAnimatedImage(
+          src := "https://raw.githubusercontent.com/shoonia/testing-playground/main/public/loader.svg",
+          alt := "Medium loader",
+          attr("style") := "width: 150px; height: 150px"
+        ),
+        waAnimatedImage(
+          src := "https://raw.githubusercontent.com/shoonia/testing-playground/main/public/loader.svg",
+          alt := "Large loader",
+          attr("style") := "width: 200px; height: 200px"
+        )
+      )
+    )
+  )
+
   // --- Option ---
   @cask.get("/option")
   def optionPage(): cask.Response[String] = htmlPage("Option", "option")(
