@@ -130,7 +130,6 @@ trait Attrs:
 
   // Animation
   lazy val delay: generic.Attr = generic.Attr("delay")
-  lazy val direction: generic.Attr = generic.Attr("direction")
   lazy val duration: generic.Attr = generic.Attr("duration")
   lazy val easing: generic.Attr = generic.Attr("easing")
   lazy val endDelay: generic.Attr = generic.Attr("end-delay")
@@ -152,7 +151,6 @@ trait Attrs:
 
   // Formatters
   lazy val unit: generic.Attr = generic.Attr("unit")
-  lazy val display: generic.Attr = generic.Attr("display")
   lazy val date: generic.Attr = generic.Attr("date")
   lazy val weekday: generic.Attr = generic.Attr("weekday")
   lazy val era: generic.Attr = generic.Attr("era")
@@ -165,3 +163,11 @@ trait Attrs:
   lazy val timeZoneName: generic.Attr = generic.Attr("time-zone-name")
   lazy val timeZone: generic.Attr = generic.Attr("time-zone")
   lazy val hourFormat: generic.Attr = generic.Attr("hour-format")
+  lazy val withoutGrouping: generic.Attr = generic.Attr("without-grouping")
+  lazy val currency: generic.Attr = generic.Attr("currency")
+  lazy val currencyDisplay: generic.Attr = generic.Attr("currency-display")
+  lazy val minimumIntegerDigits: generic.Attr = generic.Attr("minimum-integer-digits")
+  lazy val minimumFractionDigits: generic.Attr = generic.Attr("minimum-fraction-digits")
+  lazy val maximumFractionDigits: generic.Attr = generic.Attr("maximum-fraction-digits")
+  lazy val minimumSignificantDigits: generic.Attr = generic.Attr("minimum-significant-digits")
+  lazy val maximumSignificantDigits: generic.Attr = generic.Attr("maximum-significant-digits")

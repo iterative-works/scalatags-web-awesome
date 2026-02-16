@@ -53,7 +53,8 @@ object Layout:
     "carousel" -> "Carousel",
     "comparison" -> "Comparison",
     "format-bytes" -> "Format Bytes",
-    "format-date" -> "Format Date"
+    "format-date" -> "Format Date",
+    "format-number" -> "Format Number"
   )
 
   def page(pageTitle: String, activePage: String)(content: Frag*): String =

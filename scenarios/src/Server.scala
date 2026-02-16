@@ -2537,7 +2537,7 @@ object Server extends cask.MainRoutes:
         waAnimation(
           attr("name") := "bounce",
           duration := "1500",
-          direction := "normal",
+          attr("direction") :="normal",
           iterations := "Infinity",
           play := "true"
         )(
@@ -2548,7 +2548,7 @@ object Server extends cask.MainRoutes:
         waAnimation(
           attr("name") := "bounce",
           duration := "1500",
-          direction := "reverse",
+          attr("direction") :="reverse",
           iterations := "Infinity",
           play := "true"
         )(
@@ -2559,7 +2559,7 @@ object Server extends cask.MainRoutes:
         waAnimation(
           attr("name") := "bounce",
           duration := "1500",
-          direction := "alternate",
+          attr("direction") :="alternate",
           iterations := "Infinity",
           play := "true"
         )(
@@ -4125,9 +4125,9 @@ object Server extends cask.MainRoutes:
       h2("Display formats"),
       div(cls := "demo-row")(
         div(
-          p("Long: ", waFormatBytes(value := "1048576", display := "long")),
-          p("Short (default): ", waFormatBytes(value := "1048576", display := "short")),
-          p("Narrow: ", waFormatBytes(value := "1048576", display := "narrow"))
+          p("Long: ", waFormatBytes(value := "1048576", attr("display") :="long")),
+          p("Short (default): ", waFormatBytes(value := "1048576", attr("display") :="short")),
+          p("Narrow: ", waFormatBytes(value := "1048576", attr("display") :="narrow"))
         )
       )
     ),
@@ -4137,14 +4137,14 @@ object Server extends cask.MainRoutes:
       div(cls := "demo-row")(
         div(
           p("1024 bytes:"),
-          p("  Long: ", waFormatBytes(value := "1024", display := "long")),
-          p("  Short: ", waFormatBytes(value := "1024", display := "short")),
-          p("  Narrow: ", waFormatBytes(value := "1024", display := "narrow")),
+          p("  Long: ", waFormatBytes(value := "1024", attr("display") :="long")),
+          p("  Short: ", waFormatBytes(value := "1024", attr("display") :="short")),
+          p("  Narrow: ", waFormatBytes(value := "1024", attr("display") :="narrow")),
           br,
           p("1000000000 bytes:"),
-          p("  Long: ", waFormatBytes(value := "1000000000", display := "long")),
-          p("  Short: ", waFormatBytes(value := "1000000000", display := "short")),
-          p("  Narrow: ", waFormatBytes(value := "1000000000", display := "narrow"))
+          p("  Long: ", waFormatBytes(value := "1000000000", attr("display") :="long")),
+          p("  Short: ", waFormatBytes(value := "1000000000", attr("display") :="short")),
+          p("  Narrow: ", waFormatBytes(value := "1000000000", attr("display") :="narrow"))
         )
       )
     )
@@ -4225,6 +4225,107 @@ object Server extends cask.MainRoutes:
             hour := "2-digit",
             minute := "2-digit"
           ))
+        )
+      )
+    )
+  )
+
+  // --- Format Number ---
+  @cask.get("/format-number")
+  def formatNumberPage(): cask.Response[String] = htmlPage("Format Number", "format-number")(
+    h1("wa-format-number"),
+
+    div(cls := "demo-section")(
+      h2("Basic number formatting"),
+      div(cls := "demo-row")(
+        div(
+          p("1234.56: ", waFormatNumber(value := "1234.56")),
+          p("1000000: ", waFormatNumber(value := "1000000")),
+          p("0.123456: ", waFormatNumber(value := "0.123456")),
+          p("-9876.54: ", waFormatNumber(value := "-9876.54"))
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Without grouping (no thousands separator)"),
+      div(cls := "demo-row")(
+        div(
+          p("With grouping (default): ", waFormatNumber(value := "1234567.89")),
+          p("Without grouping: ", waFormatNumber(value := "1234567.89", withoutGrouping := "true"))
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Currency formatting"),
+      div(cls := "demo-row")(
+        div(
+          p("USD: ", waFormatNumber(value := "1234.56", attr("type") := "currency", currency := "USD")),
+          p("EUR: ", waFormatNumber(value := "1234.56", attr("type") := "currency", currency := "EUR")),
+          p("GBP: ", waFormatNumber(value := "1234.56", attr("type") := "currency", currency := "GBP")),
+          p("JPY: ", waFormatNumber(value := "1234.56", attr("type") := "currency", currency := "JPY"))
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Currency display styles"),
+      div(cls := "demo-row")(
+        div(
+          p("Symbol (default): ", waFormatNumber(value := "1234.56", attr("type") := "currency", currency := "USD", currencyDisplay := "symbol")),
+          p("Narrowed symbol: ", waFormatNumber(value := "1234.56", attr("type") := "currency", currency := "USD", currencyDisplay := "narrowSymbol")),
+          p("Code: ", waFormatNumber(value := "1234.56", attr("type") := "currency", currency := "USD", currencyDisplay := "code")),
+          p("Name: ", waFormatNumber(value := "1234.56", attr("type") := "currency", currency := "USD", currencyDisplay := "name"))
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Fraction digits control"),
+      div(cls := "demo-row")(
+        div(
+          p("Default: ", waFormatNumber(value := "1234.5678")),
+          p("Min 2, Max 2: ", waFormatNumber(value := "1234.5678", minimumFractionDigits := "2", maximumFractionDigits := "2")),
+          p("Min 0, Max 0: ", waFormatNumber(value := "1234.5678", minimumFractionDigits := "0", maximumFractionDigits := "0")),
+          p("Min 4, Max 4: ", waFormatNumber(value := "1234.5678", minimumFractionDigits := "4", maximumFractionDigits := "4")),
+          p("Min 2 on integer: ", waFormatNumber(value := "1234", minimumFractionDigits := "2"))
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Integer digits control"),
+      div(cls := "demo-row")(
+        div(
+          p("Default: ", waFormatNumber(value := "42")),
+          p("Min 3 digits: ", waFormatNumber(value := "42", minimumIntegerDigits := "3")),
+          p("Min 5 digits: ", waFormatNumber(value := "42", minimumIntegerDigits := "5")),
+          p("Min 6 digits: ", waFormatNumber(value := "1234", minimumIntegerDigits := "6"))
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Significant digits"),
+      div(cls := "demo-row")(
+        div(
+          p("Default: ", waFormatNumber(value := "1234.5678")),
+          p("3 significant digits: ", waFormatNumber(value := "1234.5678", minimumSignificantDigits := "3", maximumSignificantDigits := "3")),
+          p("5 significant digits: ", waFormatNumber(value := "1234.5678", minimumSignificantDigits := "5", maximumSignificantDigits := "5")),
+          p("Small number, 2 sig digits: ", waFormatNumber(value := "0.001234", minimumSignificantDigits := "2", maximumSignificantDigits := "2"))
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Percentage formatting"),
+      div(cls := "demo-row")(
+        div(
+          p("0.25 as percent: ", waFormatNumber(value := "0.25", attr("type") := "percent")),
+          p("0.5 as percent: ", waFormatNumber(value := "0.5", attr("type") := "percent")),
+          p("1.5 as percent: ", waFormatNumber(value := "1.5", attr("type") := "percent")),
+          p("0.1234 with 2 decimals: ", waFormatNumber(value := "0.1234", attr("type") := "percent", minimumFractionDigits := "2", maximumFractionDigits := "2"))
         )
       )
     )

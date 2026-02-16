@@ -102,7 +102,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 |-----------|-----|----------|-------|--------------------------|
 | wa-format-bytes | [x] | [x] | [x] | unit, display |
 | wa-format-date | [x] | [x] | [x] | date, weekday, era, year, month, day, hour, minute, second, time-zone-name, time-zone, hour-format |
-| wa-format-number | [ ] | [ ] | [ ] | without-grouping, currency, currency-display, minimum-integer-digits, minimum-fraction-digits, maximum-fraction-digits, minimum-significant-digits, maximum-significant-digits |
+| wa-format-number | [x] | [x] | [x] | without-grouping, currency, currency-display, minimum-integer-digits, minimum-fraction-digits, maximum-fraction-digits, minimum-significant-digits, maximum-significant-digits |
 | wa-include | [ ] | [ ] | [ ] | mode, allow-scripts |
 | wa-qr-code | [ ] | [ ] | [ ] | fill, background |
 | wa-relative-time | [ ] | [ ] | [ ] | date, locale, format |
