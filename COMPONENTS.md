@@ -104,7 +104,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 | wa-format-date | [x] | [x] | [x] | date, weekday, era, year, month, day, hour, minute, second, time-zone-name, time-zone, hour-format |
 | wa-format-number | [x] | [x] | [x] | without-grouping, currency, currency-display, minimum-integer-digits, minimum-fraction-digits, maximum-fraction-digits, minimum-significant-digits, maximum-significant-digits |
 | wa-include | [x] | [x] | [x] | mode, allow-scripts |
-| wa-qr-code | [ ] | [ ] | [ ] | fill, background |
+| wa-qr-code | [x] | [x] | [x] | radius, error-correction (fill already defined; background conflicts) |
 | wa-relative-time | [ ] | [ ] | [ ] | date, locale, format |
 | wa-zoomable-frame | [ ] | [ ] | [x] | (none — uses src, alt) |
 

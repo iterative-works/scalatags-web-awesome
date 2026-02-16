@@ -4378,4 +4378,70 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- QR Code ---
+  @cask.get("/qr-code")
+  def qrCodePage(): cask.Response[String] = htmlPage("QR Code", "qr-code")(
+    h1("wa-qr-code"),
+
+    div(cls := "demo-section")(
+      h2("Basic QR code"),
+      div(cls := "demo-row")(
+        waQrCode(value := "https://webawesome.com")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Custom sizes"),
+      div(cls := "demo-row")(
+        waQrCode(value := "https://webawesome.com", attr("size") := "64"),
+        waQrCode(value := "https://webawesome.com", attr("size") := "128"),
+        waQrCode(value := "https://webawesome.com", attr("size") := "192"),
+        waQrCode(value := "https://webawesome.com", attr("size") := "256")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Custom colors"),
+      div(cls := "demo-row")(
+        waQrCode(value := "https://webawesome.com", fill := "#0066ff", attr("background") := "#ffffff"),
+        waQrCode(value := "https://webawesome.com", fill := "#ff0066", attr("background") := "#ffe0f0"),
+        waQrCode(value := "https://webawesome.com", fill := "#00cc66", attr("background") := "#e0ffe0"),
+        waQrCode(value := "https://webawesome.com", fill := "#ffffff", attr("background") := "#000000")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Rounded corners"),
+      div(cls := "demo-row")(
+        waQrCode(value := "https://webawesome.com", radius := "0"),
+        waQrCode(value := "https://webawesome.com", radius := "0.25"),
+        waQrCode(value := "https://webawesome.com", radius := "0.5")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Error correction levels"),
+      div(cls := "demo-row")(
+        div(
+          p("L (Low): ", waQrCode(value := "https://webawesome.com", errorCorrection := "L")),
+          p("M (Medium): ", waQrCode(value := "https://webawesome.com", errorCorrection := "M")),
+          p("Q (Quartile): ", waQrCode(value := "https://webawesome.com", errorCorrection := "Q")),
+          p("H (High): ", waQrCode(value := "https://webawesome.com", errorCorrection := "H"))
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Different values"),
+      div(cls := "demo-row")(
+        div(
+          p("URL: ", waQrCode(value := "https://webawesome.com")),
+          p("Email: ", waQrCode(value := "mailto:info@example.com")),
+          p("Phone: ", waQrCode(value := "tel:+1234567890")),
+          p("Text: ", waQrCode(value := "Hello, Web Awesome!"))
+        )
+      )
+    )
+  )
+
   initialize()

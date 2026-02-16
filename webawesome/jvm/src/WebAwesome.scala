@@ -79,3 +79,6 @@ object WebAwesome extends Attrs:
 
   // Include
   lazy val waInclude = htmlTag("wa-include")
+
+  // QR Code
+  lazy val waQrCode = htmlTag("wa-qr-code")

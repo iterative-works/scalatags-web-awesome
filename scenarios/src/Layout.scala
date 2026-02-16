@@ -55,7 +55,8 @@ object Layout:
     "format-bytes" -> "Format Bytes",
     "format-date" -> "Format Date",
     "format-number" -> "Format Number",
-    "include" -> "Include"
+    "include" -> "Include",
+    "qr-code" -> "QR Code"
   )
 
   def page(pageTitle: String, activePage: String)(content: Frag*): String =

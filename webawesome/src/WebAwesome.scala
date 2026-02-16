@@ -175,3 +175,7 @@ trait Attrs:
   // Include
   lazy val mode: generic.Attr = generic.Attr("mode")
   lazy val allowScripts: generic.Attr = generic.Attr("allow-scripts")
+
+  // QR Code
+  lazy val radius: generic.Attr = generic.Attr("radius")
+  lazy val errorCorrection: generic.Attr = generic.Attr("error-correction")
