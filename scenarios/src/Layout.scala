@@ -38,6 +38,7 @@ object Layout:
     "dropdown-item" -> "Dropdown Item",
     "avatar" -> "Avatar",
     "callout" -> "Callout",
+    "popover" -> "Popover",
     "icon" -> "Icon",
     "skeleton" -> "Skeleton",
     "spinner" -> "Spinner",

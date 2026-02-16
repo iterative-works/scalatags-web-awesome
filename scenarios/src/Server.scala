@@ -2582,6 +2582,90 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Popover ---
+  @cask.get("/popover")
+  def popoverPage(): cask.Response[String] = htmlPage("Popover", "popover")(
+    h1("wa-popover"),
+
+    div(cls := "demo-section")(
+      h2("Basic popover"),
+      div(cls := "demo-row")(
+        waButton(id := "popover-trigger-1")("Click me"),
+        waPopover(attr("for") := "popover-trigger-1")(
+          "This is a basic popover with default placement."
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Placement options"),
+      div(cls := "demo-row")(
+        waButton(id := "popover-top")("Top"),
+        waPopover(attr("for") := "popover-top", placement := "top")(
+          "Popover appears above"
+        ),
+        waButton(id := "popover-bottom")("Bottom"),
+        waPopover(attr("for") := "popover-bottom", placement := "bottom")(
+          "Popover appears below"
+        ),
+        waButton(id := "popover-left")("Left"),
+        waPopover(attr("for") := "popover-left", placement := "left")(
+          "Popover appears to the left"
+        ),
+        waButton(id := "popover-right")("Right"),
+        waPopover(attr("for") := "popover-right", placement := "right")(
+          "Popover appears to the right"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Open by default"),
+      div(cls := "demo-row")(
+        waButton(id := "popover-open")("Always visible"),
+        waPopover(attr("for") := "popover-open", open := "true")(
+          "This popover is always open"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Without arrow"),
+      div(cls := "demo-row")(
+        waButton(id := "popover-no-arrow")("No arrow"),
+        waPopover(attr("for") := "popover-no-arrow", withoutArrow := "true")(
+          "This popover has no arrow pointing to the trigger"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Distance and skidding"),
+      div(cls := "demo-row")(
+        waButton(id := "popover-distance")("Distance 20"),
+        waPopover(attr("for") := "popover-distance", distance := "20")(
+          "Offset 20px away from trigger"
+        ),
+        waButton(id := "popover-skidding")("Skidding 20"),
+        waPopover(attr("for") := "popover-skidding", skidding := "20")(
+          "Offset 20px along the trigger"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Rich content"),
+      div(cls := "demo-row")(
+        waButton(id := "popover-rich", variant := "brand")("Info"),
+        waPopover(attr("for") := "popover-rich", placement := "top")(
+          strong("Product Information"),
+          p(attr("style") := "margin: 0.5rem 0")("This product includes all the features you need."),
+          waButton(attr("size") := "small", appearance := "outlined")("Learn More")
+        )
+      )
+    )
+  )
+
   // --- Icon ---
   @cask.get("/icon")
   def iconPage(): cask.Response[String] = htmlPage("Icon", "icon")(
