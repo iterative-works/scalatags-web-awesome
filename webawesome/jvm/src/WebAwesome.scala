@@ -31,6 +31,7 @@ object WebAwesome extends Attrs:
 
   // Organization
   lazy val waBreadcrumb = htmlTag("wa-breadcrumb")
+  lazy val waBreadcrumbItem = htmlTag("wa-breadcrumb-item")
   lazy val waCard = htmlTag("wa-card")
   lazy val waDialog = htmlTag("wa-dialog")
   lazy val waDivider = htmlTag("wa-divider")

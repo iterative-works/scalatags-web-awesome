@@ -471,6 +471,101 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Breadcrumb Item ---
+  @cask.get("/breadcrumb-item")
+  def breadcrumbItemPage(): cask.Response[String] = htmlPage("Breadcrumb Item", "breadcrumb-item")(
+    h1("wa-breadcrumb-item"),
+
+    div(cls := "demo-section")(
+      h2("Basic breadcrumb items with links"),
+      div(cls := "demo-row")(
+        waBreadcrumb(
+          waBreadcrumbItem(href := "#home")("Home"),
+          waBreadcrumbItem(href := "#products")("Products"),
+          waBreadcrumbItem(href := "#category")("Category"),
+          waBreadcrumbItem("Current Page")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With icons in start slot"),
+      div(cls := "demo-row")(
+        waBreadcrumb(
+          waBreadcrumbItem(href := "#")(
+            waIcon(name := "house", slot := "start"),
+            "Home"
+          ),
+          waBreadcrumbItem(href := "#")(
+            waIcon(name := "folder", slot := "start"),
+            "Documents"
+          ),
+          waBreadcrumbItem(
+            waIcon(name := "file", slot := "start"),
+            "Report.pdf"
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With icons in end slot"),
+      div(cls := "demo-row")(
+        waBreadcrumb(
+          waBreadcrumbItem(href := "#")(
+            "Home",
+            waIcon(name := "chevron-right", slot := "end")
+          ),
+          waBreadcrumbItem(href := "#")(
+            "Products",
+            waIcon(name := "chevron-right", slot := "end")
+          ),
+          waBreadcrumbItem("Current")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With custom separator per item"),
+      div(cls := "demo-row")(
+        waBreadcrumb(
+          waBreadcrumbItem(href := "#")(
+            waIcon(name := "arrow-right", slot := "separator"),
+            "Home"
+          ),
+          waBreadcrumbItem(href := "#")(
+            waIcon(name := "arrow-right", slot := "separator"),
+            "Docs"
+          ),
+          waBreadcrumbItem("Current")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Mixed: links and buttons"),
+      div(cls := "demo-row")(
+        waBreadcrumb(
+          waBreadcrumbItem(href := "#")("Link Item"),
+          waBreadcrumbItem("Button Item"),
+          waBreadcrumbItem(href := "#")("Another Link"),
+          waBreadcrumbItem("Current")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With target and rel attributes"),
+      div(cls := "demo-row")(
+        waBreadcrumb(
+          waBreadcrumbItem(href := "#", target := "_self")("Internal"),
+          waBreadcrumbItem(href := "https://example.com", target := "_blank", rel := "noopener")("External"),
+          waBreadcrumbItem("Current")
+        )
+      )
+    )
+  )
+
   // --- Card ---
   @cask.get("/card")
   def cardPage(): cask.Response[String] = htmlPage("Card", "card")(

@@ -16,6 +16,7 @@ object Layout:
     "input" -> "Input",
     "badge" -> "Badge",
     "breadcrumb" -> "Breadcrumb",
+    "breadcrumb-item" -> "Breadcrumb Item",
     "card" -> "Card",
     "switch" -> "Switch",
     "checkbox" -> "Checkbox",
