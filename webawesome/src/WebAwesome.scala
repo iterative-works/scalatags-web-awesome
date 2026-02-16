@@ -62,3 +62,8 @@ trait Attrs:
   lazy val distance: generic.Attr = generic.Attr("distance")
   lazy val skidding: generic.Attr = generic.Attr("skidding")
   lazy val submenuOpen: generic.Attr = generic.Attr("submenu-open")
+
+  // Avatar
+  lazy val image: generic.Attr = generic.Attr("image")
+  lazy val initials: generic.Attr = generic.Attr("initials")
+  lazy val shape: generic.Attr = generic.Attr("shape")

@@ -39,7 +39,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 
 | Component | Tag | Scenario | Attrs | WA-specific attrs needed |
 |-----------|-----|----------|-------|--------------------------|
-| wa-avatar | [x] | [ ] | [ ] | image, initials, shape |
+| wa-avatar | [x] | [x] | [x] | image, initials, shape |
 | wa-badge | [x] | [x] | [ ] | attention |
 | wa-callout | [ ] | [ ] | [ ] | (uses variant, appearance — already defined) |
 | wa-icon | [x] | [ ] | [ ] | family, auto-width, swap-opacity, library, rotate, flip, animation |

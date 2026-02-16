@@ -1493,6 +1493,103 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Avatar ---
+  @cask.get("/avatar")
+  def avatarPage(): cask.Response[String] = htmlPage("Avatar", "avatar")(
+    h1("wa-avatar"),
+
+    div(cls := "demo-section")(
+      h2("With initials"),
+      div(cls := "demo-row")(
+        waAvatar(initials := "JD"),
+        waAvatar(initials := "MS"),
+        waAvatar(initials := "AB")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With image"),
+      div(cls := "demo-row")(
+        waAvatar(image := "https://i.pravatar.cc/150?img=1"),
+        waAvatar(image := "https://i.pravatar.cc/150?img=2"),
+        waAvatar(image := "https://i.pravatar.cc/150?img=3")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Shapes"),
+      div(cls := "demo-row")(
+        waAvatar(initials := "RD", shape := "circle"),
+        waAvatar(initials := "SQ", shape := "square"),
+        waAvatar(initials := "RR", shape := "rounded")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Shapes with images"),
+      div(cls := "demo-row")(
+        waAvatar(image := "https://i.pravatar.cc/150?img=4", shape := "circle"),
+        waAvatar(image := "https://i.pravatar.cc/150?img=5", shape := "square"),
+        waAvatar(image := "https://i.pravatar.cc/150?img=6", shape := "rounded")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Sizes"),
+      div(cls := "demo-row")(
+        waAvatar(initials := "SM", attr("size") := "small"),
+        waAvatar(initials := "MD", attr("size") := "medium"),
+        waAvatar(initials := "LG", attr("size") := "large")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Different size images"),
+      div(cls := "demo-row")(
+        waAvatar(image := "https://i.pravatar.cc/150?img=7", attr("size") := "small"),
+        waAvatar(image := "https://i.pravatar.cc/150?img=8", attr("size") := "medium"),
+        waAvatar(image := "https://i.pravatar.cc/150?img=9", attr("size") := "large")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("User profiles"),
+      div(cls := "demo-row")(
+        div(attr("style") := "display: flex; align-items: center; gap: 0.75rem")(
+          waAvatar(image := "https://i.pravatar.cc/150?img=10"),
+          div(
+            div(strong("John Doe")),
+            div(attr("style") := "color: #666; font-size: 0.875rem")("Software Engineer")
+          )
+        ),
+        div(attr("style") := "display: flex; align-items: center; gap: 0.75rem")(
+          waAvatar(initials := "AM", shape := "square"),
+          div(
+            div(strong("Alice Martin")),
+            div(attr("style") := "color: #666; font-size: 0.875rem")("Product Manager")
+          )
+        ),
+        div(attr("style") := "display: flex; align-items: center; gap: 0.75rem")(
+          waAvatar(image := "https://i.pravatar.cc/150?img=11", shape := "rounded"),
+          div(
+            div(strong("Bob Smith")),
+            div(attr("style") := "color: #666; font-size: 0.875rem")("Designer")
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Avatar group"),
+      div(attr("style") := "display: flex; align-items: center")(
+        waAvatar(image := "https://i.pravatar.cc/150?img=12", attr("style") := "margin-right: -0.5rem"),
+        waAvatar(image := "https://i.pravatar.cc/150?img=13", attr("style") := "margin-right: -0.5rem"),
+        waAvatar(image := "https://i.pravatar.cc/150?img=14", attr("style") := "margin-right: -0.5rem"),
+        waAvatar(initials := "+5", attr("style") := "background: #6c757d; color: white")
+      )
+    )
+  )
+
   // --- Option ---
   @cask.get("/option")
   def optionPage(): cask.Response[String] = htmlPage("Option", "option")(
