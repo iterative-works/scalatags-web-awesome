@@ -21,3 +21,9 @@ node_modules/
 # Scala
 *.class
 *.semanticdb
+
+# Playwright MCP
+.playwright-mcp/
+
+# Screenshots
+*.png
