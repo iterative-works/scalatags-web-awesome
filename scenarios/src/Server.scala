@@ -4331,6 +4331,67 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Relative Time ---
+  @cask.get("/relative-time")
+  def relativeTimePage(): cask.Response[String] = htmlPage("Relative Time", "relative-time")(
+    h1("wa-relative-time"),
+
+    div(cls := "demo-section")(
+      h2("Basic relative time"),
+      div(cls := "demo-row")(
+        div(
+          p("Just now: ", waRelativeTime(date := java.time.Instant.now().toString)),
+          p("1 hour ago: ", waRelativeTime(date := java.time.Instant.now().minusSeconds(3600).toString)),
+          p("1 day ago: ", waRelativeTime(date := java.time.Instant.now().minusSeconds(86400).toString)),
+          p("1 week ago: ", waRelativeTime(date := java.time.Instant.now().minusSeconds(604800).toString)),
+          p("1 month ago: ", waRelativeTime(date := java.time.Instant.now().minusSeconds(2592000).toString))
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Format styles"),
+      div(cls := "demo-row")(
+        div(
+          p("Long (default): ", waRelativeTime(date := java.time.Instant.now().minusSeconds(3600).toString, format := "long")),
+          p("Short: ", waRelativeTime(date := java.time.Instant.now().minusSeconds(3600).toString, format := "short")),
+          p("Narrow: ", waRelativeTime(date := java.time.Instant.now().minusSeconds(3600).toString, format := "narrow"))
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Numeric display modes"),
+      div(cls := "demo-row")(
+        div(
+          p("Auto (yesterday/tomorrow): ", waRelativeTime(date := java.time.Instant.now().minusSeconds(86400).toString, numeric := "auto")),
+          p("Always (1 day ago): ", waRelativeTime(date := java.time.Instant.now().minusSeconds(86400).toString, numeric := "always"))
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Sync mode (keeps updating)"),
+      div(cls := "demo-row")(
+        div(
+          p("Static (default): ", waRelativeTime(date := java.time.Instant.now().toString, sync := "false")),
+          p("Synced (live updates): ", waRelativeTime(date := java.time.Instant.now().toString, sync := "true"))
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Future dates"),
+      div(cls := "demo-row")(
+        div(
+          p("In 1 hour: ", waRelativeTime(date := java.time.Instant.now().plusSeconds(3600).toString)),
+          p("In 1 day: ", waRelativeTime(date := java.time.Instant.now().plusSeconds(86400).toString)),
+          p("In 1 week: ", waRelativeTime(date := java.time.Instant.now().plusSeconds(604800).toString))
+        )
+      )
+    )
+  )
+
   // --- Include ---
   @cask.get("/include")
   def includePage(): cask.Response[String] = htmlPage("Include", "include")(

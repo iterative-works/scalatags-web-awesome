@@ -55,6 +55,7 @@ object Layout:
     "format-bytes" -> "Format Bytes",
     "format-date" -> "Format Date",
     "format-number" -> "Format Number",
+    "relative-time" -> "Relative Time",
     "include" -> "Include",
     "qr-code" -> "QR Code"
   )

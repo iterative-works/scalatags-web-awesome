@@ -76,6 +76,7 @@ object WebAwesome extends Attrs:
   lazy val waFormatBytes = htmlTag("wa-format-bytes")
   lazy val waFormatDate = htmlTag("wa-format-date")
   lazy val waFormatNumber = htmlTag("wa-format-number")
+  lazy val waRelativeTime = htmlTag("wa-relative-time")
 
   // Include
   lazy val waInclude = htmlTag("wa-include")
