@@ -1768,4 +1768,98 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Callout ---
+  @cask.get("/callout")
+  def calloutPage(): cask.Response[String] = htmlPage("Callout", "callout")(
+    h1("wa-callout"),
+
+    div(cls := "demo-section")(
+      h2("Variants"),
+      div(cls := "demo-row")(
+        waCallout(variant := "neutral")("This is a neutral callout message."),
+        waCallout(variant := "brand")("This is a brand callout message."),
+        waCallout(variant := "success")("This is a success callout message."),
+        waCallout(variant := "warning")("This is a warning callout message."),
+        waCallout(variant := "danger")("This is a danger callout message.")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Appearances"),
+      div(cls := "demo-row")(
+        waCallout(appearance := "accent", variant := "brand")("Accent appearance"),
+        waCallout(appearance := "filled", variant := "brand")("Filled appearance"),
+        waCallout(appearance := "outlined", variant := "brand")("Outlined appearance"),
+        waCallout(appearance := "plain", variant := "brand")("Plain appearance")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With longer content"),
+      waCallout(variant := "success", appearance := "filled")(
+        strong("Success! "),
+        "Your changes have been saved successfully. You can now continue working or close this window."
+      ),
+      waCallout(variant := "warning", appearance := "outlined")(
+        strong("Warning: "),
+        "This action cannot be undone. Please review your changes carefully before proceeding."
+      ),
+      waCallout(variant := "danger", appearance := "filled")(
+        strong("Error: "),
+        "Something went wrong while processing your request. Please try again or contact support if the problem persists."
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Mixed variants and appearances"),
+      div(cls := "demo-row")(
+        waCallout(variant := "neutral", appearance := "outlined")("Neutral outlined"),
+        waCallout(variant := "success", appearance := "accent")("Success accent"),
+        waCallout(variant := "danger", appearance := "plain")("Danger plain")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Information callouts"),
+      waCallout(variant := "brand", appearance := "accent")(
+        waIcon(slot := "icon", name := "circle-info")(""),
+        strong("Pro Tip: "),
+        "You can customize these callouts with different variants and appearances to match your design system."
+      ),
+      waCallout(variant := "neutral", appearance := "outlined")(
+        waIcon(slot := "icon", name := "lightbulb")(""),
+        strong("Did you know? "),
+        "Web Awesome components are fully customizable and work with any CSS framework."
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Action callouts"),
+      waCallout(variant := "brand", appearance := "filled")(
+        strong("New feature available!"),
+        p(attr("style") := "margin: 0.5rem 0")("Try our new dashboard redesign with improved analytics and reporting."),
+        div(slot := "footer")(
+          waButton(attr("size") := "small", appearance := "plain")("Learn More"),
+          waButton(attr("size") := "small", appearance := "plain")("Dismiss")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("System messages"),
+      waCallout(variant := "success", appearance := "accent")(
+        waIcon(slot := "icon", name := "circle-check")(""),
+        "Account verification successful"
+      ),
+      waCallout(variant := "warning", appearance := "filled")(
+        waIcon(slot := "icon", name := "triangle-exclamation")(""),
+        "Your session will expire in 5 minutes"
+      ),
+      waCallout(variant := "danger", appearance := "outlined")(
+        waIcon(slot := "icon", name := "circle-exclamation")(""),
+        "Unable to connect to server. Please check your internet connection."
+      )
+    )
+  )
+
   initialize()

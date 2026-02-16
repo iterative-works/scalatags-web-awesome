@@ -27,7 +27,8 @@ object Layout:
     "textarea" -> "Textarea",
     "dropdown" -> "Dropdown",
     "dropdown-item" -> "Dropdown Item",
-    "avatar" -> "Avatar"
+    "avatar" -> "Avatar",
+    "callout" -> "Callout"
   )
 
   def page(pageTitle: String, activePage: String)(content: Frag*): String =

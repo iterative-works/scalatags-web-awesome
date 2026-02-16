@@ -39,3 +39,6 @@ object WebAwesome extends Attrs:
   // Imagery
   lazy val waIcon = htmlTag("wa-icon")
   lazy val waAvatar = htmlTag("wa-avatar")
+
+  // Notifications
+  lazy val waCallout = htmlTag("wa-callout")
