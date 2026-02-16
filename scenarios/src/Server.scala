@@ -3847,4 +3847,151 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Carousel ---
+  @cask.get("/carousel")
+  def carouselPage(): cask.Response[String] = htmlPage("Carousel", "carousel")(
+    h1("wa-carousel"),
+
+    div(cls := "demo-section")(
+      h2("Basic carousel"),
+      div(cls := "demo-row")(
+        waCarousel(attr("style") := "width: 600px; height: 400px;")(
+          waCarouselItem(
+            div(attr("style") := "width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem")("Slide 1")
+          ),
+          waCarouselItem(
+            div(attr("style") := "width: 100%; height: 100%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem")("Slide 2")
+          ),
+          waCarouselItem(
+            div(attr("style") := "width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem")("Slide 3")
+          ),
+          waCarouselItem(
+            div(attr("style") := "width: 100%; height: 100%; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem")("Slide 4")
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With navigation and pagination"),
+      div(cls := "demo-row")(
+        waCarousel(
+          navigation := "true",
+          pagination := "true",
+          attr("style") := "width: 600px; height: 400px;"
+        )(
+          waCarouselItem(
+            div(attr("style") := "width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem")("Slide 1")
+          ),
+          waCarouselItem(
+            div(attr("style") := "width: 100%; height: 100%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem")("Slide 2")
+          ),
+          waCarouselItem(
+            div(attr("style") := "width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem")("Slide 3")
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Loop mode with autoplay"),
+      div(cls := "demo-row")(
+        waCarousel(
+          loop := "true",
+          autoplay := "true",
+          autoplayInterval := "3000",
+          navigation := "true",
+          pagination := "true",
+          attr("style") := "width: 600px; height: 300px;"
+        )(
+          waCarouselItem(
+            div(attr("style") := "width: 100%; height: 100%; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem")("Auto-playing 1")
+          ),
+          waCarouselItem(
+            div(attr("style") := "width: 100%; height: 100%; background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem")("Auto-playing 2")
+          ),
+          waCarouselItem(
+            div(attr("style") := "width: 100%; height: 100%; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); display: flex; align-items: center; justify-content: center; color: #333; font-size: 1.5rem")("Auto-playing 3")
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Multiple slides per page"),
+      div(cls := "demo-row")(
+        waCarousel(
+          slidesPerPage := "3",
+          slidesPerMove := "1",
+          navigation := "true",
+          pagination := "true",
+          attr("style") := "width: 800px; height: 200px;"
+        )(
+          waCarouselItem(
+            div(attr("style") := "width: 100%; height: 100%; background: #ff6b6b; display: flex; align-items: center; justify-content: center; color: white")("1")
+          ),
+          waCarouselItem(
+            div(attr("style") := "width: 100%; height: 100%; background: #4ecdc4; display: flex; align-items: center; justify-content: center; color: white")("2")
+          ),
+          waCarouselItem(
+            div(attr("style") := "width: 100%; height: 100%; background: #45b7d1; display: flex; align-items: center; justify-content: center; color: white")("3")
+          ),
+          waCarouselItem(
+            div(attr("style") := "width: 100%; height: 100%; background: #96ceb4; display: flex; align-items: center; justify-content: center; color: white")("4")
+          ),
+          waCarouselItem(
+            div(attr("style") := "width: 100%; height: 100%; background: #ffeaa7; display: flex; align-items: center; justify-content: center; color: #333")("5")
+          ),
+          waCarouselItem(
+            div(attr("style") := "width: 100%; height: 100%; background: #dfe6e9; display: flex; align-items: center; justify-content: center; color: #333")("6")
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Vertical orientation"),
+      div(cls := "demo-row")(
+        waCarousel(
+          orientation := "vertical",
+          navigation := "true",
+          pagination := "true",
+          attr("style") := "width: 400px; height: 500px;"
+        )(
+          waCarouselItem(
+            div(attr("style") := "width: 100%; height: 100%; background: linear-gradient(180deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem")("Vertical 1")
+          ),
+          waCarouselItem(
+            div(attr("style") := "width: 100%; height: 100%; background: linear-gradient(180deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem")("Vertical 2")
+          ),
+          waCarouselItem(
+            div(attr("style") := "width: 100%; height: 100%; background: linear-gradient(180deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem")("Vertical 3")
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With mouse dragging"),
+      div(cls := "demo-row")(
+        waCarousel(
+          mouseDragging := "true",
+          navigation := "true",
+          pagination := "true",
+          attr("style") := "width: 600px; height: 300px;"
+        )(
+          waCarouselItem(
+            div(attr("style") := "width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem")("Drag me!")
+          ),
+          waCarouselItem(
+            div(attr("style") := "width: 100%; height: 100%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem")("Drag to navigate")
+          ),
+          waCarouselItem(
+            div(attr("style") := "width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem")("Mouse dragging enabled")
+          )
+        )
+      )
+    )
+  )
+
   initialize()

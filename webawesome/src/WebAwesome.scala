@@ -139,3 +139,13 @@ trait Attrs:
   lazy val iterationStart: generic.Attr = generic.Attr("iteration-start")
   lazy val playbackRate: generic.Attr = generic.Attr("playback-rate")
   lazy val keyframes: generic.Attr = generic.Attr("keyframes")
+
+  // Carousel
+  lazy val loop: generic.Attr = generic.Attr("loop")
+  lazy val navigation: generic.Attr = generic.Attr("navigation")
+  lazy val pagination: generic.Attr = generic.Attr("pagination")
+  lazy val autoplay: generic.Attr = generic.Attr("autoplay")
+  lazy val autoplayInterval: generic.Attr = generic.Attr("autoplay-interval")
+  lazy val slidesPerPage: generic.Attr = generic.Attr("slides-per-page")
+  lazy val slidesPerMove: generic.Attr = generic.Attr("slides-per-move")
+  lazy val mouseDragging: generic.Attr = generic.Attr("mouse-dragging")

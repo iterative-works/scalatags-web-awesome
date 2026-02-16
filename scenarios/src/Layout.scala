@@ -49,7 +49,8 @@ object Layout:
     "tag" -> "Tag",
     "progress-bar" -> "Progress Bar",
     "progress-ring" -> "Progress Ring",
-    "rating" -> "Rating"
+    "rating" -> "Rating",
+    "carousel" -> "Carousel"
   )
 
   def page(pageTitle: String, activePage: String)(content: Frag*): String =

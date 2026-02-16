@@ -64,3 +64,7 @@ object WebAwesome extends Attrs:
   lazy val waProgressBar = htmlTag("wa-progress-bar")
   lazy val waProgressRing = htmlTag("wa-progress-ring")
   lazy val waRating = htmlTag("wa-rating")
+
+  // Carousel
+  lazy val waCarousel = htmlTag("wa-carousel")
+  lazy val waCarouselItem = htmlTag("wa-carousel-item")
