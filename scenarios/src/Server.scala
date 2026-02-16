@@ -2228,4 +2228,158 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Spinner ---
+  @cask.get("/spinner")
+  def spinnerPage(): cask.Response[String] = htmlPage("Spinner", "spinner")(
+    h1("wa-spinner"),
+
+    div(cls := "demo-section")(
+      h2("Basic spinner"),
+      div(cls := "demo-row")(
+        waSpinner
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Sizes (via CSS)"),
+      div(cls := "demo-row")(
+        waSpinner(attr("style") := "font-size: 1rem"),
+        waSpinner(attr("style") := "font-size: 1.5rem"),
+        waSpinner(attr("style") := "font-size: 2rem"),
+        waSpinner(attr("style") := "font-size: 3rem"),
+        waSpinner(attr("style") := "font-size: 4rem")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Custom colors"),
+      div(cls := "demo-row")(
+        waSpinner(attr("style") := "--indicator-color: #0066ff; font-size: 2rem"),
+        waSpinner(attr("style") := "--indicator-color: #28a745; font-size: 2rem"),
+        waSpinner(attr("style") := "--indicator-color: #ffc107; font-size: 2rem"),
+        waSpinner(attr("style") := "--indicator-color: #dc3545; font-size: 2rem"),
+        waSpinner(attr("style") := "--indicator-color: #6c757d; font-size: 2rem")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Custom track color"),
+      div(cls := "demo-row")(
+        waSpinner(attr("style") := "--track-color: #e0e0e0; font-size: 2rem"),
+        waSpinner(attr("style") := "--track-color: rgba(0, 102, 255, 0.2); --indicator-color: #0066ff; font-size: 2rem"),
+        waSpinner(attr("style") := "--track-color: transparent; font-size: 2rem")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Custom track width"),
+      div(cls := "demo-row")(
+        waSpinner(attr("style") := "--track-width: 1px; font-size: 2rem"),
+        waSpinner(attr("style") := "--track-width: 2px; font-size: 2rem"),
+        waSpinner(attr("style") := "--track-width: 4px; font-size: 2rem"),
+        waSpinner(attr("style") := "--track-width: 8px; font-size: 2rem")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Custom speed"),
+      div(cls := "demo-row")(
+        waSpinner(attr("style") := "--speed: 0.5s; font-size: 2rem"),
+        waSpinner(attr("style") := "--speed: 1s; font-size: 2rem"),
+        waSpinner(attr("style") := "--speed: 2s; font-size: 2rem"),
+        waSpinner(attr("style") := "--speed: 3s; font-size: 2rem")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("In buttons"),
+      div(cls := "demo-row")(
+        waButton(variant := "brand", loading := "true")("Loading"),
+        waButton(variant := "success", loading := "true")("Processing"),
+        waButton(variant := "danger", loading := "true", attr("size") := "small")("Deleting"),
+        waButton(variant := "neutral", loading := "true", attr("size") := "large")("Saving")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Loading states"),
+      div(cls := "demo-row")(
+        div(attr("style") := "display: flex; flex-direction: column; align-items: center; gap: 0.75rem; padding: 2rem; background: #f5f5f5; border-radius: 8px")(
+          waSpinner(attr("style") := "font-size: 2rem"),
+          p(attr("style") := "margin: 0; color: #666")("Loading data...")
+        ),
+        div(attr("style") := "display: flex; flex-direction: column; align-items: center; gap: 0.75rem; padding: 2rem; background: #f5f5f5; border-radius: 8px")(
+          waSpinner(attr("style") := "--indicator-color: #0066ff; font-size: 2rem"),
+          p(attr("style") := "margin: 0; color: #666")("Please wait...")
+        ),
+        div(attr("style") := "display: flex; flex-direction: column; align-items: center; gap: 0.75rem; padding: 2rem; background: #f5f5f5; border-radius: 8px")(
+          waSpinner(attr("style") := "--indicator-color: #28a745; font-size: 2rem"),
+          p(attr("style") := "margin: 0; color: #666")("Processing...")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("In cards"),
+      div(cls := "demo-row")(
+        waCard(attr("style") := "width: 300px")(
+          div(slot := "header")(
+            strong("Loading Content")
+          ),
+          div(attr("style") := "display: flex; flex-direction: column; align-items: center; padding: 3rem 1rem")(
+            waSpinner(attr("style") := "font-size: 2.5rem; margin-bottom: 1rem"),
+            p(attr("style") := "margin: 0; color: #666; text-align: center")("Fetching your data...")
+          )
+        ),
+        waCard(attr("style") := "width: 300px")(
+          div(slot := "header")(
+            strong("Upload in Progress")
+          ),
+          div(attr("style") := "display: flex; flex-direction: column; align-items: center; padding: 3rem 1rem")(
+            waSpinner(attr("style") := "--indicator-color: #0066ff; font-size: 2.5rem; margin-bottom: 1rem"),
+            p(attr("style") := "margin: 0; color: #666; text-align: center")("Uploading files..."),
+            p(attr("style") := "margin: 0.5rem 0 0 0; color: #999; font-size: 0.875rem")("75% complete")
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Inline with text"),
+      div(attr("style") := "display: flex; flex-direction: column; gap: 1rem")(
+        p(attr("style") := "display: flex; align-items: center; gap: 0.5rem; margin: 0")(
+          waSpinner(attr("style") := "font-size: 1rem"),
+          "Loading your profile..."
+        ),
+        p(attr("style") := "display: flex; align-items: center; gap: 0.5rem; margin: 0")(
+          waSpinner(attr("style") := "--indicator-color: #28a745; font-size: 1rem"),
+          "Synchronizing data..."
+        ),
+        p(attr("style") := "display: flex; align-items: center; gap: 0.5rem; margin: 0")(
+          waSpinner(attr("style") := "--indicator-color: #ffc107; font-size: 1rem"),
+          "Preparing download..."
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Combined customization"),
+      div(cls := "demo-row")(
+        waSpinner(attr("style") := "--indicator-color: #0066ff; --track-color: rgba(0, 102, 255, 0.15); --track-width: 4px; --speed: 1.5s; font-size: 3rem"),
+        waSpinner(attr("style") := "--indicator-color: #28a745; --track-color: rgba(40, 167, 69, 0.15); --track-width: 3px; --speed: 0.8s; font-size: 3rem"),
+        waSpinner(attr("style") := "--indicator-color: #dc3545; --track-color: transparent; --track-width: 5px; --speed: 1s; font-size: 3rem")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Dark background"),
+      div(attr("style") := "background: #1a1a2e; padding: 2rem; border-radius: 8px; display: flex; gap: 2rem; justify-content: center")(
+        waSpinner(attr("style") := "--indicator-color: #ffffff; --track-color: rgba(255, 255, 255, 0.2); font-size: 2rem"),
+        waSpinner(attr("style") := "--indicator-color: #4ecdc4; --track-color: rgba(78, 205, 196, 0.2); font-size: 2rem"),
+        waSpinner(attr("style") := "--indicator-color: #ff6b6b; --track-color: rgba(255, 107, 107, 0.2); font-size: 2rem"),
+        waSpinner(attr("style") := "--indicator-color: #ffe66d; --track-color: rgba(255, 230, 109, 0.2); font-size: 2rem")
+      )
+    )
+  )
+
   initialize()
