@@ -425,4 +425,69 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Radio ---
+  @cask.get("/radio")
+  def radioPage(): cask.Response[String] = htmlPage("Radio", "radio")(
+    h1("wa-radio & wa-radio-group"),
+
+    div(cls := "demo-section")(
+      h2("Basic radio group"),
+      waRadioGroup(attr("label") := "Select your favorite color", name := "color-basic")(
+        waRadio(value := "red")("Red"),
+        waRadio(value := "green")("Green"),
+        waRadio(value := "blue", attr("checked") := "true")("Blue")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Sizes"),
+      div(cls := "demo-row")(
+        waRadioGroup(attr("label") := "Small", attr("size") := "small", name := "size-small")(
+          waRadio(value := "1")("Option 1"),
+          waRadio(value := "2")("Option 2")
+        ),
+        waRadioGroup(attr("label") := "Medium", attr("size") := "medium", name := "size-medium")(
+          waRadio(value := "1")("Option 1"),
+          waRadio(value := "2")("Option 2")
+        ),
+        waRadioGroup(attr("label") := "Large", attr("size") := "large", name := "size-large")(
+          waRadio(value := "1")("Option 1"),
+          waRadio(value := "2")("Option 2")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Button appearance"),
+      waRadioGroup(attr("label") := "Choose size", name := "button-appearance")(
+        waRadio(value := "s", appearance := "button")("Small"),
+        waRadio(value := "m", appearance := "button", attr("checked") := "true")("Medium"),
+        waRadio(value := "l", appearance := "button")("Large"),
+        waRadio(value := "xl", appearance := "button")("X-Large")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Disabled state"),
+      waRadioGroup(attr("label") := "Disabled options", name := "disabled")(
+        waRadio(value := "opt1")("Enabled option"),
+        waRadio(value := "opt2", disabled := "true")("Disabled option"),
+        waRadio(value := "opt3", disabled := "true", attr("checked") := "true")("Disabled & checked")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With hint"),
+      waRadioGroup(
+        attr("label") := "Select payment method",
+        hint := "Choose how you would like to pay",
+        name := "payment"
+      )(
+        waRadio(value := "card")("Credit Card"),
+        waRadio(value := "paypal")("PayPal"),
+        waRadio(value := "bank")("Bank Transfer")
+      )
+    )
+  )
+
   initialize()
