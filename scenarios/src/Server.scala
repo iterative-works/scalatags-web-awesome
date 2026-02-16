@@ -2382,4 +2382,102 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  @cask.get("/tag")
+  def tagPage(): cask.Response[String] = htmlPage("Tag", "tag")(
+    h1("wa-tag"),
+
+    div(cls := "demo-section")(
+      h2("Variants"),
+      div(cls := "demo-row")(
+        waTag(variant := "neutral")("Neutral"),
+        waTag(variant := "brand")("Brand"),
+        waTag(variant := "success")("Success"),
+        waTag(variant := "warning")("Warning"),
+        waTag(variant := "danger")("Danger")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Appearances"),
+      div(cls := "demo-row")(
+        waTag(appearance := "accent")("Accent"),
+        waTag(appearance := "filled")("Filled"),
+        waTag(appearance := "outlined")("Outlined"),
+        waTag(appearance := "filled-outlined")("Filled Outlined")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Sizes"),
+      div(cls := "demo-row")(
+        waTag(attr("size") := "small")("Small"),
+        waTag(attr("size") := "medium")("Medium"),
+        waTag(attr("size") := "large")("Large")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Pill style"),
+      div(cls := "demo-row")(
+        waTag(pill := "true", variant := "brand")("Pill tag"),
+        waTag(pill := "true", variant := "success")("Success"),
+        waTag(pill := "true", variant := "warning")("Warning"),
+        waTag(pill := "true", variant := "danger")("Danger")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Removable tags"),
+      div(cls := "demo-row")(
+        waTag(withRemove := "true")("Removable"),
+        waTag(withRemove := "true", variant := "brand")("Brand"),
+        waTag(withRemove := "true", variant := "success")("Success"),
+        waTag(withRemove := "true", variant := "danger")("Danger")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Removable pill tags"),
+      div(cls := "demo-row")(
+        waTag(withRemove := "true", pill := "true", variant := "neutral")("Neutral"),
+        waTag(withRemove := "true", pill := "true", variant := "brand")("Brand"),
+        waTag(withRemove := "true", pill := "true", variant := "success")("Success"),
+        waTag(withRemove := "true", pill := "true", variant := "warning")("Warning"),
+        waTag(withRemove := "true", pill := "true", variant := "danger")("Danger")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Combined: sizes + removable"),
+      div(cls := "demo-row")(
+        waTag(withRemove := "true", attr("size") := "small", variant := "brand")("Small removable"),
+        waTag(withRemove := "true", attr("size") := "medium", variant := "brand")("Medium removable"),
+        waTag(withRemove := "true", attr("size") := "large", variant := "brand")("Large removable")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Tag groups"),
+      div(attr("style") := "display: flex; flex-direction: column; gap: 1rem")(
+        div(attr("style") := "display: flex; gap: 0.5rem; flex-wrap: wrap")(
+          waTag(variant := "brand")("React"),
+          waTag(variant := "brand")("Vue"),
+          waTag(variant := "brand")("Angular"),
+          waTag(variant := "brand")("Svelte")
+        ),
+        div(attr("style") := "display: flex; gap: 0.5rem; flex-wrap: wrap")(
+          waTag(withRemove := "true", pill := "true", variant := "success")("TypeScript"),
+          waTag(withRemove := "true", pill := "true", variant := "success")("JavaScript"),
+          waTag(withRemove := "true", pill := "true", variant := "success")("Python"),
+          waTag(withRemove := "true", pill := "true", variant := "success")("Scala")
+        ),
+        div(attr("style") := "display: flex; gap: 0.5rem; flex-wrap: wrap")(
+          waTag(appearance := "outlined", attr("size") := "small")("v1.0.0"),
+          waTag(appearance := "outlined", attr("size") := "small")("v2.1.3"),
+          waTag(appearance := "outlined", attr("size") := "small")("v3.0.0-beta")
+        )
+      )
+    )
+  )
+
   initialize()

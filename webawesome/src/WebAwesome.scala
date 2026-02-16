@@ -82,3 +82,6 @@ trait Attrs:
 
   // Skeleton
   lazy val effect: generic.Attr = generic.Attr("effect")
+
+  // Tag
+  lazy val withRemove: generic.Attr = generic.Attr("with-remove")
