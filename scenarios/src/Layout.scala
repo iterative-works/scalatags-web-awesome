@@ -19,7 +19,8 @@ object Layout:
     "color-picker" -> "Color Picker",
     "number-input" -> "Number Input",
     "radio" -> "Radio",
-    "select" -> "Select"
+    "select" -> "Select",
+    "option" -> "Option"
   )
 
   def page(pageTitle: String, activePage: String)(content: Frag*): String =

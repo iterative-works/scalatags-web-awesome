@@ -20,7 +20,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 | wa-radio | [x] | [x] | [x] | (none) |
 | wa-radio-group | [x] | [x] | [x] | (none) |
 | wa-select | [x] | [x] | [x] | clearable, with-label, with-hint |
-| wa-option | [x] | [ ] | [x] | (none) |
+| wa-option | [x] | [x] | [x] | (none) |
 | wa-slider | [ ] | [ ] | [ ] | tooltip |
 | wa-switch | [x] | [x] | [x] | (none) |
 | wa-textarea | [ ] | [ ] | [ ] | with-label, with-hint |

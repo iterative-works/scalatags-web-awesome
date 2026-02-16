@@ -644,4 +644,133 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Option ---
+  @cask.get("/option")
+  def optionPage(): cask.Response[String] = htmlPage("Option", "option")(
+    h1("wa-option"),
+
+    div(cls := "demo-section")(
+      h2("Basic options"),
+      div(cls := "demo-row")(
+        waSelect(attr("label") := "Fruit", placeholder := "Select a fruit")(
+          waOption(value := "apple")("Apple"),
+          waOption(value := "banana")("Banana"),
+          waOption(value := "cherry")("Cherry"),
+          waOption(value := "date")("Date"),
+          waOption(value := "elderberry")("Elderberry")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Disabled options"),
+      div(cls := "demo-row")(
+        waSelect(attr("label") := "Product", placeholder := "Select a product")(
+          waOption(value := "laptop")("Laptop"),
+          waOption(value := "phone")("Phone"),
+          waOption(value := "tablet", disabled := "true")("Tablet (Out of stock)"),
+          waOption(value := "watch")("Watch"),
+          waOption(value := "headphones", disabled := "true")("Headphones (Out of stock)")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Options with different content"),
+      div(cls := "demo-row")(
+        waSelect(attr("label") := "City", placeholder := "Select your city", value := "nyc")(
+          waOption(value := "nyc")("New York City, NY"),
+          waOption(value := "la")("Los Angeles, CA"),
+          waOption(value := "chicago")("Chicago, IL"),
+          waOption(value := "houston")("Houston, TX"),
+          waOption(value := "phoenix")("Phoenix, AZ")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Options in multiple select"),
+      div(cls := "demo-row")(
+        waSelect(attr("label") := "Toppings", multiple := "true", placeholder := "Choose toppings")(
+          waOption(value := "pepperoni")("Pepperoni"),
+          waOption(value := "mushrooms")("Mushrooms"),
+          waOption(value := "onions")("Onions"),
+          waOption(value := "sausage")("Sausage"),
+          waOption(value := "bacon")("Bacon"),
+          waOption(value := "olives")("Olives"),
+          waOption(value := "peppers")("Bell Peppers"),
+          waOption(value := "pineapple")("Pineapple")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Options with special characters"),
+      div(cls := "demo-row")(
+        waSelect(attr("label") := "Symbol", placeholder := "Select a symbol")(
+          waOption(value := "alpha")("α (Alpha)"),
+          waOption(value := "beta")("β (Beta)"),
+          waOption(value := "gamma")("γ (Gamma)"),
+          waOption(value := "delta")("δ (Delta)"),
+          waOption(value := "epsilon")("ε (Epsilon)")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Many options (scrollable)"),
+      div(cls := "demo-row")(
+        waSelect(attr("label") := "Country", placeholder := "Select a country")(
+          waOption(value := "af")("Afghanistan"),
+          waOption(value := "al")("Albania"),
+          waOption(value := "dz")("Algeria"),
+          waOption(value := "ar")("Argentina"),
+          waOption(value := "au")("Australia"),
+          waOption(value := "at")("Austria"),
+          waOption(value := "bd")("Bangladesh"),
+          waOption(value := "be")("Belgium"),
+          waOption(value := "br")("Brazil"),
+          waOption(value := "ca")("Canada"),
+          waOption(value := "cn")("China"),
+          waOption(value := "co")("Colombia"),
+          waOption(value := "cz")("Czech Republic"),
+          waOption(value := "dk")("Denmark"),
+          waOption(value := "eg")("Egypt"),
+          waOption(value := "fi")("Finland"),
+          waOption(value := "fr")("France"),
+          waOption(value := "de")("Germany"),
+          waOption(value := "gr")("Greece"),
+          waOption(value := "in")("India"),
+          waOption(value := "id")("Indonesia"),
+          waOption(value := "ie")("Ireland"),
+          waOption(value := "il")("Israel"),
+          waOption(value := "it")("Italy"),
+          waOption(value := "jp")("Japan"),
+          waOption(value := "mx")("Mexico"),
+          waOption(value := "nl")("Netherlands"),
+          waOption(value := "nz")("New Zealand"),
+          waOption(value := "no")("Norway"),
+          waOption(value := "pk")("Pakistan"),
+          waOption(value := "pl")("Poland"),
+          waOption(value := "pt")("Portugal"),
+          waOption(value := "ru")("Russia"),
+          waOption(value := "sa")("Saudi Arabia"),
+          waOption(value := "sg")("Singapore"),
+          waOption(value := "za")("South Africa"),
+          waOption(value := "kr")("South Korea"),
+          waOption(value := "es")("Spain"),
+          waOption(value := "se")("Sweden"),
+          waOption(value := "ch")("Switzerland"),
+          waOption(value := "th")("Thailand"),
+          waOption(value := "tr")("Turkey"),
+          waOption(value := "ua")("Ukraine"),
+          waOption(value := "ae")("United Arab Emirates"),
+          waOption(value := "uk")("United Kingdom"),
+          waOption(value := "us")("United States"),
+          waOption(value := "vn")("Vietnam")
+        )
+      )
+    )
+  )
+
   initialize()
