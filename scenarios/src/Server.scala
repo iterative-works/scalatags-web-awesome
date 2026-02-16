@@ -1044,6 +1044,245 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Dropdown Item ---
+  @cask.get("/dropdown-item")
+  def dropdownItemPage(): cask.Response[String] = htmlPage("Dropdown Item", "dropdown-item")(
+    h1("wa-dropdown-item"),
+
+    div(cls := "demo-section")(
+      h2("Basic dropdown items"),
+      div(cls := "demo-row")(
+        waDropdown(
+          waButton(slot := "trigger", withCaret := "true")("Basic Items"),
+          waDropdownItem("Item 1"),
+          waDropdownItem("Item 2"),
+          waDropdownItem("Item 3")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With value attribute"),
+      div(cls := "demo-row")(
+        waDropdown(
+          waButton(slot := "trigger", withCaret := "true")("Select Action"),
+          waDropdownItem(value := "edit")("Edit"),
+          waDropdownItem(value := "copy")("Copy"),
+          waDropdownItem(value := "delete")("Delete")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Checkbox type"),
+      div(cls := "demo-row")(
+        waDropdown(
+          waButton(slot := "trigger", withCaret := "true")("Options"),
+          waDropdownItem(`type` := "checkbox", attr("checked") := "true")("Show notifications"),
+          waDropdownItem(`type` := "checkbox")("Enable sounds"),
+          waDropdownItem(`type` := "checkbox", attr("checked") := "true")("Auto-save")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Variants"),
+      div(cls := "demo-row")(
+        waDropdown(
+          waButton(slot := "trigger", withCaret := "true")("Actions"),
+          waDropdownItem(variant := "default")("Save"),
+          waDropdownItem(variant := "default")("Export"),
+          waDivider,
+          waDropdownItem(variant := "danger")("Delete")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Disabled items"),
+      div(cls := "demo-row")(
+        waDropdown(
+          waButton(slot := "trigger", withCaret := "true")("Edit Menu"),
+          waDropdownItem("Cut"),
+          waDropdownItem("Copy"),
+          waDropdownItem(disabled := "true")("Paste (disabled)"),
+          waDropdownItem("Select All")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With icon slot"),
+      div(cls := "demo-row")(
+        waDropdown(
+          waButton(slot := "trigger", withCaret := "true")("File Menu"),
+          waDropdownItem(
+            waIcon(slot := "icon", name := "file")(""),
+            "New File"
+          ),
+          waDropdownItem(
+            waIcon(slot := "icon", name := "folder")(""),
+            "Open Folder"
+          ),
+          waDropdownItem(
+            waIcon(slot := "icon", name := "floppy-disk")(""),
+            "Save"
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With details slot"),
+      div(cls := "demo-row")(
+        waDropdown(
+          waButton(slot := "trigger", withCaret := "true")("Recent Files"),
+          waDropdownItem(
+            "Document.pdf",
+            tag("small")(slot := "details", attr("style") := "color: #666")("2 hours ago")
+          ),
+          waDropdownItem(
+            "Spreadsheet.xlsx",
+            tag("small")(slot := "details", attr("style") := "color: #666")("Yesterday")
+          ),
+          waDropdownItem(
+            "Presentation.pptx",
+            tag("small")(slot := "details", attr("style") := "color: #666")("3 days ago")
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Submenu (nested dropdown)"),
+      div(cls := "demo-row")(
+        waDropdown(
+          waButton(slot := "trigger", withCaret := "true")("Main Menu"),
+          waDropdownItem("Home"),
+          waDropdownItem("About"),
+          waDropdownItem(
+            "Products",
+            waDropdownItem(slot := "submenu")("Laptops"),
+            waDropdownItem(slot := "submenu")("Phones"),
+            waDropdownItem(slot := "submenu")("Tablets")
+          ),
+          waDropdownItem(
+            "Services",
+            waDropdownItem(slot := "submenu")("Consulting"),
+            waDropdownItem(slot := "submenu")("Support"),
+            waDropdownItem(slot := "submenu")("Training")
+          ),
+          waDropdownItem("Contact")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Submenu open by default"),
+      div(cls := "demo-row")(
+        waDropdown(attr("open") := "true")(
+          waButton(slot := "trigger", withCaret := "true")("Categories"),
+          waDropdownItem("Featured"),
+          waDropdownItem(
+            submenuOpen := "true"
+          )(
+            "Electronics",
+            waDropdownItem(slot := "submenu")("Computers"),
+            waDropdownItem(slot := "submenu")("Phones"),
+            waDropdownItem(slot := "submenu")("Audio")
+          ),
+          waDropdownItem("Clothing"),
+          waDropdownItem("Books")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Complex menu with icons, details, and submenus"),
+      div(cls := "demo-row")(
+        waDropdown(
+          waButton(slot := "trigger", variant := "brand", withCaret := "true")("User Menu"),
+          waDropdownItem(
+            waIcon(slot := "icon", name := "user")(""),
+            "Profile",
+            tag("kbd")(slot := "details", attr("style") := "font-size: 0.8rem")("⌘P")
+          ),
+          waDropdownItem(
+            waIcon(slot := "icon", name := "gear")(""),
+            "Settings",
+            waDropdownItem(slot := "submenu")(
+              waIcon(slot := "icon", name := "bell")(""),
+              "Notifications"
+            ),
+            waDropdownItem(slot := "submenu")(
+              waIcon(slot := "icon", name := "lock")(""),
+              "Privacy"
+            ),
+            waDropdownItem(slot := "submenu")(
+              waIcon(slot := "icon", name := "palette")(""),
+              "Appearance"
+            )
+          ),
+          waDivider,
+          waDropdownItem(
+            waIcon(slot := "icon", name := "circle-question")(""),
+            "Help",
+            tag("kbd")(slot := "details", attr("style") := "font-size: 0.8rem")("⌘H")
+          ),
+          waDivider,
+          waDropdownItem(variant := "danger")(
+            waIcon(slot := "icon", name := "arrow-right-from-bracket")(""),
+            "Logout"
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Checkbox items with mixed states"),
+      div(cls := "demo-row")(
+        waDropdown(
+          waButton(slot := "trigger", withCaret := "true")("View Options"),
+          waDropdownItem(`type` := "checkbox", attr("checked") := "true")("Show Toolbar"),
+          waDropdownItem(`type` := "checkbox", attr("checked") := "true")("Show Sidebar"),
+          waDropdownItem(`type` := "checkbox")("Show Footer"),
+          waDivider,
+          waDropdownItem(`type` := "checkbox", attr("checked") := "true")("Line Numbers"),
+          waDropdownItem(`type` := "checkbox")("Word Wrap"),
+          waDropdownItem(`type` := "checkbox", disabled := "true")("Minimap (Pro only)")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Multi-level submenu"),
+      div(cls := "demo-row")(
+        waDropdown(
+          waButton(slot := "trigger", withCaret := "true")("Navigation"),
+          waDropdownItem("Dashboard"),
+          waDropdownItem(
+            "Content",
+            waDropdownItem(slot := "submenu")("Posts"),
+            waDropdownItem(slot := "submenu")(
+              "Media",
+              waDropdownItem(slot := "submenu")("Images"),
+              waDropdownItem(slot := "submenu")("Videos"),
+              waDropdownItem(slot := "submenu")("Documents")
+            ),
+            waDropdownItem(slot := "submenu")("Pages")
+          ),
+          waDropdownItem(
+            "Users",
+            waDropdownItem(slot := "submenu")("All Users"),
+            waDropdownItem(slot := "submenu")("Add New"),
+            waDropdownItem(slot := "submenu")("Roles")
+          ),
+          waDropdownItem("Settings")
+        )
+      )
+    )
+  )
+
   // --- Dropdown ---
   @cask.get("/dropdown")
   def dropdownPage(): cask.Response[String] = htmlPage("Dropdown", "dropdown")(
@@ -1054,9 +1293,9 @@ object Server extends cask.MainRoutes:
       div(cls := "demo-row")(
         waDropdown(
           waButton(slot := "trigger", withCaret := "true")("Dropdown"),
-          tag("wa-dropdown-item")("Option 1"),
-          tag("wa-dropdown-item")("Option 2"),
-          tag("wa-dropdown-item")("Option 3")
+          waDropdownItem("Option 1"),
+          waDropdownItem("Option 2"),
+          waDropdownItem("Option 3")
         )
       )
     ),
@@ -1066,9 +1305,9 @@ object Server extends cask.MainRoutes:
       div(cls := "demo-row")(
         waDropdown(attr("open") := "true")(
           waButton(slot := "trigger", withCaret := "true")("Always Open"),
-          tag("wa-dropdown-item")("Item A"),
-          tag("wa-dropdown-item")("Item B"),
-          tag("wa-dropdown-item")("Item C")
+          waDropdownItem("Item A"),
+          waDropdownItem("Item B"),
+          waDropdownItem("Item C")
         )
       )
     ),
@@ -1078,24 +1317,24 @@ object Server extends cask.MainRoutes:
       div(cls := "demo-row")(
         waDropdown(placement := "top")(
           waButton(slot := "trigger", withCaret := "true")("Top"),
-          tag("wa-dropdown-item")("Above the trigger"),
-          tag("wa-dropdown-item")("Second item"),
-          tag("wa-dropdown-item")("Third item")
+          waDropdownItem("Above the trigger"),
+          waDropdownItem("Second item"),
+          waDropdownItem("Third item")
         ),
         waDropdown(placement := "bottom")(
           waButton(slot := "trigger", withCaret := "true")("Bottom (default)"),
-          tag("wa-dropdown-item")("Below the trigger"),
-          tag("wa-dropdown-item")("Second item")
+          waDropdownItem("Below the trigger"),
+          waDropdownItem("Second item")
         ),
         waDropdown(placement := "left")(
           waButton(slot := "trigger", withCaret := "true")("Left"),
-          tag("wa-dropdown-item")("To the left"),
-          tag("wa-dropdown-item")("Second item")
+          waDropdownItem("To the left"),
+          waDropdownItem("Second item")
         ),
         waDropdown(placement := "right")(
           waButton(slot := "trigger", withCaret := "true")("Right"),
-          tag("wa-dropdown-item")("To the right"),
-          tag("wa-dropdown-item")("Second item")
+          waDropdownItem("To the right"),
+          waDropdownItem("Second item")
         )
       )
     ),
@@ -1105,23 +1344,23 @@ object Server extends cask.MainRoutes:
       div(cls := "demo-row")(
         waDropdown(placement := "bottom-start")(
           waButton(slot := "trigger", withCaret := "true")("Bottom Start"),
-          tag("wa-dropdown-item")("Aligned to start"),
-          tag("wa-dropdown-item")("Second item")
+          waDropdownItem("Aligned to start"),
+          waDropdownItem("Second item")
         ),
         waDropdown(placement := "bottom-end")(
           waButton(slot := "trigger", withCaret := "true")("Bottom End"),
-          tag("wa-dropdown-item")("Aligned to end"),
-          tag("wa-dropdown-item")("Second item")
+          waDropdownItem("Aligned to end"),
+          waDropdownItem("Second item")
         ),
         waDropdown(placement := "top-start")(
           waButton(slot := "trigger", withCaret := "true")("Top Start"),
-          tag("wa-dropdown-item")("Aligned to start"),
-          tag("wa-dropdown-item")("Second item")
+          waDropdownItem("Aligned to start"),
+          waDropdownItem("Second item")
         ),
         waDropdown(placement := "top-end")(
           waButton(slot := "trigger", withCaret := "true")("Top End"),
-          tag("wa-dropdown-item")("Aligned to end"),
-          tag("wa-dropdown-item")("Second item")
+          waDropdownItem("Aligned to end"),
+          waDropdownItem("Second item")
         )
       )
     ),
@@ -1131,18 +1370,18 @@ object Server extends cask.MainRoutes:
       div(cls := "demo-row")(
         waDropdown(distance := "0")(
           waButton(slot := "trigger", withCaret := "true")("No distance"),
-          tag("wa-dropdown-item")("Right next to trigger"),
-          tag("wa-dropdown-item")("Second item")
+          waDropdownItem("Right next to trigger"),
+          waDropdownItem("Second item")
         ),
         waDropdown(distance := "8")(
           waButton(slot := "trigger", withCaret := "true")("Default (8px)"),
-          tag("wa-dropdown-item")("Standard distance"),
-          tag("wa-dropdown-item")("Second item")
+          waDropdownItem("Standard distance"),
+          waDropdownItem("Second item")
         ),
         waDropdown(distance := "20")(
           waButton(slot := "trigger", withCaret := "true")("Far (20px)"),
-          tag("wa-dropdown-item")("Larger gap"),
-          tag("wa-dropdown-item")("Second item")
+          waDropdownItem("Larger gap"),
+          waDropdownItem("Second item")
         )
       )
     ),
@@ -1152,18 +1391,18 @@ object Server extends cask.MainRoutes:
       div(cls := "demo-row")(
         waDropdown(skidding := "-50")(
           waButton(slot := "trigger", withCaret := "true")("Skid left (-50px)"),
-          tag("wa-dropdown-item")("Shifted left"),
-          tag("wa-dropdown-item")("Second item")
+          waDropdownItem("Shifted left"),
+          waDropdownItem("Second item")
         ),
         waDropdown(skidding := "0")(
           waButton(slot := "trigger", withCaret := "true")("No skidding"),
-          tag("wa-dropdown-item")("Centered"),
-          tag("wa-dropdown-item")("Second item")
+          waDropdownItem("Centered"),
+          waDropdownItem("Second item")
         ),
         waDropdown(skidding := "50")(
           waButton(slot := "trigger", withCaret := "true")("Skid right (50px)"),
-          tag("wa-dropdown-item")("Shifted right"),
-          tag("wa-dropdown-item")("Second item")
+          waDropdownItem("Shifted right"),
+          waDropdownItem("Second item")
         )
       )
     ),
@@ -1173,19 +1412,19 @@ object Server extends cask.MainRoutes:
       div(cls := "demo-row")(
         waDropdown(
           waButton(slot := "trigger", variant := "brand", withCaret := "true")("Brand Button"),
-          tag("wa-dropdown-item")("Action 1"),
-          tag("wa-dropdown-item")("Action 2"),
-          tag("wa-dropdown-item")("Action 3")
+          waDropdownItem("Action 1"),
+          waDropdownItem("Action 2"),
+          waDropdownItem("Action 3")
         ),
         waDropdown(
           tag("button")(slot := "trigger", attr("style") := "padding: 0.5rem 1rem; cursor: pointer")("Native Button"),
-          tag("wa-dropdown-item")("Option A"),
-          tag("wa-dropdown-item")("Option B")
+          waDropdownItem("Option A"),
+          waDropdownItem("Option B")
         ),
         waDropdown(
           a(slot := "trigger", href := "#", attr("style") := "text-decoration: none")("Link trigger"),
-          tag("wa-dropdown-item")("Menu item 1"),
-          tag("wa-dropdown-item")("Menu item 2")
+          waDropdownItem("Menu item 1"),
+          waDropdownItem("Menu item 2")
         )
       )
     ),
@@ -1195,18 +1434,18 @@ object Server extends cask.MainRoutes:
       div(cls := "demo-row")(
         waDropdown(
           waButton(slot := "trigger", attr("size") := "small", withCaret := "true")("Small"),
-          tag("wa-dropdown-item")("Small item 1"),
-          tag("wa-dropdown-item")("Small item 2")
+          waDropdownItem("Small item 1"),
+          waDropdownItem("Small item 2")
         ),
         waDropdown(
           waButton(slot := "trigger", attr("size") := "medium", withCaret := "true")("Medium"),
-          tag("wa-dropdown-item")("Medium item 1"),
-          tag("wa-dropdown-item")("Medium item 2")
+          waDropdownItem("Medium item 1"),
+          waDropdownItem("Medium item 2")
         ),
         waDropdown(
           waButton(slot := "trigger", attr("size") := "large", withCaret := "true")("Large"),
-          tag("wa-dropdown-item")("Large item 1"),
-          tag("wa-dropdown-item")("Large item 2")
+          waDropdownItem("Large item 1"),
+          waDropdownItem("Large item 2")
         )
       )
     ),
@@ -1216,13 +1455,13 @@ object Server extends cask.MainRoutes:
       div(cls := "demo-row")(
         waDropdown(
           waButton(slot := "trigger", variant := "brand", withCaret := "true")("User Menu"),
-          tag("wa-dropdown-item")("Profile"),
-          tag("wa-dropdown-item")("Settings"),
+          waDropdownItem("Profile"),
+          waDropdownItem("Settings"),
           tag("wa-divider"),
-          tag("wa-dropdown-item")("Help & Support"),
-          tag("wa-dropdown-item")("Documentation"),
+          waDropdownItem("Help & Support"),
+          waDropdownItem("Documentation"),
           tag("wa-divider"),
-          tag("wa-dropdown-item")("Logout")
+          waDropdownItem("Logout")
         )
       )
     ),
@@ -1232,10 +1471,10 @@ object Server extends cask.MainRoutes:
       div(cls := "demo-row")(
         waDropdown(
           waButton(slot := "trigger", withCaret := "true")("Actions"),
-          tag("wa-dropdown-item")("Edit"),
-          tag("wa-dropdown-item")("Copy"),
-          tag("wa-dropdown-item")(disabled := "true")("Paste (disabled)"),
-          tag("wa-dropdown-item")("Delete")
+          waDropdownItem("Edit"),
+          waDropdownItem("Copy"),
+          waDropdownItem(disabled := "true")("Paste (disabled)"),
+          waDropdownItem("Delete")
         )
       )
     ),
@@ -1245,10 +1484,10 @@ object Server extends cask.MainRoutes:
       div(cls := "demo-row")(
         waDropdown(placement := "top-end", distance := "15", skidding := "30")(
           waButton(slot := "trigger", variant := "success", withCaret := "true")("Custom Position"),
-          tag("wa-dropdown-item")("Top-end placement"),
-          tag("wa-dropdown-item")("15px distance"),
-          tag("wa-dropdown-item")("30px skidding right"),
-          tag("wa-dropdown-item")("All combined")
+          waDropdownItem("Top-end placement"),
+          waDropdownItem("15px distance"),
+          waDropdownItem("30px skidding right"),
+          waDropdownItem("All combined")
         )
       )
     )

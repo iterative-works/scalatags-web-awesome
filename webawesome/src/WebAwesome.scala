@@ -61,3 +61,4 @@ trait Attrs:
   lazy val placement: generic.Attr = generic.Attr("placement")
   lazy val distance: generic.Attr = generic.Attr("distance")
   lazy val skidding: generic.Attr = generic.Attr("skidding")
+  lazy val submenuOpen: generic.Attr = generic.Attr("submenu-open")

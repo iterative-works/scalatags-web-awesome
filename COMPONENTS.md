@@ -33,7 +33,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 | wa-button-group | [x] | [x] | [x] | orientation |
 | wa-copy-button | [x] | [x] | [x] | from, copy-label, success-label, error-label, feedback-duration, tooltip-placement |
 | wa-dropdown | [x] | [x] | [x] | open, placement, distance, skidding |
-| wa-dropdown-item | [ ] | [ ] | [ ] | submenu-open |
+| wa-dropdown-item | [x] | [x] | [x] | submenu-open |
 
 ## Display & Feedback
 
