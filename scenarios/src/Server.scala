@@ -2666,6 +2666,108 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Popup ---
+  @cask.get("/popup")
+  def popupPage(): cask.Response[String] = htmlPage("Popup", "popup")(
+    h1("wa-popup"),
+
+    div(cls := "demo-section")(
+      h2("Basic popup (active on hover)"),
+      div(cls := "demo-row")(
+        span(id := "popup-anchor-1", attr("style") := "display: inline-block; padding: 0.5rem 1rem; background: #0066ff; color: white; border-radius: 4px; cursor: pointer")(
+          "Hover me"
+        ),
+        waPopup(anchor := "popup-anchor-1", active := "true", placement := "top")(
+          "This is a basic popup"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Placement options"),
+      div(cls := "demo-row")(
+        span(id := "popup-top", attr("style") := "display: inline-block; padding: 0.5rem; background: #eee; border-radius: 4px; margin: 0.5rem")(
+          "Top"
+        ),
+        waPopup(anchor := "popup-top", active := "true", placement := "top")(
+          "Popup above"
+        ),
+        span(id := "popup-bottom", attr("style") := "display: inline-block; padding: 0.5rem; background: #eee; border-radius: 4px; margin: 0.5rem")(
+          "Bottom"
+        ),
+        waPopup(anchor := "popup-bottom", active := "true", placement := "bottom")(
+          "Popup below"
+        ),
+        span(id := "popup-left", attr("style") := "display: inline-block; padding: 0.5rem; background: #eee; border-radius: 4px; margin: 0.5rem")(
+          "Left"
+        ),
+        waPopup(anchor := "popup-left", active := "true", placement := "left")(
+          "Popup left"
+        ),
+        span(id := "popup-right", attr("style") := "display: inline-block; padding: 0.5rem; background: #eee; border-radius: 4px; margin: 0.5rem")(
+          "Right"
+        ),
+        waPopup(anchor := "popup-right", active := "true", placement := "right")(
+          "Popup right"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With arrow"),
+      div(cls := "demo-row")(
+        span(id := "popup-arrow", attr("style") := "display: inline-block; padding: 0.5rem 1rem; background: #0066ff; color: white; border-radius: 4px")(
+          "Arrow popup"
+        ),
+        waPopup(anchor := "popup-arrow", active := "true", placement := "top", arrow := "true", distance := "8")(
+          "Popup with arrow"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Distance and skidding"),
+      div(cls := "demo-row")(
+        span(id := "popup-distance", attr("style") := "display: inline-block; padding: 0.5rem; background: #eee; border-radius: 4px; margin: 0.5rem")(
+          "Distance 20"
+        ),
+        waPopup(anchor := "popup-distance", active := "true", placement := "top", distance := "20")(
+          "20px offset from anchor"
+        ),
+        span(id := "popup-skidding", attr("style") := "display: inline-block; padding: 0.5rem; background: #eee; border-radius: 4px; margin: 0.5rem")(
+          "Skidding 30"
+        ),
+        waPopup(anchor := "popup-skidding", active := "true", placement := "top", skidding := "30")(
+          "30px along anchor"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Flip and shift"),
+      div(cls := "demo-row")(
+        span(id := "popup-flip", attr("style") := "display: inline-block; padding: 0.5rem; background: #eee; border-radius: 4px")(
+          "Flip enabled"
+        ),
+        waPopup(anchor := "popup-flip", active := "true", placement := "top", flip := "true")(
+          "Will flip if no space above"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Sync width with anchor"),
+      div(cls := "demo-row")(
+        span(id := "popup-sync", attr("style") := "display: inline-block; padding: 0.5rem; background: #0066ff; color: white; border-radius: 4px; width: 200px")(
+          "Wide anchor element"
+        ),
+        waPopup(anchor := "popup-sync", active := "true", placement := "bottom", sync := "width")(
+          "Same width as anchor"
+        )
+      )
+    )
+  )
+
   // --- Icon ---
   @cask.get("/icon")
   def iconPage(): cask.Response[String] = htmlPage("Icon", "icon")(

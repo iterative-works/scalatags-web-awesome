@@ -39,6 +39,7 @@ object Layout:
     "avatar" -> "Avatar",
     "callout" -> "Callout",
     "popover" -> "Popover",
+    "popup" -> "Popup",
     "icon" -> "Icon",
     "skeleton" -> "Skeleton",
     "spinner" -> "Spinner",

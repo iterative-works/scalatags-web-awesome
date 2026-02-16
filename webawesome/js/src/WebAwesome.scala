@@ -53,6 +53,7 @@ object WebAwesome extends Attrs:
   // Notifications
   lazy val waCallout = htmlTag("wa-callout")
   lazy val waPopover = htmlTag("wa-popover")
+  lazy val waPopup = htmlTag("wa-popup")
 
   // Progress
   lazy val waProgressBar = htmlTag("wa-progress-bar")

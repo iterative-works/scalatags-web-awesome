@@ -83,7 +83,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 | Component | Tag | Scenario | Attrs | WA-specific attrs needed |
 |-----------|-----|----------|-------|--------------------------|
 | wa-popover | [x] | [x] | [x] | placement, open, distance, skidding, without-arrow |
-| wa-popup | [ ] | [ ] | [ ] | anchor, active, placement, boundary, distance, skidding, arrow, arrow-placement, arrow-padding, flip, flip-fallback-placements, flip-fallback-strategy, flip-padding, shift, shift-padding, auto-size, sync, auto-size-padding, hover-bridge |
+| wa-popup | [x] | [x] | [x] | anchor, active, placement, boundary, distance, skidding, arrow, arrow-placement, arrow-padding, flip, flip-fallback-placements, flip-fallback-strategy, flip-padding, shift, shift-padding, auto-size, sync, auto-size-padding, hover-bridge |
 | wa-tooltip | [ ] | [ ] | [ ] | placement, trigger, distance, skidding, hoist |
 
 ## Media
