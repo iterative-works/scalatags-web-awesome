@@ -4505,4 +4505,61 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Zoomable Frame ---
+  @cask.get("/zoomable-frame")
+  def zoomableFramePage(): cask.Response[String] = htmlPage("Zoomable Frame", "zoomable-frame")(
+    h1("wa-zoomable-frame"),
+
+    div(cls := "demo-section")(
+      h2("Basic zoomable frame"),
+      div(cls := "demo-row")(
+        waZoomableFrame(src := "https://webawesome.com", attr("style") := "width: 600px; height: 400px;")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With custom zoom levels"),
+      div(cls := "demo-row")(
+        waZoomableFrame(
+          src := "https://webawesome.com",
+          zoomLevels := "50% 75% 100% 150% 200% 300%",
+          attr("style") := "width: 600px; height: 400px;"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Without controls"),
+      div(cls := "demo-row")(
+        waZoomableFrame(
+          src := "https://webawesome.com",
+          withoutControls := "true",
+          attr("style") := "width: 600px; height: 400px;"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Without interaction"),
+      div(cls := "demo-row")(
+        waZoomableFrame(
+          src := "https://webawesome.com",
+          withoutInteraction := "true",
+          attr("style") := "width: 600px; height: 400px;"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Custom initial zoom"),
+      div(cls := "demo-row")(
+        waZoomableFrame(
+          src := "https://webawesome.com",
+          zoom := "1.5",
+          attr("style") := "width: 600px; height: 400px;"
+        )
+      )
+    )
+  )
+
   initialize()

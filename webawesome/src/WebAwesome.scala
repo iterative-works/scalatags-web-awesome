@@ -180,3 +180,9 @@ trait Attrs:
   // QR Code
   lazy val radius: generic.Attr = generic.Attr("radius")
   lazy val errorCorrection: generic.Attr = generic.Attr("error-correction")
+
+  // Zoomable Frame
+  lazy val zoom: generic.Attr = generic.Attr("zoom")
+  lazy val zoomLevels: generic.Attr = generic.Attr("zoom-levels")
+  lazy val withoutControls: generic.Attr = generic.Attr("without-controls")
+  lazy val withoutInteraction: generic.Attr = generic.Attr("without-interaction")

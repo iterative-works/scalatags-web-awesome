@@ -83,3 +83,6 @@ object WebAwesome extends Attrs:
 
   // QR Code
   lazy val waQrCode = htmlTag("wa-qr-code")
+
+  // Zoomable Frame
+  lazy val waZoomableFrame = htmlTag("wa-zoomable-frame")

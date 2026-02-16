@@ -57,7 +57,8 @@ object Layout:
     "format-number" -> "Format Number",
     "relative-time" -> "Relative Time",
     "include" -> "Include",
-    "qr-code" -> "QR Code"
+    "qr-code" -> "QR Code",
+    "zoomable-frame" -> "Zoomable Frame"
   )
 
   def page(pageTitle: String, activePage: String)(content: Frag*): String =
