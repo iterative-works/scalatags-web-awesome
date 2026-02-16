@@ -31,6 +31,7 @@ trait Attrs:
   lazy val passwordVisible: generic.Attr = generic.Attr("password-visible")
   lazy val indeterminate: generic.Attr = generic.Attr("indeterminate")
   lazy val withoutSpinButtons: generic.Attr = generic.Attr("without-spin-buttons")
+  lazy val withoutSteppers: generic.Attr = generic.Attr("without-steppers")
   lazy val withLabel: generic.Attr = generic.Attr("with-label")
   lazy val withHint: generic.Attr = generic.Attr("with-hint")
 

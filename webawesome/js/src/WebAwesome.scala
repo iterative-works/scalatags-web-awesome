@@ -23,6 +23,7 @@ object WebAwesome extends Attrs:
   lazy val waRadio = htmlTag("wa-radio")
   lazy val waRadioGroup = htmlTag("wa-radio-group")
   lazy val waColorPicker = htmlTag("wa-color-picker")
+  lazy val waNumberInput = htmlTag("wa-number-input")
 
   // Organization
   lazy val waCard = htmlTag("wa-card")

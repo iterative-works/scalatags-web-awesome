@@ -337,4 +337,92 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Number Input ---
+  @cask.get("/number-input")
+  def numberInputPage(): cask.Response[String] = htmlPage("Number Input", "number-input")(
+    h1("wa-number-input"),
+
+    div(cls := "demo-section")(
+      h2("Basic"),
+      div(cls := "demo-row")(
+        waNumberInput(attr("label") := "Quantity", value := "1"),
+        waNumberInput(attr("label") := "Price", value := "99.99", step := "0.01")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Without steppers"),
+      div(cls := "demo-row")(
+        waNumberInput(attr("label") := "Amount", withoutSteppers := "true", value := "42")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With label (SSR)"),
+      div(cls := "demo-row")(
+        waNumberInput(
+          withLabel := "true",
+          attr("label") := "Count",
+          value := "10",
+          min := "0",
+          max := "100"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With hint (SSR)"),
+      div(cls := "demo-row")(
+        waNumberInput(
+          withHint := "true",
+          attr("label") := "Percentage",
+          hint := "Enter a value between 0 and 100",
+          value := "50",
+          min := "0",
+          max := "100"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With label and hint (SSR)"),
+      div(cls := "demo-row")(
+        waNumberInput(
+          withLabel := "true",
+          withHint := "true",
+          attr("label") := "Temperature (°C)",
+          hint := "Room temperature range: 18-24",
+          value := "21",
+          step := "0.5"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Sizes"),
+      div(cls := "demo-row")(
+        waNumberInput(attr("size") := "small", attr("label") := "Small", value := "1"),
+        waNumberInput(attr("size") := "medium", attr("label") := "Medium", value := "2"),
+        waNumberInput(attr("size") := "large", attr("label") := "Large", value := "3")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Appearances"),
+      div(cls := "demo-row")(
+        waNumberInput(appearance := "outlined", attr("label") := "Outlined", value := "10"),
+        waNumberInput(appearance := "filled", attr("label") := "Filled", value := "20")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("States"),
+      div(cls := "demo-row")(
+        waNumberInput(attr("label") := "Disabled", disabled := "true", value := "99"),
+        waNumberInput(attr("label") := "Readonly", readonly := "true", value := "42"),
+        waNumberInput(attr("label") := "Required", required := "true")
+      )
+    )
+  )
+
   initialize()
