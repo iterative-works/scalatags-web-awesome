@@ -149,3 +149,7 @@ trait Attrs:
   lazy val slidesPerPage: generic.Attr = generic.Attr("slides-per-page")
   lazy val slidesPerMove: generic.Attr = generic.Attr("slides-per-move")
   lazy val mouseDragging: generic.Attr = generic.Attr("mouse-dragging")
+
+  // Formatters
+  lazy val unit: generic.Attr = generic.Attr("unit")
+  lazy val display: generic.Attr = generic.Attr("display")

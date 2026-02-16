@@ -100,7 +100,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 
 | Component | Tag | Scenario | Attrs | WA-specific attrs needed |
 |-----------|-----|----------|-------|--------------------------|
-| wa-format-bytes | [ ] | [ ] | [ ] | unit, display |
+| wa-format-bytes | [x] | [x] | [x] | unit, display |
 | wa-format-date | [ ] | [ ] | [ ] | date, weekday, era, year, month, day, hour, minute, second, time-zone-name, time-zone, hour-format |
 | wa-format-number | [ ] | [ ] | [ ] | without-grouping, currency, currency-display, minimum-integer-digits, minimum-fraction-digits, maximum-fraction-digits, minimum-significant-digits, maximum-significant-digits |
 | wa-include | [ ] | [ ] | [ ] | mode, allow-scripts |

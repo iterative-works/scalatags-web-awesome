@@ -51,7 +51,8 @@ object Layout:
     "progress-ring" -> "Progress Ring",
     "rating" -> "Rating",
     "carousel" -> "Carousel",
-    "comparison" -> "Comparison"
+    "comparison" -> "Comparison",
+    "format-bytes" -> "Format Bytes"
   )
 
   def page(pageTitle: String, activePage: String)(content: Frag*): String =

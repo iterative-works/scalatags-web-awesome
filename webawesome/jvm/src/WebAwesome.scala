@@ -71,3 +71,6 @@ object WebAwesome extends Attrs:
 
   // Comparison
   lazy val waComparison = htmlTag("wa-comparison")
+
+  // Formatters
+  lazy val waFormatBytes = htmlTag("wa-format-bytes")

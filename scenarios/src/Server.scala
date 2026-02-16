@@ -4091,4 +4091,63 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Format Bytes ---
+  @cask.get("/format-bytes")
+  def formatBytesPage(): cask.Response[String] = htmlPage("Format Bytes", "format-bytes")(
+    h1("wa-format-bytes"),
+
+    div(cls := "demo-section")(
+      h2("Different byte values"),
+      div(cls := "demo-row")(
+        div(
+          p("1000 bytes: ", waFormatBytes(value := "1000")),
+          p("1024 bytes: ", waFormatBytes(value := "1024")),
+          p("1000000 bytes: ", waFormatBytes(value := "1000000")),
+          p("1048576 bytes: ", waFormatBytes(value := "1048576")),
+          p("1000000000 bytes: ", waFormatBytes(value := "1000000000"))
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Unit: byte vs bit"),
+      div(cls := "demo-row")(
+        div(
+          p("1024 bytes: ", waFormatBytes(value := "1024", unit := "byte")),
+          p("1024 bits: ", waFormatBytes(value := "1024", unit := "bit")),
+          p("1000000 bytes: ", waFormatBytes(value := "1000000", unit := "byte")),
+          p("1000000 bits: ", waFormatBytes(value := "1000000", unit := "bit"))
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Display formats"),
+      div(cls := "demo-row")(
+        div(
+          p("Long: ", waFormatBytes(value := "1048576", display := "long")),
+          p("Short (default): ", waFormatBytes(value := "1048576", display := "short")),
+          p("Narrow: ", waFormatBytes(value := "1048576", display := "narrow"))
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("All display formats for different sizes"),
+      div(cls := "demo-row")(
+        div(
+          p("1024 bytes:"),
+          p("  Long: ", waFormatBytes(value := "1024", display := "long")),
+          p("  Short: ", waFormatBytes(value := "1024", display := "short")),
+          p("  Narrow: ", waFormatBytes(value := "1024", display := "narrow")),
+          br,
+          p("1000000000 bytes:"),
+          p("  Long: ", waFormatBytes(value := "1000000000", display := "long")),
+          p("  Short: ", waFormatBytes(value := "1000000000", display := "short")),
+          p("  Narrow: ", waFormatBytes(value := "1000000000", display := "narrow"))
+        )
+      )
+    )
+  )
+
   initialize()
