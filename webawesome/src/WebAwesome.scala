@@ -21,6 +21,7 @@ trait Attrs:
   lazy val withCaret: generic.Attr = generic.Attr("with-caret")
 
   // Dialog / Drawer
+  lazy val open: generic.Attr = generic.Attr("open")
   lazy val lightDismiss: generic.Attr = generic.Attr("light-dismiss")
   lazy val withoutHeader: generic.Attr = generic.Attr("without-header")
 

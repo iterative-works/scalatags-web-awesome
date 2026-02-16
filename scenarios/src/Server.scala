@@ -712,6 +712,72 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Dialog ---
+  @cask.get("/dialog")
+  def dialogPage(): cask.Response[String] = htmlPage("Dialog", "dialog")(
+    h1("wa-dialog"),
+
+    div(cls := "demo-section")(
+      h2("Basic dialog (open by default)"),
+      waDialog(open := "true")(
+        div(slot := "header")("Dialog Header"),
+        p("This is a basic dialog with a header and some content."),
+        div(slot := "footer")(
+          waButton(variant := "brand")("Confirm"),
+          waButton(appearance := "outlined")("Cancel")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Dialog without header"),
+      waDialog(open := "true", withoutHeader := "true")(
+        p("This dialog has no header section, just the content area."),
+        p("Notice there's no top section with a title."),
+        div(slot := "footer")(
+          waButton(variant := "success")("OK")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Dialog with light dismiss"),
+      waDialog(open := "true", lightDismiss := "true")(
+        div(slot := "header")("Click Outside to Close"),
+        p("This dialog can be dismissed by clicking outside of it or pressing Escape."),
+        p("The light-dismiss attribute enables this behavior."),
+        div(slot := "footer")(
+          waButton(variant := "brand")("Got it")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Dialog with rich content"),
+      waDialog(open := "true")(
+        div(slot := "header")(
+          waIcon(name := "fa-solid:circle-info"),
+          " Information"
+        ),
+        div(
+          p("Dialogs can contain any HTML content including:"),
+          ul(
+            li("Lists and formatted text"),
+            li("Images and icons"),
+            li("Form controls"),
+            li("Other Web Awesome components")
+          ),
+          waInput(attr("label") := "Your name", placeholder := "Enter your name"),
+          waCheckbox("I agree to the terms")
+        ),
+        div(slot := "footer")(
+          waButton(variant := "brand")("Submit"),
+          waButton(appearance := "plain")("Cancel")
+        )
+      )
+    )
+  )
+
   // --- Switch ---
   @cask.get("/switch")
   def switchPage(): cask.Response[String] = htmlPage("Switch", "switch")(
