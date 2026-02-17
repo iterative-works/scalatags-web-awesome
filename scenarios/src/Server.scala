@@ -4743,4 +4743,110 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  @cask.get("/resize-observer")
+  def resizeObserverPage(): cask.Response[String] = htmlPage("Resize Observer", "resize-observer")(
+    h1("wa-resize-observer"),
+
+    tag("style")(raw(
+      """
+      .resizable-box {
+        resize: both;
+        overflow: auto;
+        padding: 1rem;
+        margin: 1rem 0;
+        background: #f0f0f0;
+        border: 2px solid #0066ff;
+        border-radius: 4px;
+        min-width: 200px;
+        min-height: 100px;
+        width: 300px;
+        height: 150px;
+      }
+      .size-display {
+        padding: 0.5rem;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 0.85rem;
+        margin-top: 0.5rem;
+      }
+      .resize-log {
+        padding: 0.5rem;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 0.85rem;
+        margin-top: 0.5rem;
+        min-height: 100px;
+        max-height: 200px;
+        overflow-y: auto;
+      }
+      .log-entry {
+        padding: 0.25rem;
+        border-bottom: 1px solid #eee;
+      }
+      """
+    )),
+
+    div(cls := "demo-section")(
+      h2("Basic resize observation"),
+      p("Drag the corner of the box below to resize it. The observer will detect size changes."),
+      div(cls := "demo-row")(
+        waResizeObserver(
+          div(id := "basic-box", cls := "resizable-box")("Resize me!"),
+          div(slot := "resized", id := "basic-display", cls := "size-display")("Width: 300px, Height: 150px")
+        )
+      ),
+      script(raw(
+        """
+        document.querySelector('#basic-display').closest('wa-resize-observer').addEventListener('wa-resize', (e) => {
+          const display = document.getElementById('basic-display');
+          const entry = e.detail.entries[0];
+          const width = Math.round(entry.contentRect.width);
+          const height = Math.round(entry.contentRect.height);
+          display.textContent = `Width: ${width}px, Height: ${height}px`;
+        });
+        """
+      ))
+    ),
+
+    div(cls := "demo-section")(
+      h2("Resize event logging"),
+      p("This observer logs all resize events with timestamps."),
+      div(cls := "demo-row")(
+        waResizeObserver(
+          div(id := "log-box", cls := "resizable-box")("Resize to see logs"),
+          div(slot := "resized", id := "resize-log", cls := "resize-log")("Resize events will appear here...")
+        )
+      ),
+      script(raw(
+        """
+        document.querySelector('#resize-log').closest('wa-resize-observer').addEventListener('wa-resize', (e) => {
+          const log = document.getElementById('resize-log');
+          const entry = document.createElement('div');
+          entry.className = 'log-entry';
+          const rect = e.detail.entries[0].contentRect;
+          const width = Math.round(rect.width);
+          const height = Math.round(rect.height);
+          const time = new Date().toLocaleTimeString();
+          entry.textContent = `${time} - Resized to ${width}px × ${height}px`;
+          log.insertBefore(entry, log.firstChild);
+        });
+        """
+      ))
+    ),
+
+    div(cls := "demo-section")(
+      h2("Disabled observer"),
+      div(cls := "demo-row")(
+        waResizeObserver(disabled := true)(
+          div(cls := "resizable-box")("This observer is disabled"),
+          div(slot := "resized", cls := "size-display")("Observer is disabled - resize events will not be detected")
+        )
+      )
+    )
+  )
+
   initialize()

@@ -92,3 +92,6 @@ object WebAwesome extends Attrs:
 
   // Mutation Observer
   lazy val waMutationObserver = htmlTag("wa-mutation-observer")
+
+  // Resize Observer
+  lazy val waResizeObserver = htmlTag("wa-resize-observer")
