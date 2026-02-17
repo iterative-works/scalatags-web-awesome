@@ -103,3 +103,6 @@ object WebAwesome extends Attrs:
 
   // Page (Pro)
   lazy val waPage = htmlTag("wa-page")
+
+  // Sparkline
+  lazy val waSparkline = htmlTag("wa-sparkline")

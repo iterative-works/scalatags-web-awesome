@@ -5340,4 +5340,64 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Sparkline ---
+  @cask.get("/sparkline")
+  def sparklinePage(): cask.Response[String] = htmlPage("Sparkline", "sparkline")(
+    h1("wa-sparkline"),
+
+    div(cls := "demo-section")(
+      h2("Basic sparklines"),
+      div(cls := "demo-row")(
+        waSparkline(attr("data") := "10 20 30 40 50 60", attr("label") := "Sales trend"),
+        waSparkline(attr("data") := "60 50 40 30 20 10", attr("label") := "Declining trend"),
+        waSparkline(attr("data") := "10 30 20 40 35 50", attr("label") := "Variable trend")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Trend indicators"),
+      div(cls := "demo-row")(
+        waSparkline(attr("data") := "10 20 30 40 50 60", trend := "positive", attr("label") := "Positive trend"),
+        waSparkline(attr("data") := "60 50 40 30 20 10", trend := "negative", attr("label") := "Negative trend"),
+        waSparkline(attr("data") := "30 30 30 30 30 30", trend := "neutral", attr("label") := "Neutral trend")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Curve types"),
+      div(cls := "demo-row")(
+        waSparkline(attr("data") := "10 30 20 40 35 50", curve := "linear", attr("label") := "Linear curve"),
+        waSparkline(attr("data") := "10 30 20 40 35 50", curve := "natural", attr("label") := "Natural curve"),
+        waSparkline(attr("data") := "10 30 20 40 35 50", curve := "step", attr("label") := "Step curve")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Appearances"),
+      div(cls := "demo-row")(
+        waSparkline(attr("data") := "10 20 30 40 50 60", appearance := "solid", attr("label") := "Solid"),
+        waSparkline(attr("data") := "10 20 30 40 50 60", appearance := "gradient", attr("label") := "Gradient"),
+        waSparkline(attr("data") := "10 20 30 40 50 60", appearance := "line", attr("label") := "Line only")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Real-world example"),
+      p("Visualizing monthly revenue data"),
+      div(cls := "demo-row")(
+        div(attr("style") := "display: flex; flex-direction: column; align-items: flex-start;")(
+          h3("Revenue ($1000s)"),
+          waSparkline(
+            attr("data") := "42 45 48 51 55 58 62 60 65 70 68 72",
+            trend := "positive",
+            curve := "natural",
+            appearance := "gradient",
+            attr("label") := "Monthly revenue trend"
+          ),
+          p("Last 12 months")
+        )
+      )
+    )
+  )
+
   initialize()

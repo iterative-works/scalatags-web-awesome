@@ -65,7 +65,8 @@ object Layout:
     "mutation-observer" -> "Mutation Observer",
     "resize-observer" -> "Resize Observer",
     "scroller" -> "Scroller",
-    "page" -> "Page"
+    "page" -> "Page",
+    "sparkline" -> "Sparkline"
   )
 
   def page(pageTitle: String, activePage: String)(content: Frag*): String =

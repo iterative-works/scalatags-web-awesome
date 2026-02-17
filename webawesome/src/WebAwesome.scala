@@ -208,3 +208,7 @@ trait Attrs:
   lazy val mobileBreakpoint: generic.Attr = generic.Attr("mobile-breakpoint")
   lazy val navigationPlacement: generic.Attr = generic.Attr("navigation-placement")
   lazy val disableNavigationToggle: generic.Attr = generic.Attr("disable-navigation-toggle")
+
+  // Sparkline
+  lazy val trend: generic.Attr = generic.Attr("trend")
+  lazy val curve: generic.Attr = generic.Attr("curve")
