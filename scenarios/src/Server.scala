@@ -412,10 +412,10 @@ object Server extends cask.MainRoutes:
       h2("Basic breadcrumb with links"),
       div(cls := "demo-row")(
         waBreadcrumb(attr("label") := "Navigation breadcrumb")(
-          a(href := "#home")("Home"),
-          a(href := "#products")("Products"),
-          a(href := "#category")("Category"),
-          "Current Page"
+          waBreadcrumbItem(href := "#home")("Home"),
+          waBreadcrumbItem(href := "#products")("Products"),
+          waBreadcrumbItem(href := "#category")("Category"),
+          waBreadcrumbItem("Current Page")
         )
       )
     ),
@@ -424,9 +424,9 @@ object Server extends cask.MainRoutes:
       h2("Without aria label"),
       div(cls := "demo-row")(
         waBreadcrumb(
-          a(href := "#")("Docs"),
-          a(href := "#")("Components"),
-          "Breadcrumb"
+          waBreadcrumbItem(href := "#")("Docs"),
+          waBreadcrumbItem(href := "#")("Components"),
+          waBreadcrumbItem("Breadcrumb")
         )
       )
     ),
@@ -436,10 +436,10 @@ object Server extends cask.MainRoutes:
       div(cls := "demo-row")(
         waBreadcrumb(attr("label") := "File path")(
           waIcon(name := "chevron-right", slot := "separator"),
-          a(href := "#")("Home"),
-          a(href := "#")("Documents"),
-          a(href := "#")("Projects"),
-          "Report.pdf"
+          waBreadcrumbItem(href := "#")("Home"),
+          waBreadcrumbItem(href := "#")("Documents"),
+          waBreadcrumbItem(href := "#")("Projects"),
+          waBreadcrumbItem("Report.pdf")
         )
       )
     ),
@@ -448,10 +448,10 @@ object Server extends cask.MainRoutes:
       h2("With custom separator (text)"),
       div(cls := "demo-row")(
         waBreadcrumb(
-          tag("span")(slot := "separator")(" > "),
-          a(href := "#")("Root"),
-          a(href := "#")("Folder"),
-          "File"
+          tag("span")(slot := "separator")(">"),
+          waBreadcrumbItem(href := "#")("Root"),
+          waBreadcrumbItem(href := "#")("Folder"),
+          waBreadcrumbItem("File")
         )
       )
     ),
@@ -460,12 +460,12 @@ object Server extends cask.MainRoutes:
       h2("Long breadcrumb trail"),
       div(cls := "demo-row")(
         waBreadcrumb(attr("label") := "Site navigation")(
-          a(href := "#")("Home"),
-          a(href := "#")("Category"),
-          a(href := "#")("Subcategory"),
-          a(href := "#")("Product Type"),
-          a(href := "#")("Brand"),
-          "Product Name"
+          waBreadcrumbItem(href := "#")("Home"),
+          waBreadcrumbItem(href := "#")("Category"),
+          waBreadcrumbItem(href := "#")("Subcategory"),
+          waBreadcrumbItem(href := "#")("Product Type"),
+          waBreadcrumbItem(href := "#")("Brand"),
+          waBreadcrumbItem("Product Name")
         )
       )
     )
