@@ -67,7 +67,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 | wa-dialog | [x] | [x] | [x] | [x] | open |
 | wa-divider | [x] | [x] | [x] | [x] | orientation |
 | wa-drawer | [x] | [x] | [x] | [x] | open, placement |
-| wa-split-panel | [x] | [x] | [x] | [ ] | position, vertical |
+| wa-split-panel | [x] | [x] | [x] | [x] | position, vertical |
 
 ## Navigation
 
