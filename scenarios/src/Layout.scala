@@ -59,7 +59,8 @@ object Layout:
     "include" -> "Include",
     "qr-code" -> "QR Code",
     "zoomable-frame" -> "Zoomable Frame",
-    "intersection-observer" -> "Intersection Observer"
+    "intersection-observer" -> "Intersection Observer",
+    "mutation-observer" -> "Mutation Observer"
   )
 
   def page(pageTitle: String, activePage: String)(content: Frag*): String =

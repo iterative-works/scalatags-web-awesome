@@ -113,7 +113,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 | Component | Tag | Scenario | Attrs | WA-specific attrs needed |
 |-----------|-----|----------|-------|--------------------------|
 | wa-intersection-observer | [x] | [x] | [x] | root, root-margin, threshold, intersect-class, once |
-| wa-mutation-observer | [ ] | [ ] | [ ] | attr, attr-old-value, char-data, char-data-old-value, child-list |
+| wa-mutation-observer | [x] | [x] | [x] | attr, attr-old-value, char-data, char-data-old-value, child-list |
 | wa-resize-observer | [ ] | [ ] | [x] | (none) |
 | wa-scroller | [ ] | [ ] | [ ] | orientation |
 

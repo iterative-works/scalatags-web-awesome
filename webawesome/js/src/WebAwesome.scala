@@ -89,3 +89,6 @@ object WebAwesome extends Attrs:
 
   // Intersection Observer
   lazy val waIntersectionObserver = htmlTag("wa-intersection-observer")
+
+  // Mutation Observer
+  lazy val waMutationObserver = htmlTag("wa-mutation-observer")

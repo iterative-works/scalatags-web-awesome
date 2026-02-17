@@ -193,3 +193,9 @@ trait Attrs:
   lazy val threshold: generic.Attr = generic.Attr("threshold")
   lazy val intersectClass: generic.Attr = generic.Attr("intersect-class")
   lazy val once: generic.Attr = generic.Attr("once")
+
+  // Mutation Observer
+  lazy val attrOldValue: generic.Attr = generic.Attr("attr-old-value")
+  lazy val charData: generic.Attr = generic.Attr("char-data")
+  lazy val charDataOldValue: generic.Attr = generic.Attr("char-data-old-value")
+  lazy val childList: generic.Attr = generic.Attr("child-list")

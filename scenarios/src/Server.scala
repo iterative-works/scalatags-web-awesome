@@ -4613,4 +4613,134 @@ object Server extends cask.MainRoutes:
     div(attr("style") := "height: 1000px;")
   )
 
+  @cask.get("/mutation-observer")
+  def mutationObserverPage(): cask.Response[String] = htmlPage("Mutation Observer", "mutation-observer")(
+    h1("wa-mutation-observer"),
+
+    div(cls := "demo-section")(
+      h2("Observe attribute changes"),
+      tag("style")(raw(
+        """
+        .target { padding: 1rem; margin: 1rem 0; background: #f0f0f0; border-radius: 4px; }
+        .log { padding: 0.5rem; background: #fff; border: 1px solid #ddd; border-radius: 4px;
+               font-family: monospace; font-size: 0.85rem; margin-top: 0.5rem; min-height: 100px;
+               max-height: 200px; overflow-y: auto; }
+        .log-entry { padding: 0.25rem; border-bottom: 1px solid #eee; }
+        """
+      )),
+      div(cls := "demo-row")(
+        waMutationObserver(attr("attr") := "class style", attrOldValue := "true")(
+          div(id := "attr-target", cls := "target")("Watch my attributes change!"),
+          div(slot := "mutated", cls := "log", id := "attr-log")("Waiting for changes...")
+        )
+      ),
+      div(cls := "demo-row")(
+        waButton(id := "change-class")("Change Class"),
+        waButton(id := "change-style")("Change Style")
+      ),
+      script(raw(
+        """
+        document.getElementById('change-class').addEventListener('click', () => {
+          const target = document.getElementById('attr-target');
+          target.className = target.className === 'target' ? 'target modified' : 'target';
+        });
+        document.getElementById('change-style').addEventListener('click', () => {
+          const target = document.getElementById('attr-target');
+          target.style.background = target.style.background ? '' : '#e3f2fd';
+        });
+        document.querySelector('#attr-log').closest('wa-mutation-observer').addEventListener('wa-mutation', (e) => {
+          const log = document.getElementById('attr-log');
+          const entry = document.createElement('div');
+          entry.className = 'log-entry';
+          const mutation = e.detail.mutationList[0];
+          entry.textContent = `${mutation.type}: ${mutation.attributeName} changed from "${mutation.oldValue}" to "${e.detail.mutationList[0].target.getAttribute(mutation.attributeName)}"`;
+          log.insertBefore(entry, log.firstChild);
+        });
+        """
+      ))
+    ),
+
+    div(cls := "demo-section")(
+      h2("Observe child list changes"),
+      div(cls := "demo-row")(
+        waMutationObserver(childList := "true")(
+          div(id := "child-target", cls := "target")("Click button to add/remove children"),
+          div(slot := "mutated", cls := "log", id := "child-log")("Waiting for changes...")
+        )
+      ),
+      div(cls := "demo-row")(
+        waButton(id := "add-child")("Add Child"),
+        waButton(id := "remove-child")("Remove Child")
+      ),
+      script(raw(
+        """
+        let childCount = 0;
+        document.getElementById('add-child').addEventListener('click', () => {
+          const target = document.getElementById('child-target');
+          const child = document.createElement('div');
+          child.textContent = `Child ${++childCount}`;
+          child.style.padding = '0.25rem';
+          child.style.background = '#fff';
+          child.style.margin = '0.25rem';
+          child.style.borderRadius = '2px';
+          target.appendChild(child);
+        });
+        document.getElementById('remove-child').addEventListener('click', () => {
+          const target = document.getElementById('child-target');
+          if (target.lastChild && target.lastChild.nodeType === 1) {
+            target.removeChild(target.lastChild);
+          }
+        });
+        document.querySelector('#child-log').closest('wa-mutation-observer').addEventListener('wa-mutation', (e) => {
+          const log = document.getElementById('child-log');
+          const entry = document.createElement('div');
+          entry.className = 'log-entry';
+          const mutation = e.detail.mutationList[0];
+          entry.textContent = `${mutation.type}: ${mutation.addedNodes.length} added, ${mutation.removedNodes.length} removed`;
+          log.insertBefore(entry, log.firstChild);
+        });
+        """
+      ))
+    ),
+
+    div(cls := "demo-section")(
+      h2("Observe character data changes"),
+      div(cls := "demo-row")(
+        waMutationObserver(charData := "true", charDataOldValue := "true")(
+          div(id := "char-target", cls := "target")("Edit me!"),
+          div(slot := "mutated", cls := "log", id := "char-log")("Waiting for changes...")
+        )
+      ),
+      div(cls := "demo-row")(
+        waButton(id := "change-text")("Change Text")
+      ),
+      script(raw(
+        """
+        document.getElementById('change-text').addEventListener('click', () => {
+          const target = document.getElementById('char-target');
+          target.textContent = 'Text changed at ' + new Date().toLocaleTimeString();
+        });
+        document.querySelector('#char-log').closest('wa-mutation-observer').addEventListener('wa-mutation', (e) => {
+          const log = document.getElementById('char-log');
+          const entry = document.createElement('div');
+          entry.className = 'log-entry';
+          const mutation = e.detail.mutationList[0];
+          entry.textContent = `${mutation.type}: "${mutation.oldValue}" → "${mutation.target.textContent}"`;
+          log.insertBefore(entry, log.firstChild);
+        });
+        """
+      ))
+    ),
+
+    div(cls := "demo-section")(
+      h2("Disabled observer"),
+      div(cls := "demo-row")(
+        waMutationObserver(childList := "true", disabled := true)(
+          div(id := "disabled-target", cls := "target")("This observer is disabled"),
+          div(slot := "mutated", cls := "log")("Observer is disabled - no mutations will be logged")
+        )
+      )
+    )
+  )
+
   initialize()
