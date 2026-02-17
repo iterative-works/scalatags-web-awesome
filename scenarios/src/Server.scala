@@ -9,6 +9,9 @@ object Server extends cask.MainRoutes:
 
   override def port: Int = 8086
 
+  @cask.staticFiles("/wa-pro")
+  def waProFiles() = "node_modules/@awesome.me/webawesome-pro/dist-cdn"
+
   private def htmlPage(title: String, active: String)(content: Frag*): cask.Response[String] =
     cask.Response(
       Layout.page(title, active)(content*),

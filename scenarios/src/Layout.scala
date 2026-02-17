@@ -6,8 +6,7 @@ import scalatags.Text.all._
 
 object Layout:
 
-  private val waVersion = "3.2.1"
-  private val waCdn = s"https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@$waVersion/dist-cdn"
+  private val waCdn = "/wa-pro"
 
   val navItems: Seq[(String, String)] = Seq(
     "button" -> "Button",
@@ -77,7 +76,6 @@ object Layout:
         tag("title")(s"Web Awesome Scenarios - $pageTitle"),
         link(rel := "stylesheet", href := s"$waCdn/styles/webawesome.css"),
         script(src := s"$waCdn/webawesome.loader.js", `type` := "module"),
-        script(src := "https://kit.webawesome.com/1f5f093600354834.js", attr("crossorigin") := "anonymous"),
         tag("style")(raw(css))
       ),
       body(
