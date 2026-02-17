@@ -186,3 +186,10 @@ trait Attrs:
   lazy val zoomLevels: generic.Attr = generic.Attr("zoom-levels")
   lazy val withoutControls: generic.Attr = generic.Attr("without-controls")
   lazy val withoutInteraction: generic.Attr = generic.Attr("without-interaction")
+
+  // Intersection Observer
+  lazy val root: generic.Attr = generic.Attr("root")
+  lazy val rootMargin: generic.Attr = generic.Attr("root-margin")
+  lazy val threshold: generic.Attr = generic.Attr("threshold")
+  lazy val intersectClass: generic.Attr = generic.Attr("intersect-class")
+  lazy val once: generic.Attr = generic.Attr("once")

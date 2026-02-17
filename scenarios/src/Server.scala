@@ -4562,4 +4562,55 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Intersection Observer ---
+  @cask.get("/intersection-observer")
+  def intersectionObserverPage(): cask.Response[String] = htmlPage("Intersection Observer", "intersection-observer")(
+    h1("wa-intersection-observer"),
+
+    div(cls := "demo-section")(
+      h2("Basic intersection observer with class toggle"),
+      tag("style")(raw(
+        """
+        .box { width: 200px; height: 200px; background: #ddd; margin: 50px;
+               transition: all 0.5s; }
+        .box.visible { background: #4CAF50; transform: scale(1.1); }
+        """
+      )),
+      div(cls := "demo-row")(
+        waIntersectionObserver(intersectClass := "visible")(
+          div(cls := "box")("Scroll to see me change!")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With threshold (50% visible)"),
+      div(cls := "demo-row")(
+        waIntersectionObserver(intersectClass := "visible", threshold := "0.5")(
+          div(cls := "box")("50% threshold")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Trigger once only"),
+      div(cls := "demo-row")(
+        waIntersectionObserver(intersectClass := "visible", once := "true")(
+          div(cls := "box")("Triggers once only")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With root margin (triggers 100px early)"),
+      div(cls := "demo-row")(
+        waIntersectionObserver(intersectClass := "visible", rootMargin := "100px")(
+          div(cls := "box")("Margin: 100px")
+        )
+      )
+    ),
+
+    div(attr("style") := "height: 1000px;")
+  )
+
   initialize()

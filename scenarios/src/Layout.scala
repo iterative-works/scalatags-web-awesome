@@ -58,7 +58,8 @@ object Layout:
     "relative-time" -> "Relative Time",
     "include" -> "Include",
     "qr-code" -> "QR Code",
-    "zoomable-frame" -> "Zoomable Frame"
+    "zoomable-frame" -> "Zoomable Frame",
+    "intersection-observer" -> "Intersection Observer"
   )
 
   def page(pageTitle: String, activePage: String)(content: Frag*): String =

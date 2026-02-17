@@ -86,3 +86,6 @@ object WebAwesome extends Attrs:
 
   // Zoomable Frame
   lazy val waZoomableFrame = htmlTag("wa-zoomable-frame")
+
+  // Intersection Observer
+  lazy val waIntersectionObserver = htmlTag("wa-intersection-observer")
