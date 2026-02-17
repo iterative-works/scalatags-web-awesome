@@ -2647,7 +2647,7 @@ object Server extends cask.MainRoutes:
       h2("Basic animated image (auto-play)"),
       div(cls := "demo-row")(
         waAnimatedImage(
-          src := "https://raw.githubusercontent.com/shoonia/testing-playground/main/public/loader.svg",
+          src := "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif",
           alt := "Animated loader"
         )
       )
@@ -2657,7 +2657,7 @@ object Server extends cask.MainRoutes:
       h2("With play attribute (starts playing)"),
       div(cls := "demo-row")(
         waAnimatedImage(
-          src := "https://raw.githubusercontent.com/shoonia/testing-playground/main/public/loader.svg",
+          src := "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif",
           alt := "Playing animated loader",
           play := "true"
         )
@@ -2668,7 +2668,7 @@ object Server extends cask.MainRoutes:
       h2("Paused initially"),
       div(cls := "demo-row")(
         waAnimatedImage(
-          src := "https://raw.githubusercontent.com/shoonia/testing-playground/main/public/loader.svg",
+          src := "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif",
           alt := "Paused animated loader",
           play := "false"
         )
@@ -2679,17 +2679,17 @@ object Server extends cask.MainRoutes:
       h2("Different sizes"),
       div(cls := "demo-row")(
         waAnimatedImage(
-          src := "https://raw.githubusercontent.com/shoonia/testing-playground/main/public/loader.svg",
+          src := "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif",
           alt := "Small loader",
           attr("style") := "width: 100px; height: 100px"
         ),
         waAnimatedImage(
-          src := "https://raw.githubusercontent.com/shoonia/testing-playground/main/public/loader.svg",
+          src := "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif",
           alt := "Medium loader",
           attr("style") := "width: 150px; height: 150px"
         ),
         waAnimatedImage(
-          src := "https://raw.githubusercontent.com/shoonia/testing-playground/main/public/loader.svg",
+          src := "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif",
           alt := "Large loader",
           attr("style") := "width: 200px; height: 200px"
         )
