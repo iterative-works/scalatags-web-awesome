@@ -22,6 +22,7 @@ object WebAwesome extends Attrs:
   lazy val waCheckbox = htmlTag("wa-checkbox")
   lazy val waSelect = htmlTag("wa-select")
   lazy val waOption = htmlTag("wa-option")
+  lazy val waCombobox = htmlTag("wa-combobox")
   lazy val waRadio = htmlTag("wa-radio")
   lazy val waRadioGroup = htmlTag("wa-radio-group")
   lazy val waColorPicker = htmlTag("wa-color-picker")

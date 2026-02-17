@@ -36,6 +36,8 @@ trait Attrs:
   lazy val withLabel: generic.Attr = generic.Attr("with-label")
   lazy val withHint: generic.Attr = generic.Attr("with-hint")
   lazy val clearable: generic.Attr = generic.Attr("clearable")
+  lazy val maxOptionsVisible: generic.Attr = generic.Attr("max-options-visible")
+  lazy val allowCustomValue: generic.Attr = generic.Attr("allow-custom-value")
 
   // Color picker
   lazy val format: generic.Attr = generic.Attr("format")

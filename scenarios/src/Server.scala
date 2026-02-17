@@ -1611,6 +1611,194 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Combobox ---
+  @cask.get("/combobox")
+  def comboboxPage(): cask.Response[String] = htmlPage("Combobox", "combobox")(
+    h1("wa-combobox"),
+
+    div(cls := "demo-section")(
+      h2("Basic"),
+      div(cls := "demo-row")(
+        waCombobox(attr("label") := "Country", placeholder := "Select or type a country")(
+          waOption(value := "us")("United States"),
+          waOption(value := "uk")("United Kingdom"),
+          waOption(value := "ca")("Canada"),
+          waOption(value := "de")("Germany"),
+          waOption(value := "fr")("France")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With selected value"),
+      div(cls := "demo-row")(
+        waCombobox(attr("label") := "Language", value := "en")(
+          waOption(value := "en")("English"),
+          waOption(value := "es")("Spanish"),
+          waOption(value := "fr")("French"),
+          waOption(value := "de")("German")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With clear button"),
+      div(cls := "demo-row")(
+        waCombobox(attr("label") := "Theme", withClear := "true", value := "dark")(
+          waOption(value := "light")("Light"),
+          waOption(value := "dark")("Dark"),
+          waOption(value := "auto")("Auto")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Allow custom value"),
+      div(cls := "demo-row")(
+        waCombobox(
+          attr("label") := "Email",
+          allowCustomValue := "true",
+          placeholder := "Type or select an email"
+        )(
+          waOption(value := "john@example.com")("john@example.com"),
+          waOption(value := "jane@example.com")("jane@example.com"),
+          waOption(value := "bob@example.com")("bob@example.com")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Max options visible"),
+      div(cls := "demo-row")(
+        waCombobox(
+          attr("label") := "Framework",
+          maxOptionsVisible := "3",
+          placeholder := "Type to filter"
+        )(
+          waOption(value := "react")("React"),
+          waOption(value := "vue")("Vue"),
+          waOption(value := "angular")("Angular"),
+          waOption(value := "svelte")("Svelte"),
+          waOption(value := "solid")("Solid"),
+          waOption(value := "qwik")("Qwik")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With label (SSR)"),
+      div(cls := "demo-row")(
+        waCombobox(
+          withLabel := "true",
+          attr("label") := "Priority",
+          placeholder := "Choose or type priority"
+        )(
+          waOption(value := "low")("Low"),
+          waOption(value := "medium")("Medium"),
+          waOption(value := "high")("High")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With hint (SSR)"),
+      div(cls := "demo-row")(
+        waCombobox(
+          withHint := "true",
+          attr("label") := "Status",
+          hint := "Type to filter or select from the list",
+          placeholder := "Choose status"
+        )(
+          waOption(value := "draft")("Draft"),
+          waOption(value := "review")("In Review"),
+          waOption(value := "published")("Published")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With label and hint (SSR)"),
+      div(cls := "demo-row")(
+        waCombobox(
+          withLabel := "true",
+          withHint := "true",
+          attr("label") := "Department",
+          hint := "Type to search or select from the list",
+          placeholder := "Select department"
+        )(
+          waOption(value := "eng")("Engineering"),
+          waOption(value := "sales")("Sales"),
+          waOption(value := "marketing")("Marketing"),
+          waOption(value := "support")("Support")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Sizes"),
+      div(cls := "demo-row")(
+        waCombobox(attr("size") := "small", attr("label") := "Small", placeholder := "Small combobox")(
+          waOption(value := "1")("Option 1"),
+          waOption(value := "2")("Option 2")
+        ),
+        waCombobox(attr("size") := "medium", attr("label") := "Medium", placeholder := "Medium combobox")(
+          waOption(value := "1")("Option 1"),
+          waOption(value := "2")("Option 2")
+        ),
+        waCombobox(attr("size") := "large", attr("label") := "Large", placeholder := "Large combobox")(
+          waOption(value := "1")("Option 1"),
+          waOption(value := "2")("Option 2")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Placements"),
+      div(cls := "demo-row")(
+        waCombobox(attr("label") := "Top", placement := "top", placeholder := "Opens upward")(
+          waOption(value := "a")("Option A"),
+          waOption(value := "b")("Option B")
+        ),
+        waCombobox(attr("label") := "Bottom (default)", placement := "bottom", placeholder := "Opens downward")(
+          waOption(value := "a")("Option A"),
+          waOption(value := "b")("Option B")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("States"),
+      div(cls := "demo-row")(
+        waCombobox(attr("label") := "Disabled", disabled := "true", placeholder := "Disabled")(
+          waOption(value := "1")("Option 1"),
+          waOption(value := "2")("Option 2")
+        ),
+        waCombobox(attr("label") := "Required", required := "true", placeholder := "Required field")(
+          waOption(value := "1")("Option 1"),
+          waOption(value := "2")("Option 2")
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Multiple selection with custom values"),
+      div(cls := "demo-row")(
+        waCombobox(
+          attr("label") := "Tags",
+          multiple := "true",
+          allowCustomValue := "true",
+          placeholder := "Type or select tags"
+        )(
+          waOption(value := "scala")("Scala"),
+          waOption(value := "functional")("Functional"),
+          waOption(value := "zio")("ZIO"),
+          waOption(value := "cats")("Cats"),
+          waOption(value := "effect")("Effect")
+        )
+      )
+    )
+  )
+
   // --- Slider ---
   @cask.get("/slider")
   def sliderPage(): cask.Response[String] = htmlPage("Slider", "slider")(

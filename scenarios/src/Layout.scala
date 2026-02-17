@@ -32,6 +32,7 @@ object Layout:
     "radio" -> "Radio",
     "select" -> "Select",
     "option" -> "Option",
+    "combobox" -> "Combobox",
     "slider" -> "Slider",
     "textarea" -> "Textarea",
     "dropdown" -> "Dropdown",
