@@ -4671,6 +4671,14 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Include (snippet served for wa-include demos) ---
+  @cask.get("/include-snippet")
+  def includeSnippet(): cask.Response[String] =
+    cask.Response(
+      "<p style=\"color: green; font-weight: bold;\">✓ Content loaded via wa-include</p>",
+      headers = Seq("Content-Type" -> "text/html")
+    )
+
   // --- Include ---
   @cask.get("/include")
   def includePage(): cask.Response[String] = htmlPage("Include", "include")(
@@ -4681,7 +4689,7 @@ object Server extends cask.MainRoutes:
       div(cls := "demo-row")(
         div(
           p("The wa-include component fetches HTML from a remote source and includes it in the page."),
-          p("For security reasons, this demo shows the component structure without loading external content.")
+          waInclude(src := "/include-snippet")
         )
       )
     ),
@@ -4690,9 +4698,10 @@ object Server extends cask.MainRoutes:
       h2("CORS modes"),
       div(cls := "demo-row")(
         div(
-          p("Default (cors): ", waInclude(src := "#", mode := "cors")),
-          p("No CORS: ", waInclude(src := "#", mode := "no-cors")),
-          p("Same origin: ", waInclude(src := "#", mode := "same-origin"))
+          p("Default (cors):"),
+          waInclude(src := "/include-snippet", mode := "cors"),
+          p("Same origin:"),
+          waInclude(src := "/include-snippet", mode := "same-origin")
         )
       )
     ),
@@ -4701,8 +4710,10 @@ object Server extends cask.MainRoutes:
       h2("Script execution control"),
       div(cls := "demo-row")(
         div(
-          p("Without scripts (default): ", waInclude(src := "#")),
-          p("With scripts enabled: ", waInclude(src := "#", allowScripts := "true"))
+          p("Without scripts (default):"),
+          waInclude(src := "/include-snippet"),
+          p("With scripts enabled:"),
+          waInclude(src := "/include-snippet", allowScripts := "true")
         )
       )
     ),
