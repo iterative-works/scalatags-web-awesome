@@ -46,7 +46,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 | wa-icon | [x] | [x] | [x] | [x] | family, auto-width, swap-opacity, library, rotate, flip, animation |
 | wa-skeleton | [x] | [x] | [x] | [x] | effect |
 | wa-spinner | [x] | [x] | [x] | [x] | (none) |
-| wa-tag | [x] | [x] | [x] | [ ] | removable |
+| wa-tag | [x] | [x] | [x] | [x] | removable |
 
 ## Indicators & Progress
 
