@@ -29,6 +29,7 @@ object WebAwesome extends Attrs:
   lazy val waNumberInput = htmlTag("wa-number-input")
   lazy val waSlider = htmlTag("wa-slider")
   lazy val waTextarea = htmlTag("wa-textarea")
+  lazy val waFileInput = htmlTag("wa-file-input")
 
   // Organization
   lazy val waBreadcrumb = htmlTag("wa-breadcrumb")

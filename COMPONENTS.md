@@ -122,7 +122,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 | Component | Tag | Scenario | Attrs | WA-specific attrs needed |
 |-----------|-----|----------|-------|--------------------------|
 | wa-combobox | [x] | [x] | [x] | max-options-visible, with-clear, open, placement, with-label, with-hint, allow-custom-value |
-| wa-file-input | [ ] | [ ] | [ ] | with-label, with-hint |
+| wa-file-input | [x] | [x] | [x] | with-label, with-hint |
 | wa-page | [ ] | [ ] | [ ] | view, nav-open, mobile-breakpoint, navigation-placement, disable-navigation-toggle |
 | wa-sparkline | [ ] | [ ] | [ ] | data, trend, curve |
 

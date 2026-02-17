@@ -2001,6 +2001,97 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- File Input ---
+  @cask.get("/file-input")
+  def fileInputPage(): cask.Response[String] = htmlPage("File Input", "file-input")(
+    h1("wa-file-input"),
+
+    div(cls := "demo-section")(
+      h2("Basic"),
+      div(cls := "demo-row")(
+        waFileInput(attr("label") := "Upload File"),
+        waFileInput(attr("label") := "Select Document", placeholder := "Choose a file...")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With label (SSR)"),
+      div(cls := "demo-row")(
+        waFileInput(
+          withLabel := "true",
+          attr("label") := "Profile Picture"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With hint (SSR)"),
+      div(cls := "demo-row")(
+        waFileInput(
+          withHint := "true",
+          attr("label") := "Resume",
+          hint := "Please upload a PDF or Word document (max 5MB)"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("With label and hint (SSR)"),
+      div(cls := "demo-row")(
+        waFileInput(
+          withLabel := "true",
+          withHint := "true",
+          attr("label") := "Attachments",
+          hint := "Upload one or more files (images, PDFs, documents)"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Multiple files"),
+      div(cls := "demo-row")(
+        waFileInput(
+          attr("label") := "Upload Multiple",
+          multiple := "true",
+          hint := "You can select multiple files"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Accept specific file types"),
+      div(cls := "demo-row")(
+        waFileInput(
+          attr("label") := "Images Only",
+          accept := "image/*",
+          hint := "Only image files are accepted"
+        ),
+        waFileInput(
+          attr("label") := "Documents",
+          accept := ".pdf,.doc,.docx",
+          hint := "PDF and Word documents only"
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Sizes"),
+      div(cls := "demo-row")(
+        waFileInput(attr("size") := "small", attr("label") := "Small"),
+        waFileInput(attr("size") := "medium", attr("label") := "Medium"),
+        waFileInput(attr("size") := "large", attr("label") := "Large")
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("States"),
+      div(cls := "demo-row")(
+        waFileInput(attr("label") := "Disabled", disabled := "true"),
+        waFileInput(attr("label") := "Required", required := "true")
+      )
+    )
+  )
+
   // --- Dropdown Item ---
   @cask.get("/dropdown-item")
   def dropdownItemPage(): cask.Response[String] = htmlPage("Dropdown Item", "dropdown-item")(

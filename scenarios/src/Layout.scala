@@ -35,6 +35,7 @@ object Layout:
     "combobox" -> "Combobox",
     "slider" -> "Slider",
     "textarea" -> "Textarea",
+    "file-input" -> "File Input",
     "dropdown" -> "Dropdown",
     "dropdown-item" -> "Dropdown Item",
     "avatar" -> "Avatar",
