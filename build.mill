@@ -2,7 +2,7 @@
 // PURPOSE: Provides ScalaJS bindings for Web Awesome components using Scalatags.
 package build
 
-import mill._, scalalib._, scalajslib._
+import mill._, scalalib._, scalajslib._, publish._
 
 val scalaV = "3.6.4"
 val scalaJSV = "1.20.2"
@@ -10,8 +10,26 @@ val scalatagsV = "0.13.1"
 
 object webawesome extends Module {
 
-  trait Shared extends ScalaModule {
+  val publishOrg = "works.iterative"
+  val publishVer = "0.1.0-SNAPSHOT"
+
+  val publishPom = PomSettings(
+    description = "Scalatags bindings for Web Awesome web components",
+    organization = publishOrg,
+    url = "https://github.com/iterative-works/scalatags-web-awesome",
+    licenses = Seq(License.MIT),
+    versionControl =
+      VersionControl.github("iterative-works", "scalatags-web-awesome"),
+    developers = Seq(
+      Developer("mph", "Michal Příhoda", "https://github.com/mprihoda")
+    )
+  )
+
+  trait Shared extends ScalaModule with PublishModule {
     def scalaVersion = scalaV
+    def publishVersion = publishVer
+    def pomSettings = publishPom
+    def artifactName = "scalatags-webawesome"
 
     def sharedSources = Task.Sources(moduleDir / os.up / "src")
 
