@@ -18,8 +18,8 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 | wa-color-picker | [x] | [x] | [x] | [x] | format, without-format-toggle, open, opacity, uppercase, swatches |
 | wa-input | [x] | [x] | [x] | [x] | without-spin-buttons, with-label, with-hint |
 | wa-number-input | [x] | [x] | [x] | [x] | without-steppers, with-label, with-hint |
-| wa-radio | [x] | [x] | [x] | [ ] | (none) |
-| wa-radio-group | [x] | [x] | [x] | [ ] | (none) |
+| wa-radio | [x] | [x] | [x] | [x] | (none) |
+| wa-radio-group | [x] | [x] | [x] | [x] | (none) |
 | wa-select | [x] | [x] | [x] | [ ] | clearable, with-label, with-hint |
 | wa-option | [x] | [x] | [x] | [ ] | (none) |
 | wa-slider | [x] | [x] | [x] | [ ] | tooltip |
