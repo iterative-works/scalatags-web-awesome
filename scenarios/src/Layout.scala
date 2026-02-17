@@ -2,99 +2,99 @@
 // PURPOSE: Renders sidebar navigation and content area for component testing.
 package works.iterative.scalatags.webawesome.scenarios
 
-import scalatags.Text.all._
+import scalatags.Text.all.*
 
 object Layout:
 
-  private val waCdn = "/wa-pro"
+    private val waCdn = "/wa-pro"
 
-  val navItems: Seq[(String, String)] = Seq(
-    "button" -> "Button",
-    "button-group" -> "Button Group",
-    "copy-button" -> "Copy Button",
-    "input" -> "Input",
-    "badge" -> "Badge",
-    "breadcrumb" -> "Breadcrumb",
-    "breadcrumb-item" -> "Breadcrumb Item",
-    "card" -> "Card",
-    "details" -> "Details",
-    "dialog" -> "Dialog",
-    "drawer" -> "Drawer",
-    "divider" -> "Divider",
-    "split-panel" -> "Split Panel",
-    "tab" -> "Tab",
-    "tree" -> "Tree",
-    "switch" -> "Switch",
-    "checkbox" -> "Checkbox",
-    "color-picker" -> "Color Picker",
-    "number-input" -> "Number Input",
-    "radio" -> "Radio",
-    "select" -> "Select",
-    "option" -> "Option",
-    "combobox" -> "Combobox",
-    "slider" -> "Slider",
-    "textarea" -> "Textarea",
-    "file-input" -> "File Input",
-    "dropdown" -> "Dropdown",
-    "dropdown-item" -> "Dropdown Item",
-    "avatar" -> "Avatar",
-    "animated-image" -> "Animated Image",
-    "animation" -> "Animation",
-    "callout" -> "Callout",
-    "popover" -> "Popover",
-    "popup" -> "Popup",
-    "tooltip" -> "Tooltip",
-    "icon" -> "Icon",
-    "skeleton" -> "Skeleton",
-    "spinner" -> "Spinner",
-    "tag" -> "Tag",
-    "progress-bar" -> "Progress Bar",
-    "progress-ring" -> "Progress Ring",
-    "rating" -> "Rating",
-    "carousel" -> "Carousel",
-    "comparison" -> "Comparison",
-    "format-bytes" -> "Format Bytes",
-    "format-date" -> "Format Date",
-    "format-number" -> "Format Number",
-    "relative-time" -> "Relative Time",
-    "include" -> "Include",
-    "qr-code" -> "QR Code",
-    "zoomable-frame" -> "Zoomable Frame",
-    "intersection-observer" -> "Intersection Observer",
-    "mutation-observer" -> "Mutation Observer",
-    "resize-observer" -> "Resize Observer",
-    "scroller" -> "Scroller",
-    "page" -> "Page",
-    "sparkline" -> "Sparkline"
-  )
-
-  def page(pageTitle: String, activePage: String)(content: Frag*): String =
-    "<!DOCTYPE html>" + html(
-      head(
-        meta(charset := "utf-8"),
-        meta(name := "viewport", attr("content") := "width=device-width, initial-scale=1"),
-        tag("title")(s"Web Awesome Scenarios - $pageTitle"),
-        link(rel := "stylesheet", href := s"$waCdn/styles/webawesome.css"),
-        script(src := s"$waCdn/webawesome.loader.js", `type` := "module"),
-        tag("style")(raw(css))
-      ),
-      body(
-        tag("nav")(cls := "sidebar")(
-          h2("Components"),
-          navItems.map: (id, label) =>
-            a(
-              href := s"/$id",
-              cls := (if id == activePage then "active" else "")
-            )(label)
-        ),
-        tag("main")(cls := "content")(
-          content
-        )
-      )
+    val navItems: Seq[(String, String)] = Seq(
+        "button" -> "Button",
+        "button-group" -> "Button Group",
+        "copy-button" -> "Copy Button",
+        "input" -> "Input",
+        "badge" -> "Badge",
+        "breadcrumb" -> "Breadcrumb",
+        "breadcrumb-item" -> "Breadcrumb Item",
+        "card" -> "Card",
+        "details" -> "Details",
+        "dialog" -> "Dialog",
+        "drawer" -> "Drawer",
+        "divider" -> "Divider",
+        "split-panel" -> "Split Panel",
+        "tab" -> "Tab",
+        "tree" -> "Tree",
+        "switch" -> "Switch",
+        "checkbox" -> "Checkbox",
+        "color-picker" -> "Color Picker",
+        "number-input" -> "Number Input",
+        "radio" -> "Radio",
+        "select" -> "Select",
+        "option" -> "Option",
+        "combobox" -> "Combobox",
+        "slider" -> "Slider",
+        "textarea" -> "Textarea",
+        "file-input" -> "File Input",
+        "dropdown" -> "Dropdown",
+        "dropdown-item" -> "Dropdown Item",
+        "avatar" -> "Avatar",
+        "animated-image" -> "Animated Image",
+        "animation" -> "Animation",
+        "callout" -> "Callout",
+        "popover" -> "Popover",
+        "popup" -> "Popup",
+        "tooltip" -> "Tooltip",
+        "icon" -> "Icon",
+        "skeleton" -> "Skeleton",
+        "spinner" -> "Spinner",
+        "tag" -> "Tag",
+        "progress-bar" -> "Progress Bar",
+        "progress-ring" -> "Progress Ring",
+        "rating" -> "Rating",
+        "carousel" -> "Carousel",
+        "comparison" -> "Comparison",
+        "format-bytes" -> "Format Bytes",
+        "format-date" -> "Format Date",
+        "format-number" -> "Format Number",
+        "relative-time" -> "Relative Time",
+        "include" -> "Include",
+        "qr-code" -> "QR Code",
+        "zoomable-frame" -> "Zoomable Frame",
+        "intersection-observer" -> "Intersection Observer",
+        "mutation-observer" -> "Mutation Observer",
+        "resize-observer" -> "Resize Observer",
+        "scroller" -> "Scroller",
+        "page" -> "Page",
+        "sparkline" -> "Sparkline"
     )
 
-  private val css: String =
-    """
+    def page(pageTitle: String, activePage: String)(content: Frag*): String =
+        "<!DOCTYPE html>" + html(
+            head(
+                meta(charset := "utf-8"),
+                meta(name := "viewport", attr("content") := "width=device-width, initial-scale=1"),
+                tag("title")(s"Web Awesome Scenarios - $pageTitle"),
+                link(rel := "stylesheet", href := s"$waCdn/styles/webawesome.css"),
+                script(src := s"$waCdn/webawesome.loader.js", `type` := "module"),
+                tag("style")(raw(css))
+            ),
+            body(
+                tag("nav")(cls := "sidebar")(
+                    h2("Components"),
+                    navItems.map: (id, label) =>
+                        a(
+                            href := s"/$id",
+                            cls := (if id == activePage then "active" else "")
+                        )(label)
+                ),
+                tag("main")(cls := "content")(
+                    content
+                )
+            )
+        )
+
+    private val css: String =
+        """
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: system-ui, sans-serif; display: flex; min-height: 100vh; }
     .sidebar {
@@ -117,3 +117,4 @@ object Layout:
     .demo-section h2 { margin-bottom: 0.75rem; font-size: 1.1rem; color: #555; }
     .demo-row { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; }
     """
+end Layout
