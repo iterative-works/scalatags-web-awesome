@@ -95,3 +95,6 @@ object WebAwesome extends Attrs:
 
   // Resize Observer
   lazy val waResizeObserver = htmlTag("wa-resize-observer")
+
+  // Scroller
+  lazy val waScroller = htmlTag("wa-scroller")

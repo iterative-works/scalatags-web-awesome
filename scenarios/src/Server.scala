@@ -4849,4 +4849,63 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Scroller ---
+  @cask.get("/scroller")
+  def scrollerPage(): cask.Response[String] = htmlPage("Scroller", "scroller")(
+    h1("wa-scroller"),
+
+    tag("style")(raw(
+      """
+      .scroll-container {
+        border: 2px solid #0066ff;
+        border-radius: 4px;
+        background: #f0f0f0;
+        padding: 1rem;
+        margin: 1rem 0;
+      }
+      .scroll-content {
+        display: flex;
+        gap: 1rem;
+      }
+      .scroll-item {
+        flex-shrink: 0;
+        padding: 2rem;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        min-width: 150px;
+        min-height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+      """
+    )),
+
+    div(cls := "demo-section")(
+      h2("Horizontal scroller"),
+      p("A scroller with horizontal orientation (default)."),
+      div(cls := "demo-row")(
+        waScroller(cls := "scroll-container")(
+          div(cls := "scroll-content")(
+            (1 to 10).map(i => div(cls := "scroll-item")(s"Item $i"))
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Vertical scroller"),
+      p("A scroller with vertical orientation."),
+      div(cls := "demo-row")(
+        waScroller(orientation := "vertical", cls := "scroll-container", attr("style") := "max-height: 300px;")(
+          div(cls := "scroll-content", attr("style") := "flex-direction: column;")(
+            (1 to 10).map(i => div(cls := "scroll-item")(s"Item $i"))
+          )
+        )
+      )
+    )
+  )
+
   initialize()

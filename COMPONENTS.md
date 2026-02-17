@@ -115,7 +115,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 | wa-intersection-observer | [x] | [x] | [x] | root, root-margin, threshold, intersect-class, once |
 | wa-mutation-observer | [x] | [x] | [x] | attr, attr-old-value, char-data, char-data-old-value, child-list |
 | wa-resize-observer | [x] | [x] | [x] | (none) |
-| wa-scroller | [ ] | [ ] | [ ] | orientation |
+| wa-scroller | [x] | [x] | [x] | orientation |
 
 ## Pro Components
 
