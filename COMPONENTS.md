@@ -106,7 +106,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 | wa-format-number | [x] | [x] | [x] | [x] | without-grouping, currency, currency-display, minimum-integer-digits, minimum-fraction-digits, maximum-fraction-digits, minimum-significant-digits, maximum-significant-digits |
 | wa-include | [x] | [x] | [x] | [x] | mode, allow-scripts |
 | wa-qr-code | [x] | [x] | [x] | [x] | radius, error-correction (fill already defined; background conflicts) |
-| wa-relative-time | [x] | [x] | [x] | [ ] | date, format, numeric, sync (locale not needed for component) |
+| wa-relative-time | [x] | [x] | [x] | [x] | date, format, numeric, sync (locale not needed for component) |
 | wa-zoomable-frame | [x] | [x] | [x] | [ ] | zoom, zoom-levels, without-controls, without-interaction |
 
 ## Observers (utility components)
