@@ -1,0 +1,157 @@
+# scalatags-web-awesome
+
+Scalatags bindings for Web Awesome v3.2.1 web components. Provides type-safe tags and attributes for use from Scala (JVM or ScalaJS).
+
+## Quick Start
+
+```scala
+import scalatags.Text.all.*
+import works.iterative.scalatags.webawesome.WebAwesome.*
+
+waButton(variant := "brand", appearance := "accent")("Click me")
+waInput(withLabel := "true", placeholder := "Enter text")
+waDialog(open := "true", attr("label") := "Title")(p("Content"))
+```
+
+## Conventions
+
+- Tags: `wa-foo-bar` becomes `waFooBar` (camelCase with `wa` prefix)
+- Attrs: WA-specific attrs are in `WebAwesome` object. Standard HTML attrs (`disabled`, `placeholder`, `name`, `value`, etc.) come from scalatags.
+- Conflicting attrs: `size`, `label`, `position`, `display`, `direction`, `data` conflict with scalatags builtins. Use `attr("size")` / `attr("label")` etc. inline.
+- Boolean attrs: Use string `"true"`, e.g. `pill := "true"`, `loading := "true"`
+- Slots: Use `slot := "slotName"` to assign elements to named slots.
+
+## Shared Attributes
+
+These attrs are available on many components:
+
+- `variant` — semantic color: neutral, brand, success, warning, danger
+- `appearance` — visual style: accent, filled, outlined, plain
+- `pill` — rounded shape
+- `loading` — loading state
+- `open` — open state (dialog, drawer, details, dropdown, color-picker, popover)
+- `placement` — position: top, bottom, start, end, etc.
+- `orientation` — horizontal or vertical
+- `slot` — web component slot assignment
+- `withLabel` / `withHint` — show label/hint text (input, select, textarea, number-input)
+
+## Components
+
+### Form Controls
+
+- `waInput` (`wa-input`): Inputs collect data from the user. Attrs: `withLabel`, `withHint`, `withClear`, `passwordToggle`, `passwordVisible`. Use `attr("size")` for sizing.
+- `waNumberInput` (`wa-number-input`): Number inputs allow users to enter and edit numeric values with optional stepper buttons. Attrs: `withoutSteppers`, `withLabel`, `withHint`.
+- `waSelect` (`wa-select`): Selects allow you to choose items from a menu of predefined options. Attrs: `clearable`, `withLabel`, `withHint`. Use `attr("size")` for sizing.
+- `waOption` (`wa-option`): Options define the selectable items within a select component. Standard HTML attrs only.
+- `waCheckbox` (`wa-checkbox`): Checkboxes allow the user to toggle an option on or off. Attrs: `indeterminate`.
+- `waRadio` (`wa-radio`): Radios allow the user to select a single option from a group. Standard HTML attrs only.
+- `waRadioGroup` (`wa-radio-group`): Radio groups are used to group multiple radios so they function as a single form control. Use `attr("label")` for accessible label.
+- `waColorPicker` (`wa-color-picker`): Color pickers allow the user to select a color. Attrs: `format`, `withoutFormatToggle`, `open`, `opacity`, `uppercase`, `swatches`. Use `attr("size")` for sizing.
+- `waSlider` (`wa-slider`): Ranges allow the user to select a single value within a given range using a slider. Attrs: `tooltip`. Use `attr("label")` for accessible label.
+- `waSwitch` (`wa-switch`): Switches allow the user to toggle an option on or off. Use `attr("size")` for sizing.
+- `waTextarea` (`wa-textarea`): Textareas collect data from the user and allow multiple lines of text. Attrs: `withLabel`, `withHint`. Use `attr("size")` for sizing.
+- `waCombobox` (`wa-combobox`): Comboboxes combine a text input with a listbox, allowing users to filter and select from predefined options or enter custom values. Attrs: `maxOptionsVisible`, `withClear`, `open`, `placement`, `withLabel`, `withHint`, `allowCustomValue`. **Pro only.**
+- `waFileInput` (`wa-file-input`): File inputs allow users to select files from their device. Attrs: `withLabel`, `withHint`. **Pro only.**
+
+### Actions
+
+- `waButton` (`wa-button`): Buttons represent actions that are available to the user. Attrs: `variant`, `appearance`, `pill`, `loading`. Use `attr("size")` for sizing.
+- `waButtonGroup` (`wa-button-group`): Button groups can be used to group related buttons into sections. Attrs: `orientation`. Use `attr("label")` for accessible label.
+- `waCopyButton` (`wa-copy-button`): Copies text data to the clipboard when the user clicks the trigger. Attrs: `from`, `copyLabel`, `successLabel`, `errorLabel`, `feedbackDuration`, `tooltipPlacement`.
+- `waDropdown` (`wa-dropdown`): Dropdowns display a list of options that can be triggered by a button or other element. Attrs: `open`, `placement`, `distance`, `skidding`.
+- `waDropdownItem` (`wa-dropdown-item`): Represents an individual item within a dropdown menu, supporting standard items, checkboxes, and submenus. Attrs: `submenuOpen`.
+
+### Display & Feedback
+
+- `waAvatar` (`wa-avatar`): Avatars are used to represent a person or object. Attrs: `image`, `initials`, `shape`. Use `attr("label")` for accessible label.
+- `waBadge` (`wa-badge`): Badges are used to draw attention and display statuses or counts. Attrs: `attention`, `variant`.
+- `waCallout` (`wa-callout`): Callouts are used to display important messages inline. Attrs: `variant`, `appearance`.
+- `waIcon` (`wa-icon`): Icons are symbols that can be used to represent various options within an application. Attrs: `family`, `autoWidth`, `swapOpacity`, `library`, `rotate`, `flip`, `animation`. Use `attr("label")` for accessible label.
+- `waSkeleton` (`wa-skeleton`): Skeletons are used to provide a visual representation of where content will eventually be drawn. Attrs: `effect`.
+- `waSpinner` (`wa-spinner`): Spinners are used to show the progress of an indeterminate operation. Standard HTML attrs only.
+- `waTag` (`wa-tag`): Tags are used as labels to organize things or to indicate a selection. Attrs: `withRemove`, `variant`, `appearance`, `pill`. Use `attr("size")` for sizing.
+
+### Indicators & Progress
+
+- `waProgressBar` (`wa-progress-bar`): Progress bars are used to show the status of an ongoing operation. Use `attr("label")` for accessible label.
+- `waProgressRing` (`wa-progress-ring`): Progress rings are used to show the progress of a determinate operation in a circular fashion. Use `attr("label")` for accessible label.
+- `waRating` (`wa-rating`): Ratings give users a way to quickly view and provide feedback. Use `attr("label")` for accessible label.
+
+### Layout & Organization
+
+- `waBreadcrumb` (`wa-breadcrumb`): Breadcrumbs provide a group of links so users can easily navigate a website's hierarchy. Use `attr("label")` for accessible label.
+- `waBreadcrumbItem` (`wa-breadcrumb-item`): Breadcrumb Items are used inside breadcrumbs to represent different links. Standard HTML `href`, `target`, `rel` attrs.
+- `waCard` (`wa-card`): Cards can be used to group related subjects in a container. Attrs: `withHeader`, `withMedia`, `withFooter`, `orientation`.
+- `waDetails` (`wa-details`): Details show a brief summary and expand to show additional content. Attrs: `open`, `summary`, `iconPlacement`.
+- `waDialog` (`wa-dialog`): Dialogs appear above the page and require the user's immediate attention. Attrs: `open`, `lightDismiss`, `withoutHeader`. Use `attr("label")` for title.
+- `waDivider` (`wa-divider`): Dividers are used to visually separate or group elements. Attrs: `orientation`.
+- `waDrawer` (`wa-drawer`): Drawers slide in from a container to expose additional options and information. Attrs: `open`, `placement`, `lightDismiss`, `withoutHeader`. Use `attr("label")` for title.
+- `waSplitPanel` (`wa-split-panel`): Split panels display two adjacent panels, allowing the user to reposition them. Attrs: `position` (use `attr("position")`), `vertical`.
+
+### Navigation
+
+- `waTab` (`wa-tab`): Tabs are used inside tab groups to represent and activate tab panels. Attrs: `panel`.
+- `waTabGroup` (`wa-tab-group`): Tab groups organize content into a container that shows one section at a time. Attrs: `activation`, `placement`, `withoutScrollControls`.
+- `waTabPanel` (`wa-tab-panel`): Tab panels are used inside tab groups to display tabbed content. Standard HTML `name` attr.
+- `waTree` (`wa-tree`): Trees allow you to display a hierarchical list of selectable tree items. Attrs: `selection`, `lazy`.
+- `waTreeItem` (`wa-tree-item`): A tree item serves as a hierarchical node that lives inside a tree. Attrs: `expanded`, `lazy`.
+
+### Popups & Overlays
+
+- `waPopover` (`wa-popover`): Popovers display contextual content and interactive elements in a floating panel. Attrs: `placement`, `open`, `distance`, `skidding`, `withoutArrow`.
+- `waPopup` (`wa-popup`): Popup is a utility that lets you declaratively anchor popup containers to another element. Attrs: `anchor`, `active`, `placement`, `boundary`, `distance`, `skidding`, `arrow`, `arrowPlacement`, `arrowPadding`, `flip`, `flipFallbackPlacements`, `flipFallbackStrategy`, `flipPadding`, `shift`, `shiftPadding`, `autoSize`, `sync`, `autoSizePadding`, `hoverBridge`.
+- `waTooltip` (`wa-tooltip`): Tooltips display additional information based on a specific action. Attrs: `placement`, `trigger`, `distance`, `skidding`, `hoist`.
+
+### Media
+
+- `waAnimatedImage` (`wa-animated-image`): A component for displaying animated GIFs and WEBPs that play and pause on interaction. Attrs: `play`.
+- `waAnimation` (`wa-animation`): Animate elements declaratively with nearly 100 baked-in presets, or roll your own with custom keyframes. Attrs: `play`, `delay`, `duration`, `easing`, `endDelay`, `fill`, `iterations`, `iterationStart`, `keyframes`, `playbackRate`. Use `attr("direction")` for direction.
+- `waCarousel` (`wa-carousel`): Carousels display an arbitrary number of content slides along a horizontal or vertical axis. Attrs: `loop`, `navigation`, `pagination`, `autoplay`, `autoplayInterval`, `slidesPerPage`, `slidesPerMove`, `orientation`, `mouseDragging`.
+- `waCarouselItem` (`wa-carousel-item`): A carousel item represents a slide within a carousel. Standard HTML attrs only.
+- `waComparison` (`wa-comparison`): Compare visual differences between similar content with a sliding panel. Attrs: use `attr("position")` for slider position.
+
+### Formatters & Utilities
+
+- `waFormatBytes` (`wa-format-bytes`): Formats a number as a human readable bytes value. Attrs: `unit`, use `attr("display")` for display format.
+- `waFormatDate` (`wa-format-date`): Formats a date/time using the specified locale and options. Attrs: `date`, `weekday`, `era`, `year`, `month`, `day`, `hour`, `minute`, `second`, `timeZoneName`, `timeZone`, `hourFormat`.
+- `waFormatNumber` (`wa-format-number`): Formats a number using the specified locale and options. Attrs: `withoutGrouping`, `currency`, `currencyDisplay`, `minimumIntegerDigits`, `minimumFractionDigits`, `maximumFractionDigits`, `minimumSignificantDigits`, `maximumSignificantDigits`.
+- `waInclude` (`wa-include`): Includes give you the power to embed external HTML files into the page. Attrs: `mode`, `allowScripts`.
+- `waQrCode` (`wa-qr-code`): Generates a QR code and renders it using the Canvas API. Attrs: `radius`, `errorCorrection`, `fill`.
+- `waRelativeTime` (`wa-relative-time`): Outputs a localized time phrase relative to the current date and time. Attrs: `date`, `format`, `numeric`, `sync`.
+- `waZoomableFrame` (`wa-zoomable-frame`): Zoomable frames render iframe content with zoom and interaction controls. Attrs: `zoom`, `zoomLevels`, `withoutControls`, `withoutInteraction`.
+
+### Observers (Utility Components)
+
+- `waIntersectionObserver` (`wa-intersection-observer`): Tracks immediate child elements and fires events as they move in and out of view. Attrs: `root`, `rootMargin`, `threshold`, `intersectClass`, `once`.
+- `waMutationObserver` (`wa-mutation-observer`): Declarative interface to the MutationObserver API. Attrs: `attrOldValue`, `charData`, `charDataOldValue`, `childList`.
+- `waResizeObserver` (`wa-resize-observer`): Declarative interface to the ResizeObserver API. Standard HTML attrs only.
+- `waScroller` (`wa-scroller`): Scrollers create an accessible container with visual cues for scrollable content. Attrs: `orientation`.
+
+### Pro Components
+
+- `waPage` (`wa-page`): Pages offer an easy way to scaffold entire page layouts using minimal markup. Attrs: `view`, `navOpen`, `mobileBreakpoint`, `navigationPlacement`, `disableNavigationToggle`. **Pro only.**
+- `waSparkline` (`wa-sparkline`): Sparklines display inline data trends as compact, visual charts. Attrs: `trend`, `curve`. Use `attr("data")` for data values. **Pro only.**
+
+## Example: Dialog with Form
+
+```scala
+waDialog(open := "true", attr("label") := "Edit Profile")(
+  div(
+    waInput(withLabel := "true", attr("label") := "Name", placeholder := "Your name"),
+    waTextarea(withLabel := "true", attr("label") := "Bio", placeholder := "Tell us about yourself")
+  ),
+  waButton(slot := "footer", variant := "brand")("Save"),
+  waButton(slot := "footer", appearance := "plain")("Cancel")
+)
+```
+
+## Example: Navigation Tabs
+
+```scala
+waTabGroup(
+  waTab(slot := "nav", panel := "general")("General"),
+  waTab(slot := "nav", panel := "advanced")("Advanced"),
+  waTabPanel(name := "general")(p("General settings")),
+  waTabPanel(name := "advanced")(p("Advanced settings"))
+)
+```
