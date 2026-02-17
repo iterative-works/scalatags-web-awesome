@@ -45,7 +45,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 | wa-callout | [x] | [x] | [x] | [x] | (uses variant, appearance — already defined) |
 | wa-icon | [x] | [x] | [x] | [x] | family, auto-width, swap-opacity, library, rotate, flip, animation |
 | wa-skeleton | [x] | [x] | [x] | [x] | effect |
-| wa-spinner | [x] | [x] | [x] | [ ] | (none) |
+| wa-spinner | [x] | [x] | [x] | [x] | (none) |
 | wa-tag | [x] | [x] | [x] | [ ] | removable |
 
 ## Indicators & Progress
