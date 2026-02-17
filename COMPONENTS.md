@@ -123,7 +123,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 |-----------|-----|----------|-------|--------------------------|
 | wa-combobox | [x] | [x] | [x] | max-options-visible, with-clear, open, placement, with-label, with-hint, allow-custom-value |
 | wa-file-input | [x] | [x] | [x] | with-label, with-hint |
-| wa-page | [ ] | [ ] | [ ] | view, nav-open, mobile-breakpoint, navigation-placement, disable-navigation-toggle |
+| wa-page | [x] | [x] | [x] | view, nav-open, mobile-breakpoint, navigation-placement, disable-navigation-toggle |
 | wa-sparkline | [ ] | [ ] | [ ] | data, trend, curve |
 
 ## Shared WA-specific attrs (already defined in Attrs trait)

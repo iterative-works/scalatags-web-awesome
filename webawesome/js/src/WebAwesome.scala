@@ -100,3 +100,6 @@ object WebAwesome extends Attrs:
 
   // Scroller
   lazy val waScroller = htmlTag("wa-scroller")
+
+  // Page (Pro)
+  lazy val waPage = htmlTag("wa-page")

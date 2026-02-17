@@ -5187,4 +5187,157 @@ object Server extends cask.MainRoutes:
     )
   )
 
+  // --- Page ---
+  @cask.get("/page")
+  def pagePage(): cask.Response[String] = htmlPage("Page", "page")(
+    h1("wa-page"),
+
+    tag("style")(raw(
+      """
+      .page-demo {
+        border: 2px solid #0066ff;
+        border-radius: 4px;
+        margin: 1rem 0;
+        height: 500px;
+        overflow: hidden;
+      }
+      """
+    )),
+
+    div(cls := "demo-section")(
+      h2("Basic page layout"),
+      p("A simple page layout with navigation and content."),
+      div(cls := "page-demo")(
+        waPage(
+          div(slot := "navigation")(
+            h3("Navigation"),
+            ul(
+              li("Home"),
+              li("About"),
+              li("Contact")
+            )
+          ),
+          div(slot := "content")(
+            h2("Main Content"),
+            p("This is the main content area of the page."),
+            p("The navigation is shown on the left by default.")
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Navigation placement"),
+      p("Navigation can be placed on the left (default), right, top, or bottom."),
+      div(cls := "demo-row", attr("style") := "gap: 2rem;")(
+        div(attr("style") := "flex: 1;")(
+          h3("Left (default)"),
+          div(cls := "page-demo")(
+            waPage(navigationPlacement := "left")(
+              div(slot := "navigation")("Left Nav"),
+              div(slot := "content")("Content with left navigation")
+            )
+          )
+        ),
+        div(attr("style") := "flex: 1;")(
+          h3("Right"),
+          div(cls := "page-demo")(
+            waPage(navigationPlacement := "right")(
+              div(slot := "navigation")("Right Nav"),
+              div(slot := "content")("Content with right navigation")
+            )
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Views"),
+      p("Different view modes control how the page layout behaves."),
+      div(cls := "demo-row", attr("style") := "gap: 2rem;")(
+        div(attr("style") := "flex: 1;")(
+          h3("Default view"),
+          div(cls := "page-demo")(
+            waPage(
+              div(slot := "navigation")(
+                h3("Nav"),
+                p("Default layout")
+              ),
+              div(slot := "content")("Content area")
+            )
+          )
+        ),
+        div(attr("style") := "flex: 1;")(
+          h3("Full view"),
+          div(cls := "page-demo")(
+            waPage(view := "full")(
+              div(slot := "navigation")(
+                h3("Nav"),
+                p("Full view mode")
+              ),
+              div(slot := "content")("Content area - full view")
+            )
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Navigation state"),
+      p("Control whether navigation is initially open or closed."),
+      div(cls := "demo-row", attr("style") := "gap: 2rem;")(
+        div(attr("style") := "flex: 1;")(
+          h3("Open"),
+          div(cls := "page-demo")(
+            waPage(navOpen := "true")(
+              div(slot := "navigation")("Navigation (open)"),
+              div(slot := "content")("Content with open navigation")
+            )
+          )
+        ),
+        div(attr("style") := "flex: 1;")(
+          h3("Closed"),
+          div(cls := "page-demo")(
+            waPage(navOpen := "false")(
+              div(slot := "navigation")("Navigation (closed)"),
+              div(slot := "content")("Content with closed navigation")
+            )
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Mobile breakpoint"),
+      p("Set custom mobile breakpoint for responsive behavior."),
+      div(cls := "page-demo")(
+        waPage(mobileBreakpoint := "800px")(
+          div(slot := "navigation")(
+            h3("Responsive Nav"),
+            p("Breakpoint: 800px")
+          ),
+          div(slot := "content")(
+            p("Try resizing the browser window.")
+          )
+        )
+      )
+    ),
+
+    div(cls := "demo-section")(
+      h2("Disable navigation toggle"),
+      p("Prevent users from toggling the navigation."),
+      div(cls := "page-demo")(
+        waPage(disableNavigationToggle := "true")(
+          div(slot := "navigation")(
+            h3("Fixed Nav"),
+            p("Cannot be toggled")
+          ),
+          div(slot := "content")(
+            p("The navigation toggle is disabled.")
+          )
+        )
+      )
+    )
+  )
+
   initialize()

@@ -201,3 +201,10 @@ trait Attrs:
   lazy val charData: generic.Attr = generic.Attr("char-data")
   lazy val charDataOldValue: generic.Attr = generic.Attr("char-data-old-value")
   lazy val childList: generic.Attr = generic.Attr("child-list")
+
+  // Page
+  lazy val view: generic.Attr = generic.Attr("view")
+  lazy val navOpen: generic.Attr = generic.Attr("nav-open")
+  lazy val mobileBreakpoint: generic.Attr = generic.Attr("mobile-breakpoint")
+  lazy val navigationPlacement: generic.Attr = generic.Attr("navigation-placement")
+  lazy val disableNavigationToggle: generic.Attr = generic.Attr("disable-navigation-toggle")

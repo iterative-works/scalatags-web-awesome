@@ -64,7 +64,8 @@ object Layout:
     "intersection-observer" -> "Intersection Observer",
     "mutation-observer" -> "Mutation Observer",
     "resize-observer" -> "Resize Observer",
-    "scroller" -> "Scroller"
+    "scroller" -> "Scroller",
+    "page" -> "Page"
   )
 
   def page(pageTitle: String, activePage: String)(content: Frag*): String =
