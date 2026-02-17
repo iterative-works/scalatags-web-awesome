@@ -4005,7 +4005,7 @@ object Server extends cask.MainRoutes:
 
     div(cls := "demo-section")(
       h2("Basic progress"),
-      div(cls := "demo-row")(
+      div(attr("style") := "display: flex; flex-direction: column; gap: 0.75rem; max-width: 400px")(
         waProgressBar(value := "0"),
         waProgressBar(value := "25"),
         waProgressBar(value := "50"),
@@ -4016,7 +4016,7 @@ object Server extends cask.MainRoutes:
 
     div(cls := "demo-section")(
       h2("With label"),
-      div(cls := "demo-row")(
+      div(attr("style") := "display: flex; flex-direction: column; gap: 0.75rem; max-width: 400px")(
         waProgressBar(value := "25", attr("label") := "Uploading..."),
         waProgressBar(value := "50", attr("label") := "Processing..."),
         waProgressBar(value := "75", attr("label") := "Almost done...")
@@ -4025,7 +4025,7 @@ object Server extends cask.MainRoutes:
 
     div(cls := "demo-section")(
       h2("Indeterminate"),
-      div(cls := "demo-row")(
+      div(attr("style") := "display: flex; flex-direction: column; gap: 0.75rem; max-width: 400px")(
         waProgressBar(indeterminate := "true"),
         waProgressBar(indeterminate := "true", attr("label") := "Loading...")
       )
