@@ -76,8 +76,8 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 | wa-tab | [x] | [x] | [x] | [x] | panel |
 | wa-tab-group | [x] | [x] | [x] | [x] | activation, placement, without-scroll-controls |
 | wa-tab-panel | [x] | [x] | [x] | [x] | (none — uses name) |
-| wa-tree | [x] | [x] | [x] | [ ] | selection, lazy |
-| wa-tree-item | [x] | [x] | [x] | [ ] | expanded, lazy |
+| wa-tree | [x] | [x] | [x] | [x] | selection, lazy |
+| wa-tree-item | [x] | [x] | [x] | [x] | expanded, lazy |
 
 ## Popups & Overlays
 
