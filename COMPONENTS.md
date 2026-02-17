@@ -101,7 +101,7 @@ Note: `size` and `label` conflict with scalatags builtins — use `attr("size")`
 
 | Component | Tag | Scenario | Attrs | Review | WA-specific attrs needed |
 |-----------|-----|----------|-------|--------|--------------------------|
-| wa-format-bytes | [x] | [x] | [x] | [ ] | unit, display |
+| wa-format-bytes | [x] | [x] | [x] | [x] | unit, display |
 | wa-format-date | [x] | [x] | [x] | [ ] | date, weekday, era, year, month, day, hour, minute, second, time-zone-name, time-zone, hour-format |
 | wa-format-number | [x] | [x] | [x] | [ ] | without-grouping, currency, currency-display, minimum-integer-digits, minimum-fraction-digits, maximum-fraction-digits, minimum-significant-digits, maximum-significant-digits |
 | wa-include | [x] | [x] | [x] | [ ] | mode, allow-scripts |
