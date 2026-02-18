@@ -10,16 +10,16 @@ Add the dependency to your Mill build:
 
 ```scala
 // JVM (scalatags Text backend)
-def mvnDeps = Seq(mvn"works.iterative::scalatags-webawesome:0.1.0-SNAPSHOT")
+def mvnDeps = Seq(mvn"works.iterative::scalatags-webawesome:3.2.1-SNAPSHOT")
 
 // ScalaJS (scalatags JsDom backend)
-def mvnDeps = Seq(mvn"works.iterative::scalatags-webawesome:0.1.0-SNAPSHOT")
+def mvnDeps = Seq(mvn"works.iterative::scalatags-webawesome:3.2.1-SNAPSHOT")
 ```
 
 Or in sbt:
 
 ```scala
-libraryDependencies += "works.iterative" %%% "scalatags-webawesome" % "0.1.0-SNAPSHOT"
+libraryDependencies += "works.iterative" %%% "scalatags-webawesome" % "3.2.1-SNAPSHOT"
 ```
 
 Your HTML pages need to load the Web Awesome runtime. Add to `<head>`:
@@ -111,6 +111,12 @@ A built-in demo server shows all components:
 ./mill -w scenarios.run
 # Open http://localhost:8086
 ```
+
+## Versioning
+
+Library versions mirror the Web Awesome version they target. Version `3.2.1` provides bindings for Web Awesome `3.2.1`. A fourth segment (e.g., `3.2.1.1`) indicates a fix to the bindings themselves without a Web Awesome version change.
+
+Updates are provided on a best-effort basis — there is no guarantee of tracking every Web Awesome release.
 
 ## License
 
