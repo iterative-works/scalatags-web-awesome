@@ -2,6 +2,40 @@
 
 Scalatags bindings for Web Awesome v3.2.1 web components. Provides type-safe tags and attributes for use from Scala (JVM or ScalaJS).
 
+## Setup
+
+### Dependency
+
+Mill:
+```scala
+def mvnDeps = Seq(mvn"works.iterative::scalatags-webawesome:3.2.1")
+```
+
+sbt:
+```scala
+libraryDependencies += "works.iterative" %%% "scalatags-webawesome" % "3.2.1"
+```
+
+The `%%%` operator in sbt automatically selects the JVM or ScalaJS artifact based on your project type.
+
+### Web Awesome Runtime
+
+Your HTML pages must load the Web Awesome CSS and JS loader. Add to `<head>`:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@3.2.1/dist-cdn/styles/webawesome.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@3.2.1/dist-cdn/webawesome.loader.js"></script>
+```
+
+The loader auto-discovers and hydrates all `wa-*` elements on the page. No bundler is needed — the `dist-cdn/` files are pre-bundled for direct browser use. (Do NOT use `dist/` — those contain bare module specifiers requiring a bundler like Webpack or Vite.)
+
+If you use npm and a bundler instead of the CDN, install `@awesome.me/webawesome` and import from `dist/`:
+
+```javascript
+import '@awesome.me/webawesome/dist/styles/webawesome.css';
+import '@awesome.me/webawesome/dist/components/button/button.js'; // cherry-pick components
+```
+
 ## Quick Start
 
 ```scala

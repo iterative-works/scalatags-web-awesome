@@ -25,7 +25,7 @@ libraryDependencies += "works.iterative" %%% "scalatags-webawesome" % "3.2.1-SNA
 Your HTML pages need to load the Web Awesome runtime. Add to `<head>`:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@aspect.me/webawesome@3.2.1/dist-cdn/styles/webawesome.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@3.2.1/dist-cdn/styles/webawesome.css">
 <script type="module" src="https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@3.2.1/dist-cdn/webawesome.loader.js"></script>
 ```
 
