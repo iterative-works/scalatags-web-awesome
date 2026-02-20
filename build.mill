@@ -14,7 +14,7 @@ val scalatagsV = "0.13.1"
 object webawesome extends Module {
 
   val publishOrg = "works.iterative"
-  val publishVer = "3.2.1"
+  val publishVer = "3.2.2-SNAPSHOT"
 
   val publishPom = PomSettings(
     description = "Scalatags bindings for Web Awesome web components",
