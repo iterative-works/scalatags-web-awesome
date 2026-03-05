@@ -7,14 +7,14 @@ import mill._, scalalib._, scalajslib._, publish._
 import mill.scalalib.scalafmt.ScalafmtModule
 import com.goyeau.mill.scalafix.ScalafixModule
 
-val scalaV = "3.6.4"
+val scalaV = "3.3.7"
 val scalaJSV = "1.20.2"
 val scalatagsV = "0.13.1"
 
 object webawesome extends Module {
 
   val publishOrg = "works.iterative"
-  val publishVer = "3.2.1.1-SNAPSHOT"
+  val publishVer = "3.2.1.1"
 
   val publishPom = PomSettings(
     description = "Scalatags bindings for Web Awesome web components",
